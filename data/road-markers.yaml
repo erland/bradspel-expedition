@@ -1,0 +1,52 @@
+version: 5
+marker_set:
+  id: normal_roads
+  name: Gemensam vägmarkeringsreserv
+  count: 20
+  shuffle: true
+  presentation: single_sided_face_down
+  width_mm: 16
+  height_mm: 16
+  hidden_side: unprinted_back
+markers:
+- id: road_open_01
+  result: open
+  count: 12
+  symbol: Ö
+  name: Öppen väg
+  effect:
+  - action: move_across
+  purpose: general_open_road
+- id: road_blocked_01
+  result: blocked
+  count: 4
+  symbol: X
+  name: Hinder
+  effect:
+  - action: stay_in_place
+  unlock:
+    cost_actions: 1
+    resource: tools
+    amount: 1
+    permanent: true
+- id: road_travel_event_01
+  result: travel_event
+  count: 4
+  symbol: '!'
+  name: Händelse
+  effect:
+  - action: draw_card
+    deck: travel_events
+    amount: 1
+  - action: resolve_drawn_card
+  - action: replace_road_marker
+    marker_result: open
+  - action: move_across
+- id: connection_closed_01
+  result: connection_closed
+  count: 8
+  symbol: S
+  name: Stängd väg
+  purpose: scenario_connection_closure
+  effect:
+  - action: mark_connection_closed

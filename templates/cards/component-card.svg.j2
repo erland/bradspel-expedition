@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+ width="{{ width }}mm" height="{{ height }}mm" viewBox="0 0 {{ width }} {{ height }}">
+ <rect x="0.25" y="0.25" width="{{ width-0.5 }}" height="{{ height-0.5 }}"
+       rx="{{ radius }}" fill="{{ paper }}" stroke="{{ ink }}" stroke-width="0.5"/>
+ <rect x="0.25" y="0.25" width="{{ width-0.5 }}" height="10"
+       rx="{{ radius }}" fill="{{ accent }}"/>
+ <rect x="0.25" y="7" width="{{ width-0.5 }}" height="3" fill="{{ accent }}"/>
+ <text x="{{ width/2 }}" y="6.5" text-anchor="middle"
+       font-family="{{ font }}" font-size="3" font-weight="700"
+       fill="#ffffff">{{ category }}</text>
+ {% if display_id is defined and display_id %}
+ <text x="{{ width-3 }}" y="6.5" text-anchor="end"
+       font-family="{{ font }}" font-size="2.2" font-weight="700"
+       fill="#ffffff">{{ display_id }}</text>
+ {% endif %}
+ {% for title_line in title_lines %}
+ <text x="{{ width/2 }}" y="{{ title_y + loop.index0*4.6 - ((title_lines|length - 1)*2.3) }}" text-anchor="middle"
+       font-family="{{ font }}" font-size="{{ title_size }}" font-weight="700"
+       fill="{{ ink }}">{{ title_line }}</text>
+ {% endfor %}
+ <circle cx="{{ width/2 }}" cy="{{ symbol_y-2 }}" r="9"
+         fill="{{ accent }}" opacity="0.18"/>
+ <text x="{{ width/2 }}" y="{{ symbol_y }}" text-anchor="middle"
+       font-family="{{ font }}" font-size="{{ symbol_size }}" font-weight="700"
+       fill="{{ accent }}">{{ symbol }}</text>
+ {% for line in body_lines %}
+ <text x="{{ width/2 }}" y="{{ body_y + loop.index0*4.3 }}" text-anchor="middle"
+       font-family="{{ font }}" font-size="{{ body_size }}" fill="{{ ink }}">{{ line }}</text>
+ {% endfor %}
+ <text x="{{ width/2 }}" y="{{ footer_y }}" text-anchor="middle"
+       font-family="{{ font }}" font-size="{{ footer_size }}" fill="{{ muted }}">{{ footer }}</text>
+</svg>

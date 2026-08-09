@@ -1,0 +1,64 @@
+version: 1
+layout:
+  id: card_standard_v1
+  template: templates/cards/standard.svg.j2
+  width_mm: 63
+  height_mm: 88
+  corner_radius_mm: 3
+  safe_zone_mm: 4
+  border_width_mm: 0.5
+palette:
+  paper: '#f6f2e8'
+  ink: '#202020'
+  muted: '#5a5a5a'
+  exploration: '#56785b'
+  event: '#934f49'
+  item: '#a6782f'
+fields:
+  category:
+    x: 5
+    y: 7
+    font_size: 2.7
+    weight: 700
+  title:
+    x: 5
+    y: 16
+    width: 53
+    height: 13
+    font_size: 5.0
+    line_height: 1.15
+    max_lines: 2
+    align: center
+    weight: 700
+  icon:
+    cx: 31.5
+    cy: 37
+    radius: 8
+  body:
+    x: 7
+    y: 50
+    width: 49
+    height: 21
+    font_size: 3.6
+    line_height: 1.25
+    max_lines: 5
+    align: center
+    weight: 400
+  flavor:
+    x: 7
+    y: 75
+    width: 49
+    height: 8
+    font_size: 2.5
+    line_height: 1.2
+    max_lines: 3
+    align: center
+    italic: true
+  metadata:
+    x: 3
+    y: 85.5
+    font_size: 1.8
+render:
+  show_safe_zone: false
+  show_card_id: true
+  font_family: DejaVu Sans

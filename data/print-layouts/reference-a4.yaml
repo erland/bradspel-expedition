@@ -1,0 +1,19 @@
+version: 1
+print_layout:
+  id: reference_a4_4up_v1
+  paper: A4
+  orientation: portrait
+  width_mm: 210
+  height_mm: 297
+  columns: 2
+  rows: 2
+  margin_left_mm: 0
+  margin_top_mm: 0.5
+  gap_x_mm: 0
+  gap_y_mm: 0
+  crop_marks: true
+  crop_mark_length_mm: 3
+  source_svg: output/components/reference/core-turn-reference-a6.svg
+  output_svg: output/print/svg/reference-a4-4up.svg
+  output_pdf: output/print/pdf/reference-a4-4up.pdf
+  single_pdf: output/print/pdf/reference-a6.pdf

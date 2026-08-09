@@ -1,0 +1,732 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "scenario-pack.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "scenario_pack"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "scenario_pack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "scenario_number",
+        "status",
+        "base_profile",
+        "presentation",
+        "story",
+        "mission",
+        "content",
+        "setup",
+        "special_rules",
+        "victory",
+        "defeat"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scenario_number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "status": {
+          "enum": [
+            "playtest_prototype",
+            "release_candidate",
+            "released"
+          ]
+        },
+        "base_profile": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "presentation": {
+          "type": "object"
+        },
+        "story": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "introduction",
+            "briefing",
+            "victory_text",
+            "defeat_text"
+          ],
+          "properties": {
+            "introduction": {
+              "type": "string",
+              "minLength": 1
+            },
+            "briefing": {
+              "type": "string",
+              "minLength": 1
+            },
+            "victory_text": {
+              "type": "string",
+              "minLength": 1
+            },
+            "defeat_text": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "mission": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "summary",
+            "required_objectives",
+            "objective_ids",
+            "completion",
+            "player_instructions"
+          ],
+          "properties": {
+            "summary": {
+              "type": "string",
+              "minLength": 1
+            },
+            "required_objectives": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "objective_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            },
+            "target_location_tag": {
+              "type": "string"
+            },
+            "completion": {
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "type",
+                "required",
+                "item_source",
+                "progress_label",
+                "action_id",
+                "completion_event",
+                "destination_label"
+              ],
+              "properties": {
+                "type": {
+                  "enum": [
+                    "deliver_items",
+                    "place_items_at_tagged_locations"
+                  ]
+                },
+                "required": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "item_source": {
+                  "const": "objectives"
+                },
+                "destination_location": {
+                  "type": "string"
+                },
+                "target_location_tag": {
+                  "type": "string"
+                },
+                "action_id": {
+                  "type": "string"
+                },
+                "action_cost": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "consume_item": {
+                  "type": "boolean"
+                },
+                "place_token": {
+                  "type": "string"
+                },
+                "progress_label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "completion_event": {
+                  "enum": [
+                    "objective_completed",
+                    "objective_activated"
+                  ]
+                },
+                "destination_label": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "allOf": [
+                {
+                  "if": {
+                    "properties": {
+                      "type": {
+                        "const": "deliver_items"
+                      }
+                    }
+                  },
+                  "then": {
+                    "required": [
+                      "destination_location"
+                    ]
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "type": {
+                        "const": "place_items_at_tagged_locations"
+                      }
+                    }
+                  },
+                  "then": {
+                    "required": [
+                      "target_location_tag",
+                      "action_id",
+                      "consume_item"
+                    ]
+                  }
+                }
+              ]
+            },
+            "player_instructions": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "content": {
+          "type": "object",
+          "required": [
+            "scenario_sets",
+            "uses_from_base",
+            "scenario_cards",
+            "sources",
+            "base_sources",
+            "deck_composition"
+          ],
+          "properties": {
+            "scenario_sets": {
+              "type": "object"
+            },
+            "uses_from_base": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "scenario_cards": {
+              "type": "object"
+            },
+            "sources": {
+              "type": "object",
+              "required": [
+                "locations",
+                "objectives"
+              ],
+              "properties": {
+                "locations": {
+                  "type": "string",
+                  "pattern": "^data/scenarios/.+/locations\\.yaml$"
+                },
+                "objectives": {
+                  "type": "string",
+                  "pattern": "^data/scenarios/.+/objectives\\.yaml$"
+                },
+                "equipment": {
+                  "type": "string"
+                },
+                "travel_events": {
+                  "type": "string"
+                },
+                "tokens": {
+                  "type": "string"
+                }
+              }
+            },
+            "base_sources": {
+              "type": "object",
+              "required": [
+                "equipment",
+                "travel_events"
+              ],
+              "properties": {
+                "equipment": {
+                  "type": "string",
+                  "pattern": "^data/base/equipment\\.yaml$"
+                },
+                "travel_events": {
+                  "type": "string",
+                  "pattern": "^data/base/travel-events\\.yaml$"
+                }
+              }
+            },
+            "deck_composition": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "equipment",
+                "travel_events",
+                "locations",
+                "objectives"
+              ],
+              "properties": {
+                "equipment": {
+                  "enum": [
+                    "base_only",
+                    "scenario_only",
+                    "base_plus_scenario"
+                  ]
+                },
+                "travel_events": {
+                  "enum": [
+                    "base_only",
+                    "scenario_only",
+                    "base_plus_scenario"
+                  ]
+                },
+                "locations": {
+                  "enum": [
+                    "base_only",
+                    "scenario_only",
+                    "base_plus_scenario"
+                  ]
+                },
+                "objectives": {
+                  "enum": [
+                    "base_only",
+                    "scenario_only",
+                    "base_plus_scenario"
+                  ]
+                },
+                "tokens": {
+                  "enum": [
+                    "base_only",
+                    "scenario_only",
+                    "base_plus_scenario"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "setup": {
+          "type": "object"
+        },
+        "special_rules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "victory": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "defeat": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "progression_events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "trigger",
+              "effects",
+              "narrative"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]*$"
+              },
+              "trigger": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "event",
+                  "once"
+                ],
+                "properties": {
+                  "event": {
+                    "enum": [
+                      "objective_found",
+                      "objective_completed",
+                      "objective_activated",
+                      "location_explored",
+                      "all_objectives_completed"
+                    ]
+                  },
+                  "count": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "objective_id": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*$"
+                  },
+                  "location_id": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*$"
+                  },
+                  "once": {
+                    "type": "boolean",
+                    "const": true
+                  }
+                },
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "event": {
+                          "const": "location_explored"
+                        }
+                      }
+                    },
+                    "then": {
+                      "required": [
+                        "location_id"
+                      ],
+                      "not": {
+                        "required": [
+                          "count"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "event": {
+                          "enum": [
+                            "objective_found",
+                            "objective_completed",
+                            "objective_activated"
+                          ]
+                        }
+                      }
+                    },
+                    "then": {
+                      "anyOf": [
+                        {
+                          "required": [
+                            "count"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "objective_id"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "event": {
+                          "const": "all_objectives_completed"
+                        }
+                      }
+                    },
+                    "then": {
+                      "not": {
+                        "anyOf": [
+                          {
+                            "required": [
+                              "count"
+                            ]
+                          },
+                          {
+                            "required": [
+                              "objective_id"
+                            ]
+                          },
+                          {
+                            "required": [
+                              "location_id"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "effects": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "action",
+                        "connection_id"
+                      ],
+                      "properties": {
+                        "action": {
+                          "enum": [
+                            "open_connection",
+                            "close_connection",
+                            "seal_connection"
+                          ]
+                        },
+                        "connection_id": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "action",
+                        "amount"
+                      ],
+                      "properties": {
+                        "action": {
+                          "const": "modify_endurance"
+                        },
+                        "amount": {
+                          "type": "integer",
+                          "not": {
+                            "const": 0
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": true,
+                      "required": [
+                        "action"
+                      ],
+                      "properties": {
+                        "action": {
+                          "const": "choose_connection"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "narrative": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "scenario_events": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "deck_id",
+            "source",
+            "milestones"
+          ],
+          "properties": {
+            "deck_id": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]*$"
+            },
+            "source": {
+              "type": "string",
+              "pattern": "^data/scenario-events/.+\\.yaml$"
+            },
+            "milestones": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "trigger",
+                  "resolve",
+                  "public",
+                  "label"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]*$"
+                  },
+                  "trigger": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "event",
+                      "once"
+                    ],
+                    "properties": {
+                      "event": {
+                        "enum": [
+                          "objective_found",
+                          "objective_completed",
+                          "objective_activated",
+                          "location_explored",
+                          "all_objectives_completed"
+                        ]
+                      },
+                      "count": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "objective_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*$"
+                      },
+                      "location_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*$"
+                      },
+                      "once": {
+                        "type": "boolean",
+                        "const": true
+                      }
+                    },
+                    "allOf": [
+                      {
+                        "if": {
+                          "properties": {
+                            "event": {
+                              "const": "location_explored"
+                            }
+                          }
+                        },
+                        "then": {
+                          "required": [
+                            "location_id"
+                          ],
+                          "not": {
+                            "required": [
+                              "count"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "if": {
+                          "properties": {
+                            "event": {
+                              "enum": [
+                                "objective_found",
+                                "objective_completed",
+                                "objective_activated"
+                              ]
+                            }
+                          }
+                        },
+                        "then": {
+                          "anyOf": [
+                            {
+                              "required": [
+                                "count"
+                              ]
+                            },
+                            {
+                              "required": [
+                                "objective_id"
+                              ]
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "if": {
+                          "properties": {
+                            "event": {
+                              "const": "all_objectives_completed"
+                            }
+                          }
+                        },
+                        "then": {
+                          "not": {
+                            "anyOf": [
+                              {
+                                "required": [
+                                  "count"
+                                ]
+                              },
+                              {
+                                "required": [
+                                  "objective_id"
+                                ]
+                              },
+                              {
+                                "required": [
+                                  "location_id"
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "resolve": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "mode",
+                      "card_id"
+                    ],
+                    "properties": {
+                      "mode": {
+                        "const": "fixed"
+                      },
+                      "card_id": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9_]*$"
+                      }
+                    }
+                  },
+                  "public": {
+                    "type": "boolean"
+                  },
+                  "label": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

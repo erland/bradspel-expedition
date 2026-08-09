@@ -1,0 +1,26 @@
+version: 1
+reference_cards:
+- id: core_turn_reference
+  name: Turöversikt
+  language: sv
+  source_ruleset: expedition_core_v1_7_1
+  template: templates/reference/a6-reference.svg.j2
+  layout: reference_a6_v1
+  sections:
+  - id: round
+    title: RUNDAN
+    source: rules.round.phases
+    max_items: 3
+  - id: actions
+    title: HANDLINGAR
+    source: rules.actions
+    max_items: 6
+  - id: symbols
+    title: SYMBOLER
+    source: derived.symbols
+    max_items: 6
+  - id: ending
+    title: VINST / FORLUST
+    source: derived.ending
+    max_items: 4
+  footer: Expedition v1.9.41 – playtest

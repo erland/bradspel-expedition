@@ -1,0 +1,93 @@
+version: 1
+deck:
+  id: core_equipment
+  name: Utrustning
+  shuffle: true
+  draw_on_find: 1
+  scope:
+    level: core
+equipment:
+- id: medical_kit
+  name: Medicinväska
+  count: 1
+  slots: 1
+  kind: consumable
+  tags:
+  - medical
+  symbol: +
+  use:
+    cost_actions: 1
+    effect:
+    - action: heal
+      amount: 2
+    discard_after_use: true
+  text: Läk dig själv eller en karaktär på samma plats 2 hälsa. Kassera kortet efter användning.
+- id: map_scanner
+  name: Kartscanner
+  count: 1
+  slots: 1
+  kind: consumable
+  tags:
+  - navigation
+  symbol: K
+  use:
+    cost_actions: 1
+    effect:
+    - action: peek_hidden_roads
+      amount: 2
+    discard_after_use: true
+  text: Titta på två valfria dolda vägmarkörer och lägg tillbaka dem dolda. Kassera kortet efter användning.
+- id: extra_supplies
+  name: Extra förnödenheter
+  count: 1
+  slots: 1
+  kind: consumable
+  tags:
+  - technical
+  symbol: F
+  use:
+    cost_actions: 1
+    effect:
+    - action: gain_endurance
+      amount: 1
+    discard_after_use: true
+  text: Återfå 1 uthållighet. Kassera kortet efter användning.
+- id: climbing_rope
+  name: Klätterrep
+  count: 1
+  slots: 1
+  kind: consumable
+  tags:
+  - travel
+  symbol: R
+  use:
+    cost_actions: 0
+    timing: after_drawing_travel_event_before_resolution
+    optional: true
+    effect:
+    - action: ignore_current_travel_event
+    discard_after_use: true
+  text: 'När du har dragit en färdhändelse, innan dess effekt löses: Kassera Klätterrep för att ignorera hela kortet.'
+- id: tool_belt
+  name: Verktygsbälte
+  count: 1
+  slots: 1
+  kind: permanent
+  tags:
+  - capacity
+  symbol: V
+  passive:
+    effect: first_tool_uses_zero_slots
+  text: Det första verktyget du bär tar ingen ryggsäcksplats.
+- id: large_backpack
+  name: Stor ryggsäck
+  count: 1
+  slots: 1
+  kind: permanent
+  tags:
+  - capacity
+  symbol: '2'
+  passive:
+    effect: increase_backpack_capacity
+    amount: 2
+  text: Din ryggsäckskapacitet ökar med 2. Kortet tar fortfarande 1 plats.

@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "token-print-layout.schema.json",
+  "title": "Token print layout",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "print_layout"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "print_layout": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "paper",
+        "orientation",
+        "width_mm",
+        "height_mm",
+        "margin_left_mm",
+        "margin_top_mm",
+        "gap_x_mm",
+        "gap_y_mm",
+        "crop_marks",
+        "crop_mark_length_mm",
+        "source_directory",
+        "output_svg",
+        "output_pdf"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "paper": {
+          "const": "A4"
+        },
+        "orientation": {
+          "enum": [
+            "portrait",
+            "landscape"
+          ]
+        },
+        "width_mm": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "height_mm": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "margin_left_mm": {
+          "type": "number",
+          "minimum": 0
+        },
+        "margin_top_mm": {
+          "type": "number",
+          "minimum": 0
+        },
+        "gap_x_mm": {
+          "type": "number",
+          "minimum": 0
+        },
+        "gap_y_mm": {
+          "type": "number",
+          "minimum": 0
+        },
+        "crop_marks": {
+          "type": "boolean"
+        },
+        "crop_mark_length_mm": {
+          "type": "number",
+          "minimum": 0
+        },
+        "source_directory": {
+          "type": "string"
+        },
+        "output_svg": {
+          "type": "string",
+          "pattern": "^.+\\.svg$"
+        },
+        "output_pdf": {
+          "type": "string",
+          "pattern": "^.+\\.pdf$"
+        }
+      }
+    }
+  }
+}

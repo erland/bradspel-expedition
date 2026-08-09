@@ -1,0 +1,26 @@
+version: 1
+inventory:
+  name: Personlig ryggsäck
+  default_capacity: 4
+  capacity_unit: slots
+  open_information: true
+  items:
+    tool:
+      slots: 1
+      representation: token
+    equipment:
+      slots_from_source: equipment.slots
+      representation: card
+    objective:
+      slots_from_source: objectives.slots
+      representation: card
+  rules:
+    may_exceed_capacity: false
+    drop_item_cost_actions: 0
+    pick_up_dropped_item_cost_actions: 1
+    transfer_requires_same_location: true
+    transfer_cost_actions: 1
+    found_item_if_full:
+    - leave_at_location
+    - drop_carried_item
+    - transfer_to_character_same_location

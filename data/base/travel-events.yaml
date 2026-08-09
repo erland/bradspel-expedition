@@ -1,0 +1,73 @@
+version: 1
+deck:
+  id: travel_events
+  name: Färdhändelser
+  shuffle: true
+  draw: 1
+  discard_after_resolution: true
+  scope:
+    level: core
+cards:
+- id: travel_rockfall
+  name: Ras
+  count: 1
+  effect:
+  - action: damage
+    amount: 1
+  display:
+    title: Ras
+    body: Ta 1 skada.
+    footer: Grundspel
+- id: travel_bad_visibility
+  name: Dålig sikt
+  count: 1
+  effect:
+  - action: lose_endurance
+    amount: 1
+  display:
+    title: Dålig sikt
+    body: Förlora 1 uthållighet.
+    footer: Grundspel
+- id: travel_lost_pack
+  name: Förlorad packning
+  count: 1
+  effect:
+  - action: lose_carried_content
+    amount: 1
+    exclude:
+    - objective
+  display:
+    title: Förlorad packning
+    body: Lämna 1 buret verktyg eller utrustning på platsen om möjligt.
+    footer: Grundspel
+- id: travel_bad_weather
+  name: Oväder
+  count: 1
+  effect:
+  - action: lose_endurance
+    amount: 1
+  - action: damage
+    amount: 1
+  display:
+    title: Oväder
+    body: Förlora 1 uthållighet och ta 1 skada.
+    footer: Grundspel
+- id: travel_detour
+  name: Oväntad omväg
+  count: 1
+  effect:
+  - action: next_move_cost
+    amount: 2
+  display:
+    title: Oväntad omväg
+    body: Din nästa Flytta kostar 2 handlingar.
+    footer: Grundspel
+- id: travel_calm_passage
+  name: Lugn passage
+  count: 1
+  effect:
+  - action: no_effect
+  display:
+    title: Lugn passage
+    body: Ingen ytterligare effekt.
+    footer: Grundspel

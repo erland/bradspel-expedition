@@ -1,0 +1,37 @@
+version: 1
+deck:
+  id: okenrelaet_modules
+  name: Ökenreläet - reservmoduler
+  shuffle: true
+  required_for_victory: 3
+  scope:
+    level: scenario
+    id: okenrelaet
+objectives:
+- id: power_converter
+  name: Strömomvandlare
+  count: 1
+  slots: 2
+  symbol: E
+  usable: false
+  tags:
+  - relay_module
+  text: Aktiveras på en reläplats.
+- id: signal_amplifier
+  name: Signalförstärkare
+  count: 1
+  slots: 2
+  symbol: S
+  usable: false
+  tags:
+  - relay_module
+  text: Aktiveras på en reläplats.
+- id: control_module
+  name: Styrmodul
+  count: 1
+  slots: 2
+  symbol: K
+  usable: false
+  tags:
+  - relay_module
+  text: Aktiveras på en reläplats.

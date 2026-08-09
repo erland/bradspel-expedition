@@ -1,0 +1,36 @@
+version: 1
+layout:
+  id: reference_a6_v1
+  template: templates/reference/a6-reference.svg.j2
+  width_mm: 105
+  height_mm: 148
+  safe_margin_mm: 5
+  corner_radius_mm: 3
+palette:
+  paper: '#f6f2e8'
+  ink: '#202020'
+  muted: '#626262'
+  accent: '#56785b'
+  accent_light: '#dce6dc'
+  danger: '#934f49'
+  line: '#9a9a90'
+style:
+  font_family: DejaVu Sans
+  title_font_size: 6.2
+  section_title_font_size: 3.1
+  body_font_size: 2.65
+  small_font_size: 2.15
+  line_height: 1.25
+  section_gap_mm: 2.2
+  bullet_indent_mm: 3.5
+  column_gap_mm: 4
+columns:
+  left:
+    x: 6
+    width: 45
+  right:
+    x: 55
+    width: 44
+render:
+  show_safe_margin: false
+  show_source_ids: false

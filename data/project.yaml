@@ -1,0 +1,490 @@
+version: 1
+project:
+  id: expedition
+  name: Expedition
+  project_version: 1.9.51
+  language: sv
+  status: a3_board_split_to_two_landscape_a4
+  source_root: .
+sources:
+  game: data/game.yaml
+  rules: data/rules.yaml
+  cards: data/cards.yaml
+  board: data/board.yaml
+  tokens: data/tokens.yaml
+  reference_cards: data/reference-cards.yaml
+  scenarios: data/scenarios.yaml
+  road_markers: data/road-markers.yaml
+  characters: data/characters.yaml
+  inventory: data/inventory.yaml
+  simulation: data/simulation.yaml
+  cooperation_ablation: data/cooperation-ablation.yaml
+  base_profiles: data/base-profiles.yaml
+  station_nordanvind: data/scenarios/station-nordanvind/scenario.yaml
+  base_equipment: data/base/equipment.yaml
+  base_travel_events: data/base/travel-events.yaml
+  station_nordanvind_locations: data/scenarios/station-nordanvind/locations.yaml
+  station_nordanvind_objectives: data/scenarios/station-nordanvind/objectives.yaml
+  okenrelaet: data/scenarios/okenrelaet/scenario.yaml
+  okenrelaet_locations: data/scenarios/okenrelaet/locations.yaml
+  okenrelaet_objectives: data/scenarios/okenrelaet/objectives.yaml
+  okenrelaet_equipment: data/environments/desert/equipment.yaml
+  okenrelaet_travel_events: data/environments/desert/travel-events.yaml
+  component_policy: data/base/component-policy.yaml
+  simulation_coverage: data/simulation-coverage.yaml
+  location_tile_layout: data/layouts/location-tile.yaml
+  polar_station_scenario_events: data/scenario-events/polar-station.yaml
+  desert_scenario_events: data/scenario-events/desert.yaml
+  rule_coverage: data/rule-coverage.yaml
+  fixed_locations: data/base/fixed-locations.yaml
+  transit_markers: data/transit-markers.yaml
+schemas:
+  project: schemas/project.schema.json
+  game: schemas/game.schema.json
+  rules: schemas/rules.schema.json
+  cards: schemas/cards.schema.json
+  card_layout: schemas/card-layout.schema.json
+  print_layout: schemas/print-layout.schema.json
+  board: schemas/board.schema.json
+  board_layout: schemas/board-layout.schema.json
+  board_print_layout: schemas/board-print-layout.schema.json
+  reference_cards: schemas/reference-cards.schema.json
+  reference_layout: schemas/reference-layout.schema.json
+  reference_print_layout: schemas/reference-print-layout.schema.json
+  tokens: schemas/tokens.schema.json
+  token_layout: schemas/token-layout.schema.json
+  token_print_layout: schemas/token-print-layout.schema.json
+  scenarios: schemas/scenarios.schema.json
+  locations: schemas/locations.schema.json
+  road_markers: schemas/road-markers.schema.json
+  travel_events: schemas/travel-events.schema.json
+  characters: schemas/characters.schema.json
+  equipment: schemas/equipment.schema.json
+  objectives: schemas/objectives.schema.json
+  inventory: schemas/inventory.schema.json
+  simulation: schemas/simulation.schema.json
+  cooperation_ablation: schemas/cooperation-ablation.schema.json
+  base_profiles: schemas/base-profiles.schema.json
+  scenario_pack: schemas/scenario-pack.schema.json
+  component_policy: schemas/component-policy.schema.json
+  simulation_coverage: schemas/simulation-coverage.schema.json
+  location_tile_layout: schemas/location-tile-layout.schema.json
+  scenario_event_deck: schemas/scenario-event-deck.schema.json
+  transit_markers: schemas/transit-markers.schema.json
+components:
+- id: cards
+  enabled: true
+  source: data/cards.yaml
+- id: board
+  enabled: true
+  source: data/board.yaml
+- id: reference_cards
+  enabled: true
+  source: data/reference-cards.yaml
+- id: tokens
+  enabled: true
+  source: data/tokens.yaml
+- id: locations
+  enabled: true
+  source: data/scenarios/station-nordanvind/locations.yaml
+- id: road_markers
+  enabled: true
+  source: data/road-markers.yaml
+- id: travel_events
+  enabled: true
+  source: data/base/travel-events.yaml
+- id: characters
+  enabled: true
+  source: data/characters.yaml
+- id: equipment
+  enabled: true
+  source: data/base/equipment.yaml
+- id: objectives
+  enabled: true
+  source: data/scenarios/station-nordanvind/objectives.yaml
+- id: inventory
+  enabled: true
+  source: data/inventory.yaml
+- id: simulation
+  enabled: true
+  source: data/simulation.yaml
+- id: cooperation_ablation
+  enabled: true
+  source: data/cooperation-ablation.yaml
+- id: base_profiles
+  enabled: true
+  source: data/base-profiles.yaml
+- id: station_nordanvind
+  enabled: true
+  source: data/scenarios/station-nordanvind/scenario.yaml
+- id: okenrelaet
+  enabled: true
+  source: data/scenarios/okenrelaet/scenario.yaml
+- id: okenrelaet_locations
+  enabled: true
+  source: data/scenarios/okenrelaet/locations.yaml
+- id: okenrelaet_objectives
+  enabled: true
+  source: data/scenarios/okenrelaet/objectives.yaml
+- id: okenrelaet_equipment
+  enabled: true
+  source: data/environments/desert/equipment.yaml
+- id: okenrelaet_travel_events
+  enabled: true
+  source: data/environments/desert/travel-events.yaml
+- id: component_policy
+  enabled: true
+  source: data/base/component-policy.yaml
+- id: simulation_coverage
+  enabled: true
+  source: data/simulation-coverage.yaml
+- id: location_tiles
+  enabled: true
+  source: data/layouts/location-tile.yaml
+- id: polar_station_scenario_events
+  enabled: true
+  source: data/scenario-events/polar-station.yaml
+- id: desert_scenario_events
+  enabled: true
+  source: data/scenario-events/desert.yaml
+- id: transit_markers
+  enabled: true
+  source: data/transit-markers.yaml
+build:
+  output_root: output
+  manifest_path: output/build-manifest.json
+  report_path: output/build-report.md
+  log_path: output/build-log.txt
+  fail_on_warning: false
+  clean_generated_before_build: true
+  clean_paths:
+  - output/components/cards
+  - output/components/boards
+  - output/components/reference
+  - output/components/tokens
+  - output/print/svg
+  - output/print/pdf
+  - output/preview/build-verification
+  - output/print-package
+  - output/components/scenario-cards
+  - output/components/road-markers
+  - output/components/gameplay-cards
+  - output/simulation
+  - output/simulation/cooperation-ablation
+  - output/simulation/agent-engine-comparison
+  - output/components/scenarios
+  - output/simulation/scenario-comparison
+  - output/components/location-tiles
+  - output/components/scenario-events
+  - output/components/transit-markers
+  targets:
+  - id: validate
+    enabled: true
+  - id: cards
+    enabled: false
+  - id: board
+    enabled: true
+  - id: reference_cards
+    enabled: true
+  - id: tokens
+    enabled: true
+  - id: print_pdf
+    enabled: true
+  - id: prototype
+    enabled: true
+  - id: scenario_cards
+    enabled: true
+  - id: location_tiles
+    enabled: true
+  - id: road_markers
+    enabled: true
+  - id: gameplay_cards
+    enabled: true
+  - id: simulation
+    enabled: false
+  - id: cooperation_ablation
+    enabled: false
+  - id: agent_comparison
+    enabled: false
+  - id: scenario_sheet
+    enabled: true
+  - id: scenario_comparison
+    enabled: false
+  - id: simulation_coverage
+    enabled: true
+  steps:
+  - id: validate_project
+    target: validate
+    script: scripts/validate_project.py
+    enabled: true
+    outputs: []
+  - id: generate_cards
+    target: cards
+    script: scripts/generate_cards.py
+    enabled: false
+    outputs:
+    - output/components/cards/explore_abandoned_station.svg
+    - output/components/cards/event_sudden_storm.svg
+    - output/components/cards/item_field_medkit.svg
+  - id: build_card_sheets
+    target: cards
+    script: scripts/build_card_sheets.py
+    enabled: false
+    outputs:
+    - output/print/svg/cards-a4-01.svg
+  - id: export_cards_pdf
+    target: print_pdf
+    script: scripts/export_pdf.py
+    enabled: false
+    outputs:
+    - output/print/pdf/cards-a4-01.pdf
+  - id: generate_board
+    target: board
+    script: scripts/generate_board.py
+    enabled: true
+    outputs:
+    - output/components/boards/expedition-board-02.svg
+  - id: export_board_pdf
+    target: print_pdf
+    script: scripts/export_board_pdf.py
+    enabled: true
+    outputs:
+    - output/print/pdf/spelplan-a4-kompakt.pdf
+  - id: generate_board_wide
+    target: board
+    script: scripts/generate_board_wide.py
+    enabled: true
+    outputs:
+    - output/components/boards/expedition-board-2xa4.svg
+  - id: export_board_2xa4
+    target: print_pdf
+    script: scripts/export_board_2xa4.py
+    enabled: true
+    outputs:
+    - output/print/pdf/spelplan-2xa4.pdf
+    - output/print/pdf/spelplan-2xa4-ovre.pdf
+    - output/print/pdf/spelplan-2xa4-nedre.pdf
+  - id: generate_reference
+    target: reference_cards
+    script: scripts/generate_reference_cards.py
+    enabled: true
+    outputs:
+    - output/components/reference/core-turn-reference-a6.svg
+  - id: build_reference_sheets
+    target: reference_cards
+    script: scripts/build_reference_sheets.py
+    enabled: true
+    outputs:
+    - output/print/svg/reference-a4-4up.svg
+  - id: export_reference_pdf
+    target: print_pdf
+    script: scripts/export_reference_pdf.py
+    enabled: true
+    outputs:
+    - output/print/pdf/reference-a6.pdf
+    - output/print/pdf/reference-a4-4up.pdf
+  - id: generate_tokens
+    target: tokens
+    script: scripts/generate_tokens.py
+    enabled: true
+    outputs: []
+    output_globs:
+    - output/components/tokens/*.svg
+    expected_glob_count: 30
+  - id: build_token_sheet
+    target: tokens
+    script: scripts/build_token_sheet.py
+    enabled: true
+    outputs:
+    - output/print/svg/tokens-a4-01.svg
+  - id: export_tokens_pdf
+    target: print_pdf
+    script: scripts/export_token_pdf.py
+    enabled: true
+    outputs:
+    - output/print/pdf/tokens-a4-01.pdf
+  - id: generate_scenario_cards
+    target: scenario_cards
+    script: scripts/generate_scenario_cards.py
+    enabled: true
+    outputs: []
+    output_globs:
+    - output/components/scenario-cards/*.svg
+    expected_glob_count: 14
+  - id: build_scenario_card_sheets
+    target: scenario_cards
+    script: scripts/build_scenario_card_sheets.py
+    enabled: true
+    outputs:
+    - output/print/svg/station-nordanvind-platskort-a4-01.svg
+    - output/print/svg/gemensamma-fardhandelser-a4-01.svg
+  - id: export_scenario_cards_pdf
+    target: print_pdf
+    script: scripts/export_scenario_cards_pdf.py
+    enabled: true
+    outputs:
+    - output/print/pdf/station-nordanvind-platskort-a4-01.pdf
+    - output/print/pdf/gemensamma-fardhandelser-a4-01.pdf
+  - id: generate_location_tiles
+    target: location_tiles
+    script: scripts/generate_location_tiles.py
+    enabled: true
+    outputs:
+    - output/print/svg/location-tiles-front-a4-01.svg
+    - output/print/svg/location-tiles-back-a4-01.svg
+    - output/print/pdf/location-tiles-a4-01.pdf
+    output_globs:
+    - output/components/location-tiles/*.svg
+    expected_glob_count: 24
+  - id: generate_road_markers
+    target: road_markers
+    script: scripts/generate_road_markers.py
+    enabled: true
+    outputs: []
+    output_globs:
+    - output/components/road-markers/*.svg
+    expected_glob_count: 28
+  - id: build_road_marker_sheet
+    target: road_markers
+    script: scripts/build_road_marker_sheet.py
+    enabled: true
+    outputs:
+    - output/print/svg/gemensamma-vagbrickor-a4-01.svg
+    - output/print/pdf/gemensamma-vagbrickor-a4-01.pdf
+  - id: generate_transit_markers
+    target: road_markers
+    script: scripts/generate_transit_markers.py
+    enabled: true
+    outputs: []
+    output_globs:
+    - output/components/transit-markers/*.svg
+    expected_glob_count: 4
+  - id: build_transit_marker_sheet
+    target: road_markers
+    script: scripts/build_transit_marker_sheet.py
+    enabled: true
+    outputs:
+    - output/print/svg/gemensamma-transitbrickor-a4-01.svg
+    - output/print/pdf/gemensamma-transitbrickor-a4-01.pdf
+  - id: generate_gameplay_cards
+    target: gameplay_cards
+    script: scripts/generate_gameplay_cards.py
+    enabled: true
+    outputs: []
+    output_globs:
+    - output/components/gameplay-cards/*.svg
+    expected_glob_count: 17
+  - id: build_gameplay_card_sheets
+    target: gameplay_cards
+    script: scripts/build_gameplay_card_sheets.py
+    enabled: true
+    outputs:
+    - output/print/pdf/gemensamma-karaktarskort-a4-01.pdf
+    - output/print/pdf/gemensam-utrustning-a4-01.pdf
+    - output/print/pdf/station-nordanvind-malobjekt-a4-01.pdf
+  - id: run_design_simulation
+    target: simulation
+    script: scripts/simulate_game.py
+    enabled: true
+    outputs:
+    - output/simulation/summary.json
+    - output/simulation/strategy-comparison.csv
+    - output/simulation/runs.csv
+    - output/simulation/simulation-report.md
+  - id: run_cooperation_ablation
+    target: cooperation_ablation
+    script: scripts/run_cooperation_ablation.py
+    enabled: true
+    outputs:
+    - output/simulation/cooperation-ablation/summary.json
+    - output/simulation/cooperation-ablation/cooperation-comparison.csv
+    - output/simulation/cooperation-ablation/runs.csv
+    - output/simulation/cooperation-ablation/cooperation-report.md
+  - id: run_agent_engine_comparison
+    target: agent_comparison
+    script: scripts/run_agent_comparison.py
+    enabled: true
+    outputs:
+    - output/simulation/agent-engine-comparison/summary.json
+    - output/simulation/agent-engine-comparison/agent-comparison.csv
+    - output/simulation/agent-engine-comparison/runs.csv
+    - output/simulation/agent-engine-comparison/agent-comparison-report.md
+  - id: check_simulation_coverage
+    target: simulation_coverage
+    script: scripts/check_simulation_coverage.py
+    enabled: true
+    outputs:
+    - output/simulation-coverage-report.json
+    - output/simulation-coverage-report.md
+  - id: run_scenario_comparison
+    target: scenario_comparison
+    script: scripts/run_scenario_comparison.py
+    enabled: true
+    outputs:
+    - output/simulation/scenario-comparison/summary.json
+    - output/simulation/scenario-comparison/scenario-comparison.csv
+    - output/simulation/scenario-comparison/runs.csv
+    - output/simulation/scenario-comparison/scenario-comparison-report.md
+  - id: generate_okenrelaet_content
+    target: scenario_cards
+    script: scripts/generate_okenrelaet_content.py
+    enabled: true
+    outputs:
+    - output/print/pdf/okenrelaet-platskort-och-okenmiljo-fardhandelser-a4-01.pdf
+    - output/print/pdf/okenrelaet-malobjekt-och-okenmiljo-utrustning-a4-01.pdf
+  - id: generate_scenario_sheet
+    target: scenario_sheet
+    script: scripts/generate_scenario_sheet.py
+    enabled: true
+    outputs:
+    - output/components/scenarios/station-nordanvind-a5.svg
+    - output/components/scenarios/okenrelaet-a5.svg
+  - id: build_scenario_sheet
+    target: scenario_sheet
+    script: scripts/build_scenario_sheet.py
+    enabled: true
+    outputs:
+    - output/print/svg/station-nordanvind-scenarioark-a4.svg
+    - output/print/svg/okenrelaet-scenarioark-a4.svg
+  - id: export_scenario_sheet_pdf
+    target: print_pdf
+    script: scripts/export_scenario_sheet_pdf.py
+    enabled: true
+    outputs:
+    - output/print/pdf/station-nordanvind-scenarioark-a5.pdf
+    - output/print/pdf/station-nordanvind-scenarioark-a4.pdf
+    - output/print/pdf/okenrelaet-scenarioark-a5.pdf
+    - output/print/pdf/okenrelaet-scenarioark-a4.pdf
+  - id: generate_scenario_event_cards
+    target: scenario_cards
+    script: scripts/generate_scenario_event_cards.py
+    enabled: true
+    outputs: []
+    output_globs:
+    - output/components/scenario-events/*.svg
+    expected_glob_count: 8
+  - id: build_scenario_event_sheet
+    target: scenario_cards
+    script: scripts/build_scenario_event_sheet.py
+    enabled: true
+    outputs:
+    - output/print/svg/station-nordanvind-scenariohandelser-a4-01.svg
+    - output/print/pdf/station-nordanvind-scenariohandelser-a4-01.pdf
+    - output/print/svg/okenrelaet-scenariohandelser-a4-01.svg
+    - output/print/pdf/okenrelaet-scenariohandelser-a4-01.pdf
+  - id: generate_playtest_docs
+    target: prototype
+    script: scripts/generate_playtest_docs.py
+    enabled: true
+    outputs:
+    - output/print/pdf/rulebook-playtest-v1.9.pdf
+    - output/print/pdf/assembly-guide-v1.9.pdf
+    - output/print/pdf/playtest-guide-v1.9.pdf
+    - output/print/pdf/playtest-forms-v1.9.pdf
+  - id: assemble_print_package
+    target: prototype
+    script: scripts/assemble_print_package.py
+    enabled: true
+    outputs:
+    - output/print-package/expedition-v1.9.51-komplett-printpaket.pdf
+    - output/print-package/PRINT_PACKAGE_MANIFEST.json

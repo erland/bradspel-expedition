@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+ width="{{ width }}mm" height="{{ height }}mm" viewBox="0 0 {{ width }} {{ height }}">
+ <rect x="0.25" y="0.25" width="{{ width-0.5 }}" height="{{ height-0.5 }}"
+       rx="{{ radius }}" fill="{{ fill }}" stroke="{{ stroke }}" stroke-width="0.5"/>
+ <rect x="1.4" y="1.4" width="{{ width-2.8 }}" height="{{ height-2.8 }}"
+       rx="{{ radius-0.3 }}" fill="none" stroke="{{ stroke }}" stroke-width="0.25"
+       stroke-dasharray="1.5,1"/>
+ <text x="{{ width-2 }}" y="4.1" text-anchor="end"
+       font-family="{{ font }}" font-size="{{ id_size }}" font-weight="700"
+       fill="{{ stroke }}">{{ display_id }}</text>
+ {% for line in name_lines %}
+ <text x="{{ width/2 }}" y="{{ name_start + loop.index0*4.2 }}" text-anchor="middle"
+       font-family="{{ font }}" font-size="{{ name_size }}" font-weight="700"
+       fill="{{ ink }}">{{ line }}</text>
+ {% endfor %}
+ <text x="{{ width/2 }}" y="{{ height-2.2 }}" text-anchor="middle"
+       font-family="{{ font }}" font-size="{{ scenario_size }}"
+       fill="{{ muted }}">{{ scenario_name }}</text>
+</svg>

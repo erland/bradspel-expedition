@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="{{ layout.width_mm }}mm"
+     height="{{ layout.height_mm }}mm"
+     viewBox="0 0 {{ layout.width_mm }} {{ layout.height_mm }}">
+  <defs>
+    <clipPath id="card-clip">
+      <rect x="0.25" y="0.25"
+            width="{{ layout.width_mm - 0.5 }}"
+            height="{{ layout.height_mm - 0.5 }}"
+            rx="{{ layout.corner_radius_mm }}"/>
+    </clipPath>
+  </defs>
+
+  <g id="background" clip-path="url(#card-clip)">
+    <rect x="0" y="0" width="{{ layout.width_mm }}" height="{{ layout.height_mm }}"
+          fill="{{ palette.paper }}"/>
+    <rect x="0" y="0" width="{{ layout.width_mm }}" height="11"
+          fill="{{ accent }}"/>
+    <path d="M0 45 C14 38, 23 43, 33 39 C43 35, 52 39, 63 32 L63 88 L0 88 Z"
+          fill="{{ accent }}" opacity="0.08"/>
+  </g>
+
+  <g id="frame">
+    <rect x="0.25" y="0.25"
+          width="{{ layout.width_mm - 0.5 }}"
+          height="{{ layout.height_mm - 0.5 }}"
+          rx="{{ layout.corner_radius_mm }}"
+          fill="none" stroke="{{ palette.ink }}"
+          stroke-width="{{ layout.border_width_mm }}"/>
+  </g>
+
+  <g id="category">
+    <text x="{{ fields.category.x }}" y="{{ fields.category.y }}"
+          font-family="{{ render.font_family }}"
+          font-size="{{ fields.category.font_size }}"
+          font-weight="{{ fields.category.weight }}"
+          fill="#ffffff">{{ card.display.category }}</text>
+  </g>
+
+  <g id="title">
+    {% for line in title_lines %}
+    <text x="{{ layout.width_mm / 2 }}"
+          y="{{ fields.title.y + loop.index0 * fields.title.font_size * fields.title.line_height }}"
+          text-anchor="middle"
+          font-family="{{ render.font_family }}"
+          font-size="{{ fields.title.font_size }}"
+          font-weight="{{ fields.title.weight }}"
+          fill="{{ palette.ink }}">{{ line }}</text>
+    {% endfor %}
+  </g>
+
+  <g id="icon" color="{{ accent }}">
+    <circle cx="{{ fields.icon.cx }}" cy="{{ fields.icon.cy }}"
+            r="{{ fields.icon.radius + 2 }}"
+            fill="{{ accent }}" opacity="0.13"/>
+    <g transform="translate({{ fields.icon.cx - fields.icon.radius }},
+                            {{ fields.icon.cy - fields.icon.radius }})
+                  scale({{ fields.icon.radius * 2 / 100 }})">
+      {{ icon_svg | safe }}
+    </g>
+  </g>
+
+  <g id="body">
+    {% for line in body_lines %}
+    <text x="{{ layout.width_mm / 2 }}"
+          y="{{ fields.body.y + loop.index0 * fields.body.font_size * fields.body.line_height }}"
+          text-anchor="middle"
+          font-family="{{ render.font_family }}"
+          font-size="{{ fields.body.font_size }}"
+          font-weight="{{ fields.body.weight }}"
+          fill="{{ palette.ink }}">{{ line }}</text>
+    {% endfor %}
+  </g>
+
+  <g id="flavor">
+    {% for line in flavor_lines %}
+    <text x="{{ layout.width_mm / 2 }}"
+          y="{{ fields.flavor.y + loop.index0 * fields.flavor.font_size * fields.flavor.line_height }}"
+          text-anchor="middle"
+          font-family="{{ render.font_family }}"
+          font-size="{{ fields.flavor.font_size }}"
+          font-style="italic"
+          fill="{{ palette.muted }}">{{ line }}</text>
+    {% endfor %}
+  </g>
+
+  {% if render.show_card_id %}
+  <g id="metadata">
+    <text x="{{ fields.metadata.x }}" y="{{ fields.metadata.y }}"
+          font-family="{{ render.font_family }}"
+          font-size="{{ fields.metadata.font_size }}"
+          fill="{{ palette.muted }}">{{ card.id }} · v{{ data_version }}</text>
+  </g>
+  {% endif %}
+
+  {% if render.show_safe_zone %}
+  <rect x="{{ layout.safe_zone_mm }}" y="{{ layout.safe_zone_mm }}"
+        width="{{ layout.width_mm - layout.safe_zone_mm * 2 }}"
+        height="{{ layout.height_mm - layout.safe_zone_mm * 2 }}"
+        fill="none" stroke="#cc0000" stroke-width="0.2"
+        stroke-dasharray="1,1"/>
+  {% endif %}
+</svg>

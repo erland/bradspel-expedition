@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="18mm"
+     height="18mm"
+     viewBox="0 0 18 18">
+  <rect x="0.25" y="0.25"
+        width="17.5"
+        height="17.5"
+        rx="2.5"
+        fill="#ffffff"
+        stroke="#202020"
+        stroke-width="0.5"/>
+
+  <rect x="1.4" y="1.4"
+        width="15.2"
+        height="15.2"
+        rx="1.8"
+        fill="#d8d2c4" opacity="0.28"/>
+
+  <text x="9.0"
+        y="8.280000000000001"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="DejaVu Sans"
+        font-size="6.12"
+        font-weight="700"
+        fill="#202020">H</text>
+
+  <text x="9.0"
+        y="13.86"
+        text-anchor="middle"
+        font-family="DejaVu Sans"
+        font-size="1.98"
+        font-weight="700"
+        fill="#202020">Handling kvar</text>
+
+</svg>

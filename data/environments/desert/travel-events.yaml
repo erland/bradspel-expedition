@@ -1,0 +1,43 @@
+version: 1
+deck:
+  id: okenrelaet_events
+  name: Ökenmiljö - färdhändelser
+  shuffle: true
+  draw: 1
+  discard_after_resolution: true
+  scope:
+    level: environment
+    id: desert
+cards:
+- id: desert_sandstorm
+  name: Sandstorm
+  count: 1
+  effect:
+  - action: lose_endurance
+    amount: 1
+  - action: damage
+    amount: 1
+  display:
+    title: Sandstorm
+    body: Förlora 1 uthållighet och ta 1 skada.
+    footer: Ökenreläet
+- id: desert_extreme_heat
+  name: Extrem hetta
+  count: 1
+  effect:
+  - action: lose_endurance
+    amount: 2
+  display:
+    title: Extrem hetta
+    body: Förlora 2 uthållighet.
+    footer: Ökenreläet
+- id: desert_navigation_error
+  name: Navigationsfel
+  count: 1
+  effect:
+  - action: next_move_cost
+    amount: 2
+  display:
+    title: Navigationsfel
+    body: Din nästa Flytta kostar 2 handlingar.
+    footer: Ökenreläet

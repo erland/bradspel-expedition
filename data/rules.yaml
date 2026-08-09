@@ -1,0 +1,311 @@
+version: 1
+ruleset:
+  id: expedition_core_v1_7_1
+  name: Expedition grundregler v1.9.51
+  mode: cooperative
+setup:
+  steps:
+  - id: place_board
+    action: place_component
+    component: board_main
+  - id: prepare_scenario
+    action: prepare_components_listed_on_scenario_sheet
+  - id: place_fixed_location_cards
+    action: place_fixed_location_cards
+    locations:
+    - base_camp
+    - supply_depot
+  - id: place_location_tiles
+    action: shuffle_and_place_scenario_location_tiles
+    orientation: hidden_side_up
+  - id: prepare_endurance
+    action: prepare_endurance_pool
+  - id: prepare_hidden_roads
+    action: prepare_components_listed_on_scenario_sheet
+    source: scenario.hidden_road_marker_pool
+    destinations: scenario.hidden_roads
+    unused_markers: set_aside_face_down_unrevealed
+    component_type: hidden_road_markers
+    procedure: shuffle_and_place_face_down_on_listed_d_roads
+  - id: place_characters
+    action: place_all_characters
+    location: base_camp
+  - id: prepare_decks
+    action: prepare_decks
+  - id: prepare_tokens
+    action: prepare_token_supply
+round:
+  phases:
+  - id: player_phase
+    name: Spelarfas
+    order: 1
+    actor_order: fixed_clockwise
+    steps:
+    - action: activate_each_active_character
+      actions_per_character: 2
+      tracking: place_two_action_markers_on_active_character_remove_one_after_each_action_rotate_character_card_after_activation
+  - id: upkeep_phase
+    name: Kontrollera spelstatus
+    order: 2
+    steps:
+    - action: check_scenario_milestones
+    - action: resolve_triggered_scenario_events
+      order: scenario_sheet_top_to_bottom
+    - action: check_victory
+    - action: check_other_scenario_conditions
+  - id: endurance_phase
+    name: Uthållighetsfas
+    order: 3
+    steps:
+    - action: lose_endurance
+      amount: 1
+    - action: check_defeat
+    - action: reset_character_activation_markers
+actions:
+  move:
+    name: Flytta
+    cost_actions: 1
+    requirements:
+    - type: connected_location
+    effects:
+    - action: choose_adjacent_destination_and_road
+    - action: reveal_hidden_road_as_part_of_move
+    - action: resolve_road_state
+    - action: move_if_open
+  explore:
+    name: Utforska
+    cost_actions: 1
+    requirements:
+    - type: current_location_unexplored
+    effects:
+    - action: flip_location_tile_to_explored_side
+    - action: reveal_matching_location_card
+      match_by: location_tile_id
+    - action: place_location_card_beside_board
+    - action: resolve_location_card
+      timing: on_explore_only_unless_card_says_otherwise
+  gather:
+    name: Hämta verktyg
+    cost_actions: 1
+    requirements:
+    - type: current_location_is_supply_depot
+    - type: tools_remain_in_supply
+    - type: inventory_has_space
+      slots: 1
+    effects:
+    - action: gain_resource
+      resource: tools
+      amount: 1
+  rest:
+    name: Återhämta
+    cost_actions: 1
+    requirements:
+    - type: current_location_is_base_camp
+    effects:
+    - action: heal
+      amount: 1
+  assist:
+    name: Överföra
+    cost_actions: 1
+    requirements:
+    - type: target_character_same_location
+    effects:
+    - action: transfer_inventory_items
+  use_item:
+    name: Använd utrustning
+    cost_actions: 1
+    requirements:
+    - type: usable_equipment_carried
+    effects:
+    - action: resolve_equipment_use
+  unlock_road:
+    name: Ta bort Hinder
+    cost_actions: 1
+    requirements:
+    - type: character_at_hindered_road_end
+    - type: spend_resource
+      resource: tools
+      amount: 1
+    effects:
+    - action: open_road_permanently
+  drop_item:
+    name: Lämna buret innehåll
+    cost_actions: 0
+    requirements:
+    - type: carried_content_available
+    effects:
+    - action: leave_item_at_location
+  pick_up_item:
+    name: Plocka upp
+    cost_actions: 1
+    requirements:
+    - type: content_at_current_location
+    - type: inventory_has_required_space
+    effects:
+    - action: add_item_to_inventory
+  activate_objective:
+    name: Aktivera målobjekt
+    cost_actions: 1
+    requirements:
+    - type: carrying_objective
+    - type: current_location_is_objective_destination
+    effects:
+    - action: move_objective_card_from_character_to_location_card
+    - action: rotate_objective_to_active_state
+    - action: mark_objective_activated
+    - action: resolve_progression_then_scenario_event_then_end_check
+victory:
+  all:
+  - type: scenario_victory_condition
+  - type: at_least_one_active_character
+defeat:
+  any:
+  - type: endurance_reaches
+    amount: 0
+  - type: all_characters_incapacitated
+  - type: scenario_defeat_condition
+character_state:
+  health:
+    from_character_card: true
+    incapacitated_at: 0
+  inventory:
+    source: data/inventory.yaml
+    capacity_from_character_card: true
+    may_exceed_capacity: false
+  incapacitated:
+    can_take_actions: false
+    group_defeat_if_all: true
+solo:
+  recommended_characters: 2
+  uses_core_rules: true
+  open_information: true
+  single_character_mode:
+    status: not_implemented
+    possible_future_adjustments:
+    - free_assist_action
+    - increase_starting_endurance
+    - extra_starting_tool
+    - solo_character_ability
+  possible_future_adjustments:
+  - free_transfer_once_per_round
+  - increase_starting_endurance
+  - draw_extra_character_before_selection
+effect_vocabulary_draft:
+- activate_each_active_character
+- add_item_to_inventory
+- assist_target
+- ignore_current_travel_event
+- check_defeat
+- check_victory
+- choose_adjacent_destination_and_road
+- close_connection
+- complete_objective
+- damage
+- decrease_track
+- discard_card
+- draw_card
+- draw_equipment_card
+- draw_objective_card
+- draw_travel_event
+- flip_location_tile_to_explored_side
+- gain_objective
+- gain_resource
+- heal
+- increase_backpack_capacity
+- increase_track
+- inspect_road_if_hidden
+- leave_item_at_location
+- lose_carried_content
+- lose_endurance
+- lose_resource
+- mark_objective_activated
+- modify_endurance
+- move
+- move_if_open
+- move_objective_card_from_character_to_location_card
+- no_effect
+- open_connection
+- open_road_permanently
+- peek_hidden_roads
+- place_all_characters
+- place_component
+- place_fixed_location_cards
+- place_location_card_beside_board
+- place_matching_location_tile
+- place_token
+- prepare_components_listed_on_scenario_sheet
+- prepare_decks
+- prepare_endurance_pool
+- prepare_token_supply
+- remove_token
+- reset_character_activation_markers
+- resolve_drawn_card
+- resolve_equipment_use
+- resolve_item
+- resolve_location
+- resolve_location_card
+- resolve_progression_then_scenario_event_then_end_check
+- resolve_road_marker
+- resolve_road_state
+- resolve_scenario_effects
+- resolve_scenario_event
+- resolve_statuses
+- reveal_hidden_road_as_part_of_move
+- reveal_location
+- reveal_location_card
+- reveal_matching_location_card
+- rotate_objective_to_active_state
+- set_flag
+- set_track
+- shuffle_and_place_scenario_location_tiles
+- transfer_inventory_items
+- check_scenario_milestones
+- resolve_triggered_scenario_events
+- check_other_scenario_conditions
+- replace_road_marker
+unresolved_rules:
+- Fyra normala ryggsäcksplatser och målobjekt på två platser behöver testas.
+- Antalet utrustningsfynd behöver testas.
+- Karaktärsförmågor och utrustningsheuristiker behöver fortfarande verifieras i fysiskt speltest.
+terminology:
+  tool: Verktyg är den enda generella markör som bärs i ryggsäcken.
+  equipment: Utrustning är kort som kan användas eller ge passiva effekter.
+  equipment_activation: Utrustningskortet anger om användningen kräver 1 handling eller ingen handling. Engångsutrustning kasseras först när effekten faktiskt används.
+  objective: Målobjekt och uppdragsföremål definieras av scenariot. De kan levereras till en plats eller användas för att slutföra en scenariouppgift.
+  carried_content: Buret innehåll är samlingsnamn för verktyg, utrustning och målobjekt.
+  endurance: Uthållighet är expeditionens gemensamma återstående reserv. När sista markören förloras tar spelet slut.
+  milestone: 'Milstolpe: ett villkor på scenarioarket.'
+  scenario_event: 'Scenariohändelse: en omedelbar effekt som utlöses av en milstolpe.'
+  activate_objective: 'Aktivera målobjekt: generell handling för att slutföra ett målobjekt på rätt destination.'
+  location_card_timing: Ett platskorts omedelbara effekt löses endast när platsen utforskas, om kortet inte uttryckligen anger en annan tidpunkt.
+scenario_event_architecture:
+  version: 1
+  trigger_types:
+  - objective_found
+  - objective_completed
+  - objective_activated
+  - location_explored
+  - all_objectives_completed
+  immediate_effect_actions:
+  - modify_endurance
+  - open_connection
+  - close_connection
+  resolution_order:
+  - complete_current_action
+  - update_game_state
+  - resolve_progression_events
+  - resolve_scenario_event_milestones
+  - check_victory_and_defeat
+  default_once: true
+  memory_rule: Scenariohändelser ska lösas omedelbart och får inte kräva kvarvarande minne utan fysisk markör.
+physical_state:
+  item_at_location: Place the item beside the matching location card.
+  item_in_inventory: Place the item beside the carrying character card.
+  location_hidden: Location tile hidden side up.
+  location_explored: Location tile named side up; matching location card face up beside board.
+  objective_inactive: Objective card inactive side up.
+  objective_active: Objective card rotated 90 degrees beside destination location card.
+  road_hidden: Hidden road marker unrevealed.
+  road_open: No blocking marker or Open marker.
+  road_hindered: Hinder marker remains on road.
+  road_closed: Closed marker remains on road.

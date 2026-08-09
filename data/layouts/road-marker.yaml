@@ -1,0 +1,12 @@
+version: 1
+layout:
+  id: single_sided_road_marker_v2
+  width_mm: 16
+  height_mm: 16
+  corner_radius_mm: 2
+  board_slot_width_mm: 16
+  board_slot_height_mm: 16
+style:
+  font_family: DejaVu Sans
+  symbol_size: 7
+  label_size: 2.0

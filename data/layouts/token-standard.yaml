@@ -1,0 +1,18 @@
+version: 1
+layout:
+  id: token_square_v1
+  template: templates/tokens/square-token.svg.j2
+  corner_radius_mm: 2.5
+  border_width_mm: 0.5
+  safe_margin_mm: 2
+style:
+  font_family: DejaVu Sans
+  symbol_font_size_factor: 0.34
+  label_font_size_factor: 0.11
+  id_font_size_factor: 0.065
+  show_token_id: false
+  ink_friendly: true
+palette:
+  paper: '#ffffff'
+  ink: '#202020'
+  muted: '#666666'

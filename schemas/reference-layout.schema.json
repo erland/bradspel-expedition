@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "reference-layout.schema.json",
+  "title": "Reference card layout",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "layout",
+    "palette",
+    "style",
+    "columns",
+    "render"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "layout": {
+      "type": "object",
+      "required": [
+        "id",
+        "template",
+        "width_mm",
+        "height_mm"
+      ]
+    },
+    "palette": {
+      "type": "object"
+    },
+    "style": {
+      "type": "object"
+    },
+    "columns": {
+      "type": "object"
+    },
+    "render": {
+      "type": "object"
+    }
+  }
+}

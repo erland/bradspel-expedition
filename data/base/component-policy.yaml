@@ -1,0 +1,46 @@
+version: 1
+policy:
+  id: core_vs_scenario_v1
+  principles:
+  - Bas innehåller regler och komponenter som fungerar oförändrade i flera miljöer.
+  - Scenario innehåller story, uppdragsmål, platser och mekanik som bara behövs för
+    expeditionen.
+  - Scenariokort ska deklarera om en kortlek är base_only, scenario_only eller base_plus_scenario.
+  base_components:
+  - id: board
+    reason: Samma nodkarta och fasta platser används i båda scenarierna.
+  - id: characters
+    reason: Karaktärerna använder samma regler och förmågor.
+  - id: road_markers
+    reason: Öppen, Hinder och Händelse är generell kärnmekanik.
+  - id: core_equipment
+    reason: Medicinväska, Kartscanner, Extra förnödenheter, Klätterrep, Verktygsbälte
+      och Stor ryggsäck fungerar i båda miljöerna.
+  - id: core_travel_events
+    reason: Grundläggande färdhändelser används av båda scenarierna.
+  - id: core_tokens
+    reason: Verktyg, skada och uthållighet är generella.
+  - id: fixed_location_cards
+    reason: Basläger och Förråd håller reda på föremål vid fasta platser.
+  scenario_components:
+  - id: locations
+    reason: Platserna bär scenarioidentitet och uppdragsstruktur.
+  - id: objectives
+    reason: Målobjekt och reservmoduler har olika användning och destination.
+  - id: scenario_equipment
+    reason: Vattenreserv och Diagnosverktyg behövs bara i Ökenreläet.
+  - id: scenario_travel_events
+    reason: Sandstorm, hetta och navigationsfel är miljöspecifika.
+scope_model:
+  levels:
+  - core
+  - environment
+  - scenario
+  definitions:
+    core: Kan användas oförändrat i flera miljöer och scenarier.
+    environment: Kan användas oförändrat i flera scenarier inom samma miljö.
+    scenario: Hänvisar till ett specifikt scenarios karta, mål, platser eller milstolpar.
+  file_naming:
+    core: gemensam-<komponenttyp>-a4-<sida>.pdf
+    environment: <miljo-id>-<komponenttyp>-a4-<sida>.pdf
+    scenario: <scenario-id>-<komponenttyp>-a4-<sida>.pdf

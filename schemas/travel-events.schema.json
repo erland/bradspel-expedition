@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "travel-events.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "deck",
+    "cards"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "deck": {
+      "type": "object",
+      "properties": {
+        "scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "level"
+          ],
+          "properties": {
+            "level": {
+              "enum": [
+                "core",
+                "environment",
+                "scenario"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_-]*$"
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "level": {
+                    "const": "core"
+                  }
+                }
+              },
+              "then": {
+                "not": {
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "level": {
+                    "enum": [
+                      "environment",
+                      "scenario"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "id"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "cards": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "count",
+          "effect",
+          "display"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "effect": {
+            "type": "array"
+          },
+          "display": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

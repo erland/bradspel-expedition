@@ -1,0 +1,16 @@
+version: 1
+print_layout:
+  id: tokens_a4_v1
+  paper: A4
+  orientation: portrait
+  width_mm: 210
+  height_mm: 297
+  margin_left_mm: 12
+  margin_top_mm: 12
+  gap_x_mm: 3
+  gap_y_mm: 4
+  crop_marks: true
+  crop_mark_length_mm: 2.5
+  source_directory: output/components/tokens
+  output_svg: output/print/svg/tokens-a4-01.svg
+  output_pdf: output/print/pdf/tokens-a4-01.pdf

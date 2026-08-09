@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" width="297mm" height="210mm" viewBox="0 7 297 210">
+
+
+  <ns0:g id="connections">
+    <ns0:line x1="216.75" y1="356.35625000000005" x2="148.5" y2="322.03925000000004" stroke="#59615a" stroke-width="1.2" stroke-linecap="round" />
+    <ns0:line x1="148.5" y1="322.03925000000004" x2="80.9" y2="280.23650000000004" stroke="#59615a" stroke-width="1.2" stroke-linecap="round" />
+    <ns0:line x1="148.5" y1="322.03925000000004" x2="216.1" y2="280.23650000000004" stroke="#59615a" stroke-width="1.2" stroke-linecap="round" />
+    <ns0:line x1="80.9" y1="280.23650000000004" x2="70.5" y2="222.43355000000003" stroke="#59615a" stroke-width="1.2" stroke-linecap="round" />
+    <ns0:line x1="70.5" y1="222.43355000000003" x2="60.1" y2="164.63195000000002" stroke="#59615a" stroke-width="1.2" stroke-linecap="round" />
+    <ns0:line x1="80.9" y1="280.23650000000004" x2="148.5" y2="164.63195000000002" stroke="#59615a" stroke-width="1.2" stroke-linecap="round" />
+    <ns0:g class="board-road-marker board-road-marker-open">
+      <ns0:rect x="106.7" y="214.43355000000003" width="16" height="16" rx="2" fill="#ffffff" stroke="#202020" stroke-width="0.5" />
+      <ns0:circle cx="114.7" cy="220.53355000000002" r="4.4" fill="#3f7f5f" opacity="0.16" />
+      <ns0:text x="114.7" y="222.73355000000004" text-anchor="middle" font-family="DejaVu Sans" font-size="7" font-weight="700" fill="#3f7f5f">Ö</ns0:text>
+      <ns0:text x="114.7" y="228.03355000000002" text-anchor="middle" font-family="DejaVu Sans" font-size="2.0" font-weight="700" fill="#202020">Öppen väg</ns0:text>
+      <ns0:text x="121.5" y="216.93355000000003" text-anchor="end" font-family="DejaVu Sans" font-size="1.8" font-weight="700" fill="#555555">D5</ns0:text>
+    </ns0:g>
+    <ns0:line x1="216.1" y1="280.23650000000004" x2="148.5" y2="164.63195000000002" stroke="#59615a" stroke-width="1.2" stroke-linecap="round" />
+    <ns0:g class="board-road-marker board-road-marker-open">
+      <ns0:rect x="174.3" y="214.43355000000003" width="16" height="16" rx="2" fill="#ffffff" stroke="#202020" stroke-width="0.5" />
+      <ns0:circle cx="182.3" cy="220.53355000000002" r="4.4" fill="#3f7f5f" opacity="0.16" />
+      <ns0:text x="182.3" y="222.73355000000004" text-anchor="middle" font-family="DejaVu Sans" font-size="7" font-weight="700" fill="#3f7f5f">Ö</ns0:text>
+      <ns0:text x="182.3" y="228.03355000000002" text-anchor="middle" font-family="DejaVu Sans" font-size="2.0" font-weight="700" fill="#202020">Öppen väg</ns0:text>
+      <ns0:text x="189.10000000000002" y="216.93355000000003" text-anchor="end" font-family="DejaVu Sans" font-size="1.8" font-weight="700" fill="#555555">D6</ns0:text>
+    </ns0:g>
+    <ns0:line x1="216.1" y1="280.23650000000004" x2="226.5" y2="222.43355000000003" stroke="#59615a" stroke-width="1.2" stroke-linecap="round" />
+    <ns0:line x1="226.5" y1="222.43355000000003" x2="236.9" y2="164.63195000000002" stroke="#59615a" stroke-width="1.2" stroke-linecap="round" />
+    <ns0:line x1="60.1" y1="164.63195000000002" x2="104.3" y2="110.07305000000001" stroke="#59615a" stroke-width="1.2" stroke-linecap="round" />
+    <ns0:line x1="104.3" y1="110.07305000000001" x2="148.5" y2="71.67500000000001" stroke="#59615a" stroke-width="1.2" stroke-linecap="round" />
+    <ns0:line x1="236.9" y1="164.63195000000002" x2="192.70000000000002" y2="110.07305000000001" stroke="#59615a" stroke-width="1.2" stroke-linecap="round" />
+    <ns0:line x1="192.70000000000002" y1="110.07305000000001" x2="148.5" y2="71.67500000000001" stroke="#59615a" stroke-width="1.2" stroke-linecap="round" />
+    <ns0:line x1="60.1" y1="164.63195000000002" x2="148.5" y2="164.63195000000002" stroke="#59615a" stroke-width="1.2" stroke-linecap="round" />
+    <ns0:g class="board-road-marker board-road-marker-open">
+      <ns0:rect x="96.3" y="156.63195000000002" width="16" height="16" rx="2" fill="#ffffff" stroke="#202020" stroke-width="0.5" />
+      <ns0:circle cx="104.3" cy="162.73195" r="4.4" fill="#3f7f5f" opacity="0.16" />
+      <ns0:text x="104.3" y="164.93195000000003" text-anchor="middle" font-family="DejaVu Sans" font-size="7" font-weight="700" fill="#3f7f5f">Ö</ns0:text>
+      <ns0:text x="104.3" y="170.23195" text-anchor="middle" font-family="DejaVu Sans" font-size="2.0" font-weight="700" fill="#202020">Öppen väg</ns0:text>
+      <ns0:text x="111.1" y="159.13195000000002" text-anchor="end" font-family="DejaVu Sans" font-size="1.8" font-weight="700" fill="#555555">D1</ns0:text>
+    </ns0:g>
+    <ns0:line x1="148.5" y1="164.63195000000002" x2="236.9" y2="164.63195000000002" stroke="#59615a" stroke-width="1.2" stroke-linecap="round" />
+    <ns0:g class="board-road-marker board-road-marker-open">
+      <ns0:rect x="184.7" y="156.63195000000002" width="16" height="16" rx="2" fill="#ffffff" stroke="#202020" stroke-width="0.5" />
+      <ns0:circle cx="192.7" cy="162.73195" r="4.4" fill="#3f7f5f" opacity="0.16" />
+      <ns0:text x="192.7" y="164.93195000000003" text-anchor="middle" font-family="DejaVu Sans" font-size="7" font-weight="700" fill="#3f7f5f">Ö</ns0:text>
+      <ns0:text x="192.7" y="170.23195" text-anchor="middle" font-family="DejaVu Sans" font-size="2.0" font-weight="700" fill="#202020">Öppen väg</ns0:text>
+      <ns0:text x="199.5" y="159.13195000000002" text-anchor="end" font-family="DejaVu Sans" font-size="1.8" font-weight="700" fill="#555555">D2</ns0:text>
+    </ns0:g>
+    <ns0:line x1="80.9" y1="280.23650000000004" x2="216.1" y2="280.23650000000004" stroke="#59615a" stroke-width="1.2" stroke-linecap="round" />
+    <ns0:g class="board-road-marker board-road-marker-open">
+      <ns0:rect x="140.5" y="272.23650000000004" width="16" height="16" rx="2" fill="#ffffff" stroke="#202020" stroke-width="0.5" />
+      <ns0:circle cx="148.5" cy="278.33650000000006" r="4.4" fill="#3f7f5f" opacity="0.16" />
+      <ns0:text x="148.5" y="280.53650000000005" text-anchor="middle" font-family="DejaVu Sans" font-size="7" font-weight="700" fill="#3f7f5f">Ö</ns0:text>
+      <ns0:text x="148.5" y="285.83650000000006" text-anchor="middle" font-family="DejaVu Sans" font-size="2.0" font-weight="700" fill="#202020">Öppen väg</ns0:text>
+      <ns0:text x="155.3" y="274.73650000000004" text-anchor="end" font-family="DejaVu Sans" font-size="1.8" font-weight="700" fill="#555555">D3</ns0:text>
+    </ns0:g>
+    <ns0:line x1="148.5" y1="164.63195000000002" x2="148.5" y2="71.67500000000001" stroke="#59615a" stroke-width="1.2" stroke-linecap="round" />
+    <ns0:g class="board-road-marker board-road-marker-open">
+      <ns0:rect x="140.5" y="110.15347500000001" width="16" height="16" rx="2" fill="#ffffff" stroke="#202020" stroke-width="0.5" />
+      <ns0:circle cx="148.5" cy="116.25347500000001" r="4.4" fill="#3f7f5f" opacity="0.16" />
+      <ns0:text x="148.5" y="118.45347500000001" text-anchor="middle" font-family="DejaVu Sans" font-size="7" font-weight="700" fill="#3f7f5f">Ö</ns0:text>
+      <ns0:text x="148.5" y="123.75347500000001" text-anchor="middle" font-family="DejaVu Sans" font-size="2.0" font-weight="700" fill="#202020">Öppen väg</ns0:text>
+      <ns0:text x="155.3" y="112.65347500000001" text-anchor="end" font-family="DejaVu Sans" font-size="1.8" font-weight="700" fill="#555555">D4</ns0:text>
+    </ns0:g>
+    <ns0:polyline points="60.1,164.63195000000002 35.400000000000006,164.63195000000002 35.400000000000006,322.03925000000004 148.5,322.03925000000004" fill="none" stroke="#a7a7a7" stroke-width="0.8" stroke-dasharray="3,2" stroke-linecap="round" stroke-linejoin="round" />
+    <ns0:g class="board-road-marker board-road-marker-closed">
+      <ns0:rect x="27.400000000000006" y="240.2631" width="16" height="16" rx="2" fill="#ffffff" stroke="#202020" stroke-width="0.5" />
+      <ns0:circle cx="35.400000000000006" cy="246.3631" r="4.4" fill="#7a4a45" opacity="0.16" />
+      <ns0:text x="35.400000000000006" y="248.56310000000002" text-anchor="middle" font-family="DejaVu Sans" font-size="7" font-weight="700" fill="#7a4a45">S</ns0:text>
+      <ns0:text x="35.400000000000006" y="253.8631" text-anchor="middle" font-family="DejaVu Sans" font-size="2.0" font-weight="700" fill="#202020">Stängd väg</ns0:text>
+      <ns0:text x="42.2" y="242.7631" text-anchor="end" font-family="DejaVu Sans" font-size="1.8" font-weight="700" fill="#555555">V1</ns0:text>
+    </ns0:g>
+    <ns0:polyline points="236.9,164.63195000000002 261.6,164.63195000000002 261.6,322.03925000000004 148.5,322.03925000000004" fill="none" stroke="#a7a7a7" stroke-width="0.8" stroke-dasharray="3,2" stroke-linecap="round" stroke-linejoin="round" />
+    <ns0:g class="board-road-marker board-road-marker-closed">
+      <ns0:rect x="253.60000000000002" y="240.2631" width="16" height="16" rx="2" fill="#ffffff" stroke="#202020" stroke-width="0.5" />
+      <ns0:circle cx="261.6" cy="246.3631" r="4.4" fill="#7a4a45" opacity="0.16" />
+      <ns0:text x="261.6" y="248.56310000000002" text-anchor="middle" font-family="DejaVu Sans" font-size="7" font-weight="700" fill="#7a4a45">S</ns0:text>
+      <ns0:text x="261.6" y="253.8631" text-anchor="middle" font-family="DejaVu Sans" font-size="2.0" font-weight="700" fill="#202020">Stängd väg</ns0:text>
+      <ns0:text x="268.40000000000003" y="242.7631" text-anchor="end" font-family="DejaVu Sans" font-size="1.8" font-weight="700" fill="#555555">V2</ns0:text>
+    </ns0:g>
+    <ns0:polyline points="148.5,71.67500000000001 148.5,22.400000000000006 22.4,22.400000000000006 22.4,340.9392500000001 148.5,340.9392500000001 148.5,322.03925000000004" fill="none" stroke="#a7a7a7" stroke-width="0.8" stroke-dasharray="3,2" stroke-linecap="round" stroke-linejoin="round" />
+    <ns0:g class="board-road-marker board-road-marker-closed">
+      <ns0:rect x="79.4" y="14.400000000000006" width="16" height="16" rx="2" fill="#ffffff" stroke="#202020" stroke-width="0.5" />
+      <ns0:circle cx="87.4" cy="20.500000000000007" r="4.4" fill="#7a4a45" opacity="0.16" />
+      <ns0:text x="87.4" y="22.700000000000006" text-anchor="middle" font-family="DejaVu Sans" font-size="7" font-weight="700" fill="#7a4a45">S</ns0:text>
+      <ns0:text x="87.4" y="28.000000000000007" text-anchor="middle" font-family="DejaVu Sans" font-size="2.0" font-weight="700" fill="#202020">Stängd väg</ns0:text>
+      <ns0:text x="94.2" y="16.900000000000006" text-anchor="end" font-family="DejaVu Sans" font-size="1.8" font-weight="700" fill="#555555">V3</ns0:text>
+    </ns0:g>
+    <ns0:polyline points="60.1,164.63195000000002 60.1,41.300000000000004 209.6,41.300000000000004 236.9,41.300000000000004 236.9,164.63195000000002" fill="none" stroke="#a7a7a7" stroke-width="0.8" stroke-dasharray="3,2" stroke-linecap="round" stroke-linejoin="round" />
+    <ns0:g class="board-road-marker board-road-marker-closed">
+      <ns0:rect x="201.6" y="33.300000000000004" width="16" height="16" rx="2" fill="#ffffff" stroke="#202020" stroke-width="0.5" />
+      <ns0:circle cx="209.6" cy="39.400000000000006" r="4.4" fill="#7a4a45" opacity="0.16" />
+      <ns0:text x="209.6" y="41.6" text-anchor="middle" font-family="DejaVu Sans" font-size="7" font-weight="700" fill="#7a4a45">S</ns0:text>
+      <ns0:text x="209.6" y="46.900000000000006" text-anchor="middle" font-family="DejaVu Sans" font-size="2.0" font-weight="700" fill="#202020">Stängd väg</ns0:text>
+      <ns0:text x="216.4" y="35.800000000000004" text-anchor="end" font-family="DejaVu Sans" font-size="1.8" font-weight="700" fill="#555555">V4</ns0:text>
+    </ns0:g>
+  </ns0:g>
+
+  <ns0:g id="connection-crossings">
+    
+    <ns0:rect x="141.0" y="34.800000000000004" width="15" height="10" fill="#f6f2e8" />
+    <ns0:line x1="148.5" y1="34.800000000000004" x2="148.5" y2="44.800000000000004" stroke="#a7a7a7" stroke-width="0.8" stroke-dasharray="3,2" stroke-linecap="round" />
+    <ns0:path d="M 142.5 41.300000000000004              C 144.5 41.300000000000004,                144.5 36.300000000000004,                148.5 36.300000000000004              C 152.5 36.300000000000004,                152.5 41.300000000000004,                154.5 41.300000000000004" fill="none" stroke="#f6f2e8" stroke-width="3.2" stroke-linecap="round" />
+    <ns0:path d="M 142.5 41.300000000000004              C 144.5 41.300000000000004,                144.5 36.300000000000004,                148.5 36.300000000000004              C 152.5 36.300000000000004,                152.5 41.300000000000004,                154.5 41.300000000000004" fill="none" stroke="#a7a7a7" stroke-width="0.8" stroke-dasharray="3,2" stroke-linecap="round" />
+  </ns0:g>
+
+  <ns0:g id="locations">
+    <ns0:g id="location-base_camp">
+      <ns0:circle cx="216.75" cy="356.35625000000005" r="14" fill="#d9e5d7" stroke="#49634c" stroke-width="1.2" />
+      <ns0:text x="216.75" y="354.35625000000005" text-anchor="middle" font-family="DejaVu Sans" font-size="5.5" font-weight="700" fill="#49634c">B</ns0:text>
+      <ns0:text x="216.75" y="361.35625000000005" text-anchor="middle" font-family="DejaVu Sans" font-size="3.2" font-weight="700" fill="#202020">Basläger</ns0:text>
+    </ns0:g>
+    <ns0:g id="location-supply_depot">
+      <ns0:circle cx="148.5" cy="322.03925000000004" r="14" fill="#e5dfca" stroke="#786b46" stroke-width="1.2" />
+      <ns0:text x="148.5" y="320.03925000000004" text-anchor="middle" font-family="DejaVu Sans" font-size="5.5" font-weight="700" fill="#786b46">F</ns0:text>
+      <ns0:text x="148.5" y="327.03925000000004" text-anchor="middle" font-family="DejaVu Sans" font-size="3.2" font-weight="700" fill="#202020">Förråd</ns0:text>
+      <ns0:text x="148.5" y="331.03925000000004" text-anchor="middle" font-family="DejaVu Sans" font-size="2.4" fill="#666666">Verktyg</ns0:text>
+    </ns0:g>
+    <ns0:g id="location-slot_1">
+      <ns0:rect x="65.9" y="265.23650000000004" width="30" height="30" rx="1.5" fill="#ece9df" stroke="#66635b" stroke-width="1.2" />
+      <ns0:rect x="67.9" y="267.23650000000004" width="26" height="26" rx="1" fill="none" stroke="#66635b" stroke-width="0.5" stroke-dasharray="2,1" />
+      <ns0:text x="80.9" y="278.23650000000004" text-anchor="middle" font-family="DejaVu Sans" font-size="5.5" font-weight="700" fill="#66635b">?</ns0:text>
+      <ns0:text x="80.9" y="285.23650000000004" text-anchor="middle" font-family="DejaVu Sans" font-size="3.2" font-weight="700" fill="#202020">Plats 1</ns0:text>
+    </ns0:g>
+    <ns0:g id="location-slot_2">
+      <ns0:rect x="201.1" y="265.23650000000004" width="30" height="30" rx="1.5" fill="#ece9df" stroke="#66635b" stroke-width="1.2" />
+      <ns0:rect x="203.1" y="267.23650000000004" width="26" height="26" rx="1" fill="none" stroke="#66635b" stroke-width="0.5" stroke-dasharray="2,1" />
+      <ns0:text x="216.1" y="278.23650000000004" text-anchor="middle" font-family="DejaVu Sans" font-size="5.5" font-weight="700" fill="#66635b">?</ns0:text>
+      <ns0:text x="216.1" y="285.23650000000004" text-anchor="middle" font-family="DejaVu Sans" font-size="3.2" font-weight="700" fill="#202020">Plats 2</ns0:text>
+    </ns0:g>
+    <ns0:g id="location-slot_3">
+      <ns0:rect x="45.1" y="149.63195000000002" width="30" height="30" rx="1.5" fill="#ece9df" stroke="#66635b" stroke-width="1.2" />
+      <ns0:rect x="47.1" y="151.63195000000002" width="26" height="26" rx="1" fill="none" stroke="#66635b" stroke-width="0.5" stroke-dasharray="2,1" />
+      <ns0:text x="60.1" y="162.63195000000002" text-anchor="middle" font-family="DejaVu Sans" font-size="5.5" font-weight="700" fill="#66635b">?</ns0:text>
+      <ns0:text x="60.1" y="169.63195000000002" text-anchor="middle" font-family="DejaVu Sans" font-size="3.2" font-weight="700" fill="#202020">Plats 3</ns0:text>
+    </ns0:g>
+    <ns0:g id="location-slot_4">
+      <ns0:rect x="133.5" y="149.63195000000002" width="30" height="30" rx="1.5" fill="#ece9df" stroke="#66635b" stroke-width="1.2" />
+      <ns0:rect x="135.5" y="151.63195000000002" width="26" height="26" rx="1" fill="none" stroke="#66635b" stroke-width="0.5" stroke-dasharray="2,1" />
+      <ns0:text x="148.5" y="162.63195000000002" text-anchor="middle" font-family="DejaVu Sans" font-size="5.5" font-weight="700" fill="#66635b">?</ns0:text>
+      <ns0:text x="148.5" y="169.63195000000002" text-anchor="middle" font-family="DejaVu Sans" font-size="3.2" font-weight="700" fill="#202020">Plats 4</ns0:text>
+    </ns0:g>
+    <ns0:g id="location-slot_5">
+      <ns0:rect x="221.9" y="149.63195000000002" width="30" height="30" rx="1.5" fill="#ece9df" stroke="#66635b" stroke-width="1.2" />
+      <ns0:rect x="223.9" y="151.63195000000002" width="26" height="26" rx="1" fill="none" stroke="#66635b" stroke-width="0.5" stroke-dasharray="2,1" />
+      <ns0:text x="236.9" y="162.63195000000002" text-anchor="middle" font-family="DejaVu Sans" font-size="5.5" font-weight="700" fill="#66635b">?</ns0:text>
+      <ns0:text x="236.9" y="169.63195000000002" text-anchor="middle" font-family="DejaVu Sans" font-size="3.2" font-weight="700" fill="#202020">Plats 5</ns0:text>
+    </ns0:g>
+    <ns0:g id="location-slot_6">
+      <ns0:rect x="133.5" y="56.67500000000001" width="30" height="30" rx="1.5" fill="#ece9df" stroke="#66635b" stroke-width="1.2" />
+      <ns0:rect x="135.5" y="58.67500000000001" width="26" height="26" rx="1" fill="none" stroke="#66635b" stroke-width="0.5" stroke-dasharray="2,1" />
+      <ns0:text x="148.5" y="69.67500000000001" text-anchor="middle" font-family="DejaVu Sans" font-size="5.5" font-weight="700" fill="#66635b">?</ns0:text>
+      <ns0:text x="148.5" y="76.67500000000001" text-anchor="middle" font-family="DejaVu Sans" font-size="3.2" font-weight="700" fill="#202020">Plats 6</ns0:text>
+    </ns0:g>
+    <ns0:g id="location-transit_t1">
+      <ns0:rect x="62.5" y="214.43355000000003" width="16" height="16" rx="1.5" fill="#e3e0d6" stroke="#5f625d" stroke-width="1.2" />
+      <ns0:text x="70.5" y="224.13355" text-anchor="middle" font-family="DejaVu Sans" font-size="5.2" font-weight="700" fill="#5f625d">T1</ns0:text>
+    </ns0:g>
+    <ns0:g id="location-transit_t2">
+      <ns0:rect x="218.5" y="214.43355000000003" width="16" height="16" rx="1.5" fill="#e3e0d6" stroke="#5f625d" stroke-width="1.2" />
+      <ns0:text x="226.5" y="224.13355" text-anchor="middle" font-family="DejaVu Sans" font-size="5.2" font-weight="700" fill="#5f625d">T2</ns0:text>
+    </ns0:g>
+    <ns0:g id="location-transit_t3">
+      <ns0:rect x="96.3" y="102.07305000000001" width="16" height="16" rx="1.5" fill="#e3e0d6" stroke="#5f625d" stroke-width="1.2" />
+      <ns0:text x="104.3" y="111.77305000000001" text-anchor="middle" font-family="DejaVu Sans" font-size="5.2" font-weight="700" fill="#5f625d">T3</ns0:text>
+    </ns0:g>
+    <ns0:g id="location-transit_t4">
+      <ns0:rect x="184.70000000000002" y="102.07305000000001" width="16" height="16" rx="1.5" fill="#e3e0d6" stroke="#5f625d" stroke-width="1.2" />
+      <ns0:text x="192.70000000000002" y="111.77305000000001" text-anchor="middle" font-family="DejaVu Sans" font-size="5.2" font-weight="700" fill="#5f625d">T4</ns0:text>
+    </ns0:g>
+  </ns0:g>
+
+
+
+</ns0:svg>

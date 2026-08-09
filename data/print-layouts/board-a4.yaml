@@ -1,0 +1,9 @@
+version: 1
+print_layout:
+  id: board_a4_v1
+  paper: A4
+  orientation: portrait
+  width_mm: 210
+  height_mm: 297
+  source_svg: output/components/boards/expedition-board-02.svg
+  output_pdf: output/print/pdf/board-a4-02.pdf

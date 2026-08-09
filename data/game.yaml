@@ -1,0 +1,70 @@
+version: 1
+game:
+  id: expedition
+  name: Expedition
+  working_title: true
+  language: sv
+  category:
+  - cooperative
+  - adventure
+  - survival
+  - exploration
+  player_count:
+    minimum: 1
+    maximum: 4
+  recommended_characters:
+    solo: 2
+    multiplayer_minimum: 2
+    multiplayer_maximum: 4
+  play_time_minutes:
+    minimum: 25
+    maximum: 40
+  recommended_age: 10
+  format: print_and_play
+  paper_standard: A4
+  status: endurance_pool_prototype
+experience_goals:
+- upptackt
+- samarbete
+- stigande_fara
+- knappa_resurser
+- meningsfulla_val
+resources:
+- id: tools
+  name: Verktyg
+  token_required: true
+tracks:
+- id: endurance
+  name: Uthållighet
+  minimum: 0
+  maximum: 14
+  start: 12
+  direction: decreasing
+characters:
+  actions_per_round: 2
+  shared_information: true
+  default_health: 3
+  default_backpack_capacity: 4
+  source: data/characters.yaml
+objectives:
+  required_objective_cards: scenario_defined
+  completion: scenario_defined
+  card_source: scenario_defined
+  slots_each: printed_on_card
+prototype_component_budget:
+  boards: 1
+  cards_minimum: 32
+  cards_maximum: 40
+  reference_cards: 1
+  tokens_minimum: 18
+  tokens_maximum: 24
+  borrowed_player_pieces: true
+  standard_d6_optional: true
+design_hypotheses:
+- Två handlingar per karaktär ger lagom tempo.
+- Personliga ryggsäckar skapar positionering och naturligt samarbete.
+- Fyra platser är normal ryggsäckskapacitet.
+- Målobjekt som tar två platser skapar en logistisk hemresa.
+- Verktyg är den enda generella resursen.
+- Utrustningskort är mer begripliga och tematiska än flera resursmarkörer.
+- En synlig uthållighetspool skapar tydlig tidspress och enkel svårighetsskalning.

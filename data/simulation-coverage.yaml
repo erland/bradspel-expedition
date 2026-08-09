@@ -1,0 +1,45 @@
+version: 1
+coverage:
+  effect_handlers:
+    full:
+    - heal
+    - gain_endurance
+    - peek_hidden_roads
+    - ignore_current_travel_event
+    - cancel_next_endurance_loss
+    - reduce_install_cost
+    - damage
+    - lose_endurance
+    - lose_carried_content
+    - next_move_cost
+    - choice_pay_or_damage
+    - draw_objective_card
+    - draw_equipment_card
+    - mark_repair_site
+    - no_effect
+    passive:
+    - first_tool_uses_zero_slots
+    - increase_backpack_capacity
+  character_abilities:
+    full:
+    - peek_adjacent_hidden_road
+    - unlock_road_no_action
+    - larger_backpack
+    - medical_equipment_plus_one
+    - free_transfer_same_location
+    - extra_health
+    - ignore_travel_event_damage
+    - use_consumable_no_action
+  mission_completion:
+    full:
+    - deliver_items
+    - place_items_at_tagged_locations
+  documented_approximations:
+    peek_hidden_roads: Agenten minns utfallet och undviker kända blockerade vägar
+      utan verktyg.
+    free_transfer_same_location: Kuriren flyttar så många mål, verktyg och utrustningar
+      som mottagaren rymmer.
+    use_consumable_no_action: Första rationellt använda engångsutrustningen per runda
+      kostar 0 handlingar.
+    character_selection: Simulatorn drar rätt antal karaktärer och väljer därefter
+      enligt agentprioritet.

@@ -1,0 +1,100 @@
+## validate_project stdout
+Validering godkänd: 37 YAML-filer, 0 varningar.
+
+## generate_board stdout
+Skapade bräd-SVG: output/components/boards/expedition-board-02.svg
+
+## export_board_pdf stdout
+Skapade bräd-PDF: output/print/pdf/spelplan-a4-kompakt.pdf
+
+## generate_board_wide stdout
+Skapade A3-bräd-SVG för 2xA4: output/components/boards/expedition-board-2xa4.svg
+
+## export_board_2xa4 stdout
+Skapade 2xA4-spelplan i liggande format: output/print/pdf/spelplan-2xa4.pdf
+
+## generate_reference stdout
+Skapade A6-referenskort: output/components/reference/core-turn-reference-a6.svg
+
+## build_reference_sheets stdout
+Skapade A4 4-up SVG: output/print/svg/reference-a4-4up.svg
+
+## export_reference_pdf stdout
+Skapade A6-PDF: output/print/pdf/reference-a6.pdf
+Skapade A4 4-up PDF: output/print/pdf/reference-a4-4up.pdf
+
+## generate_tokens stdout
+Genererade 30 token-SVG.
+
+## build_token_sheet stdout
+Skapade tokenark-SVG: output/print/svg/tokens-a4-01.svg
+
+## export_tokens_pdf stdout
+Skapade tokenark-PDF: output/print/pdf/tokens-a4-01.pdf
+
+## generate_scenario_cards stdout
+Genererade 14 scenario-kort-SVG.
+
+## build_scenario_card_sheets stdout
+Skapade output/print/svg/station-nordanvind-platskort-a4-01.svg
+Skapade output/print/svg/gemensamma-fardhandelser-a4-01.svg
+
+## export_scenario_cards_pdf stdout
+Skapade output/print/pdf/station-nordanvind-platskort-a4-01.pdf
+Skapade output/print/pdf/gemensamma-fardhandelser-a4-01.pdf
+
+## generate_location_tiles stdout
+Genererade dubbelsidiga platsbrickor: 12 framsidor, 12 baksidor och 2-sidig PDF.
+
+## generate_road_markers stdout
+Genererade 28 enkelsidiga vägmarkörer.
+
+## build_road_marker_sheet stdout
+Skapade output/print/svg/gemensamma-vagbrickor-a4-01.svg och output/print/pdf/gemensamma-vagbrickor-a4-01.pdf
+
+## generate_transit_markers stdout
+Genererade 4 transitbrickor.
+
+## build_transit_marker_sheet stdout
+Skapade output/print/svg/gemensamma-transitbrickor-a4-01.svg och output/print/pdf/gemensamma-transitbrickor-a4-01.pdf
+
+## generate_gameplay_cards stdout
+Genererade 17 karaktärs-, utrustnings- och målkort.
+
+## build_gameplay_card_sheets stdout
+Skapade output/print/svg/gemensamma-karaktarskort-a4-01.svg och output/print/pdf/gemensamma-karaktarskort-a4-01.pdf
+Skapade output/print/svg/gemensam-utrustning-a4-01.svg och output/print/pdf/gemensam-utrustning-a4-01.pdf
+Skapade output/print/svg/station-nordanvind-malobjekt-a4-01.svg och output/print/pdf/station-nordanvind-malobjekt-a4-01.pdf
+
+## check_simulation_coverage stdout
+Simulatortäckning godkänd: 15 effekter, 8 förmågor, 2 uppdragstyper.
+
+## generate_okenrelaet_content stdout
+Genererade Ökenreläets 14 kort och två A4-ark.
+
+## generate_scenario_sheet stdout
+Skapade A5-scenariokort: output/components/scenarios/okenrelaet-a5.svg
+Skapade A5-scenariokort: output/components/scenarios/station-nordanvind-a5.svg
+
+## build_scenario_sheet stdout
+Skapade output/print/svg/okenrelaet-scenarioark-a4.svg
+Skapade output/print/svg/station-nordanvind-scenarioark-a4.svg
+
+## export_scenario_sheet_pdf stdout
+Exporterade scenariokort för alla scenarier.
+
+## generate_scenario_event_cards stdout
+Genererade 8 scenariohändelsekort.
+
+## build_scenario_event_sheet stdout
+Skapade output/print/svg/station-nordanvind-scenariohandelser-a4-01.svg och output/print/pdf/station-nordanvind-scenariohandelser-a4-01.pdf med 4 kort.
+Skapade output/print/svg/okenrelaet-scenariohandelser-a4-01.svg och output/print/pdf/okenrelaet-scenariohandelser-a4-01.pdf med 4 kort.
+
+## generate_playtest_docs stdout
+Skapade dokument-PDF: output/print/pdf/rulebook-playtest-v1.9.pdf
+Skapade dokument-PDF: output/print/pdf/assembly-guide-v1.9.pdf
+Skapade dokument-PDF: output/print/pdf/playtest-guide-v1.9.pdf
+Skapade dokument-PDF: output/print/pdf/playtest-forms-v1.9.pdf
+
+## assemble_print_package stdout
+Skapade komplett printpaket: output/print-package/expedition-v1.9.51-komplett-printpaket.pdf

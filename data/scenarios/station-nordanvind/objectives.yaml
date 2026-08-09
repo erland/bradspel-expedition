@@ -1,0 +1,31 @@
+version: 1
+deck:
+  id: station_nordanvind_objectives
+  name: Station Nordanvind - målobjekt
+  shuffle: true
+  required_for_victory: 3
+  scope:
+    level: scenario
+    id: station-nordanvind
+objectives:
+- id: research_server
+  name: Forskningsserver
+  count: 1
+  slots: 2
+  symbol: D
+  usable: false
+  text: Känslig forskningsdata från stationens centrala system.
+- id: satellite_core
+  name: Satellitkärna
+  count: 1
+  slots: 2
+  symbol: S
+  usable: false
+  text: Nordanvinds saknade sändarkärna.
+- id: medical_sample
+  name: Medicinskt prov
+  count: 1
+  slots: 2
+  symbol: M
+  usable: false
+  text: Ett förseglat biologiskt prov från forskningsstationen.

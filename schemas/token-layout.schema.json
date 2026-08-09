@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "token-layout.schema.json",
+  "title": "Token layout",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "layout",
+    "style",
+    "palette"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "layout": {
+      "type": "object",
+      "required": [
+        "id",
+        "template"
+      ]
+    },
+    "style": {
+      "type": "object"
+    },
+    "palette": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+version: 1
+locations:
+- id: base_camp
+  display_id: B
+  name: Basläger
+  kind: base
+  symbol: B
+  count: 1
+  display:
+    title: Basläger
+    body: 'Återhämta (1 handling): Läk 1 hälsa.'
+    footer: Fast plats
+- id: supply_depot
+  display_id: F
+  name: Förråd
+  kind: supply
+  symbol: V
+  count: 1
+  display:
+    title: Förråd
+    body: 'Hämta verktyg (1 handling): Ta 1 verktyg.'
+    footer: Fast plats

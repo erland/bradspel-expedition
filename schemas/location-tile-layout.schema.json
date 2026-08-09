@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "location-tile-layout.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "layout",
+    "style",
+    "palette"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "layout": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "id",
+        "template",
+        "width_mm",
+        "height_mm",
+        "sheet_columns",
+        "sheet_rows"
+      ]
+    },
+    "style": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "palette": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "objectives.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "deck",
+    "objectives"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "deck": {
+      "type": "object",
+      "properties": {
+        "scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "level"
+          ],
+          "properties": {
+            "level": {
+              "enum": [
+                "core",
+                "environment",
+                "scenario"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_-]*$"
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "level": {
+                    "const": "core"
+                  }
+                }
+              },
+              "then": {
+                "not": {
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "level": {
+                    "enum": [
+                      "environment",
+                      "scenario"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "id"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "objectives": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "count",
+          "slots",
+          "symbol",
+          "usable",
+          "text"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "slots": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "usable": {
+            "const": false
+          },
+          "text": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

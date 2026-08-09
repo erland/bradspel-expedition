@@ -1,0 +1,76 @@
+{
+  "status": "passed",
+  "used_effects": [
+    "choice_pay_or_damage",
+    "damage",
+    "draw_equipment_card",
+    "draw_objective_card",
+    "first_tool_uses_zero_slots",
+    "gain_endurance",
+    "heal",
+    "ignore_current_travel_event",
+    "increase_backpack_capacity",
+    "lose_carried_content",
+    "lose_endurance",
+    "mark_repair_site",
+    "next_move_cost",
+    "no_effect",
+    "peek_hidden_roads"
+  ],
+  "supported_effects": [
+    "cancel_next_endurance_loss",
+    "choice_pay_or_damage",
+    "damage",
+    "draw_equipment_card",
+    "draw_objective_card",
+    "first_tool_uses_zero_slots",
+    "gain_endurance",
+    "heal",
+    "ignore_current_travel_event",
+    "increase_backpack_capacity",
+    "lose_carried_content",
+    "lose_endurance",
+    "mark_repair_site",
+    "next_move_cost",
+    "no_effect",
+    "peek_hidden_roads",
+    "reduce_install_cost"
+  ],
+  "used_character_abilities": [
+    "extra_health",
+    "free_transfer_same_location",
+    "ignore_travel_event_damage",
+    "larger_backpack",
+    "medical_equipment_plus_one",
+    "peek_adjacent_hidden_road",
+    "unlock_road_no_action",
+    "use_consumable_no_action"
+  ],
+  "supported_character_abilities": [
+    "extra_health",
+    "free_transfer_same_location",
+    "ignore_travel_event_damage",
+    "larger_backpack",
+    "medical_equipment_plus_one",
+    "peek_adjacent_hidden_road",
+    "unlock_road_no_action",
+    "use_consumable_no_action"
+  ],
+  "used_completion_types": [
+    "deliver_items",
+    "place_items_at_tagged_locations"
+  ],
+  "supported_completion_types": [
+    "deliver_items",
+    "place_items_at_tagged_locations"
+  ],
+  "missing_effects": [],
+  "missing_character_abilities": [],
+  "missing_completion_types": [],
+  "documented_approximations": {
+    "peek_hidden_roads": "Agenten minns utfallet och undviker kända blockerade vägar utan verktyg.",
+    "free_transfer_same_location": "Kuriren flyttar så många mål, verktyg och utrustningar som mottagaren rymmer.",
+    "use_consumable_no_action": "Första rationellt använda engångsutrustningen per runda kostar 0 handlingar.",
+    "character_selection": "Simulatorn drar rätt antal karaktärer och väljer därefter enligt agentprioritet."
+  }
+}

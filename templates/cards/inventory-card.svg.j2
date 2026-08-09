@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+ width="{{ width }}mm" height="{{ height }}mm" viewBox="0 0 {{ width }} {{ height }}">
+ <rect x="0.25" y="0.25" width="{{ width-0.5 }}" height="{{ height-0.5 }}"
+       rx="3" fill="#f6f2e8" stroke="#202020" stroke-width="0.5"/>
+ <rect x="0.25" y="0.25" width="{{ width-0.5 }}" height="11" rx="3" fill="{{ accent }}"/>
+ <rect x="0.25" y="8" width="{{ width-0.5 }}" height="3" fill="{{ accent }}"/>
+ <text x="{{ width/2 }}" y="7.2" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3" font-weight="700" fill="#fff">{{ category }}</text>
+ <text x="{{ width/2 }}" y="18" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="5" font-weight="700" fill="#202020">{{ title }}</text>
+ <circle cx="{{ width/2 }}" cy="34" r="8" fill="{{ accent }}" opacity="0.18"/>
+ <text x="{{ width/2 }}" y="37" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="9" font-weight="700" fill="{{ accent }}">{{ symbol }}</text>
+ {% for line in stat_lines %}
+ <text x="5" y="{{ 48 + loop.index0*4.2 }}" font-family="DejaVu Sans"
+       font-size="2.9" font-weight="700" fill="#202020">{{ line }}</text>
+ {% endfor %}
+ {% for line in body_lines %}
+ <text x="{{ width/2 }}" y="{{ body_start + loop.index0*4.1 }}" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3" fill="#202020">{{ line }}</text>
+ {% endfor %}
+ <text x="{{ width/2 }}" y="84.5" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2" fill="#666">{{ footer }}</text>
+</svg>

@@ -1,0 +1,46 @@
+version: 1
+token_sets:
+- id: core_tokens
+  name: Grundmarkörer
+  purpose: Verktyg, skada, uthållighet och handlingar.
+tokens:
+- id: resource_tools
+  name: Verktyg
+  type: resource
+  set: core_tokens
+  count: 4
+  symbol: V
+  color: '#9aa4a7'
+  text_color: '#202020'
+  size_mm: 22
+  source_ref: game.resources.tools
+- id: status_damage
+  name: Skada
+  type: status
+  set: core_tokens
+  count: 10
+  symbol: '-1'
+  color: '#c98f88'
+  text_color: '#202020'
+  size_mm: 18
+  source_ref: characters.health
+- id: pool_endurance
+  name: Uthållighet
+  type: pool
+  set: core_tokens
+  count: 12
+  symbol: U
+  color: '#d0a95b'
+  text_color: '#202020'
+  size_mm: 18
+  source_ref: scenario.setup.endurance_by_character_count
+- id: action_remaining
+  name: Handling kvar
+  type: turn_tracking
+  set: core_tokens
+  count: 4
+  symbol: H
+  color: '#d8d2c4'
+  text_color: '#202020'
+  size_mm: 18
+  source_ref: rules.round.player_phase.actions_per_character

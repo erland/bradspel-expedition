@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+ width="63mm" height="88mm" viewBox="0 0 63 88">
+ <rect x="0.25" y="0.25" width="62.5" height="87.5"
+       rx="3" fill="#f6f2e8" stroke="#202020" stroke-width="0.5"/>
+ <rect x="0.25" y="0.25" width="62.5" height="11" rx="3" fill="#a97843"/>
+ <rect x="0.25" y="8" width="62.5" height="3" fill="#a97843"/>
+ <text x="31.5" y="7.2" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3" font-weight="700" fill="#fff">SCENARIOHÄNDELSE</text>
+ <text x="31.5" y="18" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="5" font-weight="700" fill="#202020">Navigationsfyrarna</text>
+ <circle cx="31.5" cy="34" r="8" fill="#a97843" opacity="0.18"/>
+ <text x="31.5" y="37" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="9" font-weight="700" fill="#a97843">↔</text>
+ <text x="5" y="48.0" font-family="DejaVu Sans"
+       font-size="2.9" font-weight="700" fill="#202020">ÖKENRELÄET</text>
+ <text x="5" y="52.2" font-family="DejaVu Sans"
+       font-size="2.9" font-weight="700" fill="#202020">Lös omedelbart</text>
+ <text x="31.5" y="61.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3" fill="#202020">Ta bort eventuell markör på V4 och</text>
+ <text x="31.5" y="65.1" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3" fill="#202020">lägg en Öppen väg-markör där. Den</text>
+ <text x="31.5" y="69.2" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3" fill="#202020">säkra leden mellan Plats 3 och Plats</text>
+ <text x="31.5" y="73.3" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3" fill="#202020">5 är nu öppen.</text>
+ <text x="31.5" y="84.5" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2" fill="#666">Kassera efter att effekten lösts</text>
+</svg>

@@ -1,0 +1,27 @@
+version: 1
+layout:
+  id: small_component_card_v1
+  width_mm: 57
+  height_mm: 80
+  corner_radius_mm: 3
+  safe_zone_mm: 4
+  border_width_mm: 0.5
+palette:
+  paper: '#f6f2e8'
+  ink: '#202020'
+  muted: '#666666'
+  objective: '#a6782f'
+  resource: '#56785b'
+  hazard: '#934f49'
+  travel: '#5d6f86'
+fields:
+  title_y: 15
+  title_size: 4.4
+  symbol_y: 34
+  symbol_size: 10
+  body_y: 48
+  body_size: 3.3
+  footer_y: 76
+  footer_size: 2.3
+render:
+  font_family: DejaVu Sans

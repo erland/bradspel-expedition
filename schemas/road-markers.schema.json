@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "road-markers.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "marker_set",
+    "markers"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "marker_set": {
+      "type": "object",
+      "properties": {
+        "presentation": {
+          "type": "string"
+        },
+        "width_mm": {
+          "type": "number",
+          "minimum": 1
+        },
+        "height_mm": {
+          "type": "number",
+          "minimum": 1
+        },
+        "hidden_side": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "presentation",
+        "width_mm",
+        "height_mm",
+        "hidden_side"
+      ]
+    },
+    "markers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "result",
+          "count",
+          "symbol",
+          "name",
+          "effect"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "result": {
+            "enum": [
+              "open",
+              "blocked",
+              "travel_event",
+              "connection_open",
+              "connection_closed"
+            ]
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "effect": {
+            "type": "array"
+          },
+          "unlock": {
+            "type": "object"
+          },
+          "purpose": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

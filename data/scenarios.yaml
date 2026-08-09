@@ -1,0 +1,140 @@
+version: 2
+scenarios:
+- id: station_nordanvind
+  name: Station Nordanvind
+  status: playtest_prototype
+  player_count:
+    minimum: 1
+    maximum: 4
+  solo_characters: 2
+  starting_resources:
+    tools: 0
+  setup:
+    fixed_locations: &id001
+    - base_camp
+    - supply_depot
+    location_slots: &id002
+    - slot_1
+    - slot_2
+    - slot_3
+    - slot_4
+    - slot_5
+    - slot_6
+    location_deck: station_nordanvind_locations
+    road_marker_set: normal_roads
+    hidden_roads:
+    - road_hidden_01
+    - road_hidden_02
+    - road_hidden_03
+    - road_hidden_05
+    - road_hidden_06
+    starting_location: base_camp
+    supply_depot_tools: 4
+    character_source: data/characters.yaml
+    equipment_deck: core_equipment
+    objective_deck: station_nordanvind_objectives
+    starting_equipment: 0
+    endurance_by_character_count:
+      '2': 11
+      '3': 9
+      '4': 8
+    starting_tools_by_character_count:
+      '2': 0
+      '3': 0
+      '4': 0
+    hidden_road_marker_pool:
+      open: 3
+      blocked: 2
+      travel_event: 1
+  fixed_location_rules: &id003
+    base_camp:
+      start: true
+      victory_return: true
+      action: null
+    supply_depot:
+      action: take_tool
+      cost_actions: 1
+      limit: until_supply_empty
+      initial_stock: 4
+  victory:
+    objective_cards_required: 3
+    objective_cards_must_be_at: base_camp
+    at_least_one_active_character: true
+  defeat: &id004
+    all_characters_incapacitated: true
+    endurance_reaches: 0
+  test_notes:
+  - Karaktärer väljs ur en pool på åtta.
+  - Varje karaktär har personlig ryggsäck och egen hälsa.
+  - Utrustning tar normalt en plats och kan vara engångs- eller permanent.
+  - Uthållighet minskar i slutet av rundan efter att alla karaktärer agerat.
+  - Aktiveringsordningen är fast under hela spelet.
+  - 'Dynamisk testprofil: 11/9/8 uthållighet för 2/3/4 karaktärer.'
+  - Första levererade målobjektet öppnar V1; andra levererade målobjektet öppnar V2.
+  - Målobjektens ryggsäcksstorlek står på korten; destination och slutförande står på scenarioarket.
+  turn_order: &id005
+    multiplayer: Välj en startspelare. Aktivera medsols i samma ordning hela spelet.
+    solo: Lägg karaktärskorten från vänster till höger och använd samma ordning varje runda.
+    tracking: Vrid karaktärskortet 90 grader efter aktivering. Räta upp alla kort efter Uthållighetsfasen.
+  endurance_phase: &id006
+    timing: end_of_round
+    loss_each_round: 1
+  base_profile: core_v1
+  scenario_pack: data/scenarios/station-nordanvind/scenario.yaml
+  presentation:
+    format: A5
+    pages: 1
+- id: okenrelaet
+  name: Ökenreläet
+  status: playtest_prototype
+  player_count:
+    minimum: 1
+    maximum: 4
+  solo_characters: 2
+  starting_resources:
+    tools: 0
+  base_profile: core_v1
+  scenario_pack: data/scenarios/okenrelaet/scenario.yaml
+  presentation:
+    format: A5
+    pages: 1
+  setup:
+    fixed_locations: *id001
+    location_slots: *id002
+    location_deck: okenrelaet_locations
+    road_marker_set: normal_roads
+    hidden_roads:
+    - road_hidden_01
+    - road_hidden_02
+    - road_hidden_03
+    - road_hidden_04
+    starting_location: base_camp
+    supply_depot_tools: 4
+    character_source: data/characters.yaml
+    equipment_deck: core_equipment
+    objective_deck: okenrelaet_modules
+    starting_equipment: 0
+    endurance_by_character_count:
+      '2': 12
+      '3': 10
+      '4': 9
+    starting_tools_by_character_count:
+      '2': 1
+      '3': 0
+      '4': 0
+    hidden_road_marker_pool:
+      open: 2
+      blocked: 1
+      travel_event: 1
+  fixed_location_rules: *id003
+  victory:
+    objective_cards_required: 3
+    objective_cards_must_be_at: installed_relays
+    at_least_one_active_character: true
+  defeat: *id004
+  test_notes:
+  - Tre målobjekt ska aktiveras på tre reläplatser.
+  - Första aktiverade reläplatsen öppnar V4; andra aktiverade reläplatsen öppnar V2.
+  - Målobjektens storlek står på korten; aktivering och progression står på scenarioarket.
+  turn_order: *id005
+  endurance_phase: *id006

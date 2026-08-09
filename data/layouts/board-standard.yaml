@@ -1,0 +1,37 @@
+version: 1
+layout:
+  id: board_standard_v1
+  template: templates/boards/node-map.svg.j2
+  width_mm: 210
+  height_mm: 297
+  safe_margin_mm: 8
+palette:
+  paper: '#f6f2e8'
+  ink: '#202020'
+  muted: '#666666'
+  connection: '#59615a'
+  blocked: '#9a4f49'
+  track_fill: '#efe9d8'
+  track_start: '#d8e7d5'
+  track_end: '#eed3ce'
+style:
+  title_x: 105
+  title_y: 13
+  title_font_size: 7
+  subtitle_font_size: 3
+  connection_width_mm: 1.2
+  blocked_dash: 4,2
+  location_label_font_size: 3.2
+  location_icon_font_size: 5.5
+  resource_font_size: 2.4
+  track_label_font_size: 3.2
+  track_value_font_size: 2.8
+  legend_font_size: 2.5
+  font_family: DejaVu Sans
+render:
+  show_grid: false
+  show_location_ids: false
+  show_coordinates: false
+  show_safe_margin: false
+  show_legend: false
+  show_background: false

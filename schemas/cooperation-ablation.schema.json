@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "cooperation-ablation.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "study",
+    "modes",
+    "metrics"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "study": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "scenario_id",
+        "base_seed",
+        "runs_per_cell",
+        "character_counts",
+        "strategies",
+        "output_directory",
+        "same_seed_per_mode",
+        "notes"
+      ]
+    },
+    "modes": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "coordinate_destinations",
+          "allow_transfers",
+          "transfer_action_cost"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "coordinate_destinations": {
+            "type": "boolean"
+          },
+          "allow_transfers": {
+            "type": "boolean"
+          },
+          "transfer_action_cost": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "metrics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,340 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "game.schema.json",
+  "title": "Expedition game data",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "game",
+    "experience_goals",
+    "resources",
+    "tracks",
+    "characters",
+    "objectives",
+    "prototype_component_budget",
+    "design_hypotheses"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "game": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "working_title",
+        "language",
+        "category",
+        "player_count",
+        "recommended_characters",
+        "play_time_minutes",
+        "recommended_age",
+        "format",
+        "paper_standard",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "working_title": {
+          "type": "boolean"
+        },
+        "language": {
+          "type": "string",
+          "minLength": 2
+        },
+        "category": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "player_count": {
+          "$ref": "#/$defs/minMax"
+        },
+        "recommended_characters": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "solo",
+            "multiplayer_minimum",
+            "multiplayer_maximum"
+          ],
+          "properties": {
+            "solo": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "multiplayer_minimum": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "multiplayer_maximum": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        "play_time_minutes": {
+          "$ref": "#/$defs/minMax"
+        },
+        "recommended_age": {
+          "type": "integer",
+          "minimum": 3,
+          "maximum": 99
+        },
+        "format": {
+          "const": "print_and_play"
+        },
+        "paper_standard": {
+          "enum": [
+            "A4"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "experience_goals": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/id"
+      }
+    },
+    "resources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/namedTokenEntity"
+      }
+    },
+    "tracks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "minimum",
+          "maximum",
+          "start"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minimum": {
+            "type": "integer"
+          },
+          "maximum": {
+            "type": "integer"
+          },
+          "start": {
+            "type": "integer"
+          },
+          "direction": {
+            "enum": [
+              "increasing",
+              "decreasing"
+            ]
+          }
+        }
+      }
+    },
+    "characters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "actions_per_round",
+        "shared_information",
+        "default_health",
+        "default_backpack_capacity",
+        "source"
+      ],
+      "properties": {
+        "actions_per_round": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 6
+        },
+        "shared_information": {
+          "type": "boolean"
+        },
+        "default_health": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "default_backpack_capacity": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "source": {
+          "type": "string",
+          "pattern": "^data/.+\\.yaml$"
+        }
+      }
+    },
+    "objectives": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required_objective_cards",
+        "card_source",
+        "slots_each",
+        "completion"
+      ],
+      "properties": {
+        "required_objective_cards": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "const": "scenario_defined"
+            }
+          ]
+        },
+        "return_location": {
+          "type": "string"
+        },
+        "card_source": {
+          "type": "string"
+        },
+        "slots_each": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "const": "printed_on_card"
+            }
+          ]
+        },
+        "completion": {
+          "const": "scenario_defined"
+        }
+      }
+    },
+    "prototype_component_budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "boards",
+        "cards_minimum",
+        "cards_maximum",
+        "reference_cards",
+        "tokens_minimum",
+        "tokens_maximum",
+        "borrowed_player_pieces",
+        "standard_d6_optional"
+      ],
+      "properties": {
+        "boards": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cards_minimum": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cards_maximum": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "reference_cards": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tokens_minimum": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tokens_maximum": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "borrowed_player_pieces": {
+          "type": "boolean"
+        },
+        "standard_d6_optional": {
+          "type": "boolean"
+        }
+      }
+    },
+    "design_hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "minMax": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "minimum",
+        "maximum"
+      ],
+      "properties": {
+        "minimum": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "maximum": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "namedTokenEntity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "token_required"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "token_required": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

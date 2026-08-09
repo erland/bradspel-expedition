@@ -1,0 +1,127 @@
+{
+  "version": "1.9.51",
+  "status": "ready_for_physical_print",
+  "physical_test_completed": false,
+  "files": [
+    {
+      "source": "output/print/pdf/rulebook-playtest-v1.9.pdf",
+      "package_file": "output/print-package/rulebook-playtest-v1.9.pdf",
+      "pages": 7
+    },
+    {
+      "source": "output/print/pdf/assembly-guide-v1.9.pdf",
+      "package_file": "output/print-package/assembly-guide-v1.9.pdf",
+      "pages": 2
+    },
+    {
+      "source": "output/print/pdf/station-nordanvind-scenarioark-a4.pdf",
+      "package_file": "output/print-package/station-nordanvind-scenarioark-a4.pdf",
+      "pages": 1
+    },
+    {
+      "source": "output/print/pdf/station-nordanvind-platskort-a4-01.pdf",
+      "package_file": "output/print-package/station-nordanvind-platskort-a4-01.pdf",
+      "pages": 1
+    },
+    {
+      "source": "output/print/pdf/station-nordanvind-malobjekt-a4-01.pdf",
+      "package_file": "output/print-package/station-nordanvind-malobjekt-a4-01.pdf",
+      "pages": 1
+    },
+    {
+      "source": "output/print/pdf/station-nordanvind-scenariohandelser-a4-01.pdf",
+      "package_file": "output/print-package/station-nordanvind-scenariohandelser-a4-01.pdf",
+      "pages": 1
+    },
+    {
+      "source": "output/print/pdf/okenrelaet-scenarioark-a4.pdf",
+      "package_file": "output/print-package/okenrelaet-scenarioark-a4.pdf",
+      "pages": 1
+    },
+    {
+      "source": "output/print/pdf/okenrelaet-platskort-och-okenmiljo-fardhandelser-a4-01.pdf",
+      "package_file": "output/print-package/okenrelaet-platskort-och-okenmiljo-fardhandelser-a4-01.pdf",
+      "pages": 1
+    },
+    {
+      "source": "output/print/pdf/okenrelaet-malobjekt-och-okenmiljo-utrustning-a4-01.pdf",
+      "package_file": "output/print-package/okenrelaet-malobjekt-och-okenmiljo-utrustning-a4-01.pdf",
+      "pages": 1
+    },
+    {
+      "source": "output/print/pdf/okenrelaet-scenariohandelser-a4-01.pdf",
+      "package_file": "output/print-package/okenrelaet-scenariohandelser-a4-01.pdf",
+      "pages": 1
+    },
+    {
+      "source": "output/print/pdf/spelplan-2xa4.pdf",
+      "package_file": "output/print-package/spelplan-2xa4.pdf",
+      "pages": 2
+    },
+    {
+      "source": "output/print/pdf/spelplan-a4-kompakt.pdf",
+      "package_file": "output/print-package/spelplan-a4-kompakt.pdf",
+      "pages": 1
+    },
+    {
+      "source": "output/print/pdf/location-tiles-a4-01.pdf",
+      "package_file": "output/print-package/location-tiles-a4-01.pdf",
+      "pages": 2
+    },
+    {
+      "source": "output/print/pdf/gemensamma-fardhandelser-a4-01.pdf",
+      "package_file": "output/print-package/gemensamma-fardhandelser-a4-01.pdf",
+      "pages": 1
+    },
+    {
+      "source": "output/print/pdf/gemensamma-vagbrickor-a4-01.pdf",
+      "package_file": "output/print-package/gemensamma-vagbrickor-a4-01.pdf",
+      "pages": 1
+    },
+    {
+      "source": "output/print/pdf/gemensamma-transitbrickor-a4-01.pdf",
+      "package_file": "output/print-package/gemensamma-transitbrickor-a4-01.pdf",
+      "pages": 1
+    },
+    {
+      "source": "output/print/pdf/gemensamma-karaktarskort-a4-01.pdf",
+      "package_file": "output/print-package/gemensamma-karaktarskort-a4-01.pdf",
+      "pages": 1
+    },
+    {
+      "source": "output/print/pdf/gemensam-utrustning-a4-01.pdf",
+      "package_file": "output/print-package/gemensam-utrustning-a4-01.pdf",
+      "pages": 1
+    },
+    {
+      "source": "output/print/pdf/tokens-a4-01.pdf",
+      "package_file": "output/print-package/tokens-a4-01.pdf",
+      "pages": 1
+    },
+    {
+      "source": "output/print/pdf/reference-a4-4up.pdf",
+      "package_file": "output/print-package/reference-a4-4up.pdf",
+      "pages": 1
+    },
+    {
+      "source": "output/print/pdf/playtest-guide-v1.9.pdf",
+      "package_file": "output/print-package/playtest-guide-v1.9.pdf",
+      "pages": 2
+    },
+    {
+      "source": "output/print/pdf/playtest-forms-v1.9.pdf",
+      "package_file": "output/print-package/playtest-forms-v1.9.pdf",
+      "pages": 2
+    }
+  ],
+  "combined_pdf": "output/print-package/expedition-v1.9.51-komplett-printpaket.pdf",
+  "scope_levels": [
+    "core",
+    "environment",
+    "scenario"
+  ],
+  "notes": [
+    "Skriv ut i 100 procent eller faktisk storlek.",
+    "Fysisk montering och bordstest återstår."
+  ]
+}

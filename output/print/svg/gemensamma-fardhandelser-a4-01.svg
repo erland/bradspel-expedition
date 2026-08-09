@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
+<rect width="100%" height="100%" fill="#fff"/>
+<g transform="translate(15,18)">
+ <rect x="0.25" y="0.25" width="56.5" height="79.5"
+       rx="3" fill="#f6f2e8" stroke="#202020" stroke-width="0.5"/>
+ <rect x="0.25" y="0.25" width="56.5" height="10"
+       rx="3" fill="#5d6f86"/>
+ <rect x="0.25" y="7" width="56.5" height="3" fill="#5d6f86"/>
+ <text x="28.5" y="6.5" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3" font-weight="700"
+       fill="#ffffff">FÄRDHÄNDELSE</text>
+ <text x="28.5" y="15.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="4.4" font-weight="700"
+       fill="#202020">Dålig sikt</text>
+ <circle cx="28.5" cy="32.0" r="9"
+         fill="#5d6f86" opacity="0.18"/>
+ <text x="28.5" y="34.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="10" font-weight="700"
+       fill="#5d6f86">!</text>
+ <text x="28.5" y="48.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3.3" fill="#202020">Förlora 1 uthållighet.</text>
+ <text x="28.5" y="76" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.3" fill="#666666">Grundspel</text>
+</g>
+<path d="M12.5,18 H15 M15,15.5 V18" stroke="#333" stroke-width="0.2"/>
+<path d="M72,18 H74.5 M72,15.5 V18" stroke="#333" stroke-width="0.2"/>
+<path d="M12.5,98 H15 M15,98 V100.5" stroke="#333" stroke-width="0.2"/>
+<path d="M72,98 H74.5 M72,98 V100.5" stroke="#333" stroke-width="0.2"/>
+<g transform="translate(76,18)">
+ <rect x="0.25" y="0.25" width="56.5" height="79.5"
+       rx="3" fill="#f6f2e8" stroke="#202020" stroke-width="0.5"/>
+ <rect x="0.25" y="0.25" width="56.5" height="10"
+       rx="3" fill="#5d6f86"/>
+ <rect x="0.25" y="7" width="56.5" height="3" fill="#5d6f86"/>
+ <text x="28.5" y="6.5" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3" font-weight="700"
+       fill="#ffffff">FÄRDHÄNDELSE</text>
+ <text x="28.5" y="15.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="4.4" font-weight="700"
+       fill="#202020">Oväder</text>
+ <circle cx="28.5" cy="32.0" r="9"
+         fill="#5d6f86" opacity="0.18"/>
+ <text x="28.5" y="34.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="10" font-weight="700"
+       fill="#5d6f86">!</text>
+ <text x="28.5" y="48.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3.3" fill="#202020">Förlora 1 uthållighet och ta 1</text>
+ <text x="28.5" y="52.3" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3.3" fill="#202020">skada.</text>
+ <text x="28.5" y="76" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.3" fill="#666666">Grundspel</text>
+</g>
+<path d="M73.5,18 H76 M76,15.5 V18" stroke="#333" stroke-width="0.2"/>
+<path d="M133,18 H135.5 M133,15.5 V18" stroke="#333" stroke-width="0.2"/>
+<path d="M73.5,98 H76 M76,98 V100.5" stroke="#333" stroke-width="0.2"/>
+<path d="M133,98 H135.5 M133,98 V100.5" stroke="#333" stroke-width="0.2"/>
+<g transform="translate(137,18)">
+ <rect x="0.25" y="0.25" width="56.5" height="79.5"
+       rx="3" fill="#f6f2e8" stroke="#202020" stroke-width="0.5"/>
+ <rect x="0.25" y="0.25" width="56.5" height="10"
+       rx="3" fill="#5d6f86"/>
+ <rect x="0.25" y="7" width="56.5" height="3" fill="#5d6f86"/>
+ <text x="28.5" y="6.5" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3" font-weight="700"
+       fill="#ffffff">FÄRDHÄNDELSE</text>
+ <text x="28.5" y="15.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="4.4" font-weight="700"
+       fill="#202020">Lugn passage</text>
+ <circle cx="28.5" cy="32.0" r="9"
+         fill="#5d6f86" opacity="0.18"/>
+ <text x="28.5" y="34.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="10" font-weight="700"
+       fill="#5d6f86">✓</text>
+ <text x="28.5" y="48.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3.3" fill="#202020">Ingen ytterligare effekt.</text>
+ <text x="28.5" y="76" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.3" fill="#666666">Grundspel</text>
+</g>
+<path d="M134.5,18 H137 M137,15.5 V18" stroke="#333" stroke-width="0.2"/>
+<path d="M194,18 H196.5 M194,15.5 V18" stroke="#333" stroke-width="0.2"/>
+<path d="M134.5,98 H137 M137,98 V100.5" stroke="#333" stroke-width="0.2"/>
+<path d="M194,98 H196.5 M194,98 V100.5" stroke="#333" stroke-width="0.2"/>
+<g transform="translate(15,103)">
+ <rect x="0.25" y="0.25" width="56.5" height="79.5"
+       rx="3" fill="#f6f2e8" stroke="#202020" stroke-width="0.5"/>
+ <rect x="0.25" y="0.25" width="56.5" height="10"
+       rx="3" fill="#5d6f86"/>
+ <rect x="0.25" y="7" width="56.5" height="3" fill="#5d6f86"/>
+ <text x="28.5" y="6.5" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3" font-weight="700"
+       fill="#ffffff">FÄRDHÄNDELSE</text>
+ <text x="28.5" y="15.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="4.4" font-weight="700"
+       fill="#202020">Oväntad omväg</text>
+ <circle cx="28.5" cy="32.0" r="9"
+         fill="#5d6f86" opacity="0.18"/>
+ <text x="28.5" y="34.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="10" font-weight="700"
+       fill="#5d6f86">↔</text>
+ <text x="28.5" y="48.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3.3" fill="#202020">Din nästa Flytta kostar 2</text>
+ <text x="28.5" y="52.3" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3.3" fill="#202020">handlingar.</text>
+ <text x="28.5" y="76" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.3" fill="#666666">Grundspel</text>
+</g>
+<path d="M12.5,103 H15 M15,100.5 V103" stroke="#333" stroke-width="0.2"/>
+<path d="M72,103 H74.5 M72,100.5 V103" stroke="#333" stroke-width="0.2"/>
+<path d="M12.5,183 H15 M15,183 V185.5" stroke="#333" stroke-width="0.2"/>
+<path d="M72,183 H74.5 M72,183 V185.5" stroke="#333" stroke-width="0.2"/>
+<g transform="translate(76,103)">
+ <rect x="0.25" y="0.25" width="56.5" height="79.5"
+       rx="3" fill="#f6f2e8" stroke="#202020" stroke-width="0.5"/>
+ <rect x="0.25" y="0.25" width="56.5" height="10"
+       rx="3" fill="#5d6f86"/>
+ <rect x="0.25" y="7" width="56.5" height="3" fill="#5d6f86"/>
+ <text x="28.5" y="6.5" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3" font-weight="700"
+       fill="#ffffff">FÄRDHÄNDELSE</text>
+ <text x="28.5" y="15.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="4.4" font-weight="700"
+       fill="#202020">Förlorad packning</text>
+ <circle cx="28.5" cy="32.0" r="9"
+         fill="#5d6f86" opacity="0.18"/>
+ <text x="28.5" y="34.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="10" font-weight="700"
+       fill="#5d6f86">R</text>
+ <text x="28.5" y="48.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3.3" fill="#202020">Lämna 1 buret verktyg eller</text>
+ <text x="28.5" y="52.3" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3.3" fill="#202020">utrustning på platsen om</text>
+ <text x="28.5" y="56.6" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3.3" fill="#202020">möjligt.</text>
+ <text x="28.5" y="76" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.3" fill="#666666">Grundspel</text>
+</g>
+<path d="M73.5,103 H76 M76,100.5 V103" stroke="#333" stroke-width="0.2"/>
+<path d="M133,103 H135.5 M133,100.5 V103" stroke="#333" stroke-width="0.2"/>
+<path d="M73.5,183 H76 M76,183 V185.5" stroke="#333" stroke-width="0.2"/>
+<path d="M133,183 H135.5 M133,183 V185.5" stroke="#333" stroke-width="0.2"/>
+<g transform="translate(137,103)">
+ <rect x="0.25" y="0.25" width="56.5" height="79.5"
+       rx="3" fill="#f6f2e8" stroke="#202020" stroke-width="0.5"/>
+ <rect x="0.25" y="0.25" width="56.5" height="10"
+       rx="3" fill="#5d6f86"/>
+ <rect x="0.25" y="7" width="56.5" height="3" fill="#5d6f86"/>
+ <text x="28.5" y="6.5" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3" font-weight="700"
+       fill="#ffffff">FÄRDHÄNDELSE</text>
+ <text x="28.5" y="15.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="4.4" font-weight="700"
+       fill="#202020">Ras</text>
+ <circle cx="28.5" cy="32.0" r="9"
+         fill="#5d6f86" opacity="0.18"/>
+ <text x="28.5" y="34.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="10" font-weight="700"
+       fill="#5d6f86">-1</text>
+ <text x="28.5" y="48.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3.3" fill="#202020">Ta 1 skada.</text>
+ <text x="28.5" y="76" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.3" fill="#666666">Grundspel</text>
+</g>
+<path d="M134.5,103 H137 M137,100.5 V103" stroke="#333" stroke-width="0.2"/>
+<path d="M194,103 H196.5 M194,100.5 V103" stroke="#333" stroke-width="0.2"/>
+<path d="M134.5,183 H137 M137,183 V185.5" stroke="#333" stroke-width="0.2"/>
+<path d="M194,183 H196.5 M194,183 V185.5" stroke="#333" stroke-width="0.2"/>
+</svg>

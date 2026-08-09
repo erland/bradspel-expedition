@@ -1,0 +1,436 @@
+version: 1
+project_version: 1.9.26
+scope: Grundregelbok, scenario-YAML, spelmotor, simulator och automatiska tester.
+status_definitions:
+  full: Regeln finns i strukturerad källa, följs av motor/simulator och har relevant
+    automatiskt test.
+  partial: Regeln är implementerad men saknar direkt test eller simuleras med begränsad
+    agentheuristik.
+  presentation_only: Regeln gäller fysisk presentation och ska avsiktligt inte påverka
+    simulatorstatus.
+  not_automated: Regeln kräver fysisk kontroll, visuell preflight eller blindtest.
+summary:
+  partial: 21
+  full: 8
+  presentation_only: 1
+  not_automated: 2
+rules:
+- id: scenario_authority
+  section: Scenario
+  rule: Scenarioarket anger mål, startuthållighet, startutrustning och progression
+    och har företräde framför grundregler.
+  yaml:
+  - data/scenarios.yaml
+  - data/scenarios/*/scenario.yaml
+  engine:
+  - GameEngine.__init__
+  - GameEngine._verify_content_sets
+  simulator: full
+  tests: []
+  status: partial
+  notes: Scenario-YAML används av motorn, men företrädesregeln i fri text verifieras
+    inte automatiskt.
+- id: endurance_setup
+  section: Uthållighet
+  rule: Startuthållighet hämtas från valt scenario och spelarantal.
+  yaml:
+  - data/scenarios/*/scenario.yaml
+  engine:
+  - GameEngine.__init__
+  simulator: full
+  tests:
+  - tests/test_simulator_alignment.py
+  status: partial
+  notes: Implementerat, men saknar ett direkt test per scenario och spelarantal.
+- id: endurance_round_loss
+  section: Uthållighet
+  rule: Gruppen förlorar 1 uthållighet i slutet av varje runda.
+  yaml:
+  - data/rules.yaml#round.endurance_phase
+  engine:
+  - GameEngine.run
+  simulator: full
+  tests: []
+  status: partial
+  notes: Simuleras, men saknar direkt enhetstest.
+- id: endurance_zero_defeat
+  section: Vinst och förlust
+  rule: Gruppen förlorar när den sista uthållighetsmarkören tas bort.
+  yaml:
+  - data/rules.yaml#defeat
+  engine:
+  - GameEngine.defeat
+  simulator: full
+  tests: []
+  status: partial
+  notes: Simuleras, men saknar direkt enhetstest.
+- id: all_incapacitated_defeat
+  section: Vinst och förlust
+  rule: Gruppen förlorar om alla karaktärer är utslagna.
+  yaml:
+  - data/rules.yaml#defeat
+  - data/characters.yaml
+  engine:
+  - GameEngine.defeat
+  - GameEngine.apply_damage
+  simulator: full
+  tests: []
+  status: partial
+  notes: Implementerat utan direkt test av gruppförlusten.
+- id: character_activation
+  section: Rundordning
+  rule: Varje aktiv karaktär aktiveras en gång och får två handlingar.
+  yaml:
+  - data/rules.yaml#round.player_phase
+  engine:
+  - GameEngine.activate
+  simulator: full
+  tests: []
+  status: partial
+  notes: Agenten följer tvåhandlingsekonomin; fysisk kortrotation är inte simulerad.
+- id: fixed_activation_order
+  section: Rundordning
+  rule: Karaktärerna aktiveras i fast ordning.
+  yaml:
+  - data/rules.yaml#round.player_phase.actor_order
+  engine:
+  - GameEngine.run
+  simulator: full
+  tests: []
+  status: partial
+  notes: Fast intern listordning används, men ordningen mot fysisk medurs placering
+    testas inte.
+- id: move_action
+  section: Handlingar
+  rule: Flytta kostar 1 handling och kräver en traverserbar angränsande väg.
+  yaml:
+  - data/rules.yaml#actions.move
+  - data/board.yaml
+  engine:
+  - GameEngine.move_action
+  - GameEngine.is_connection_traversable
+  - GameEngine.shortest_path
+  simulator: full
+  tests:
+  - tests/test_dynamic_connections_runtime.py::test_closed_connection_is_not_used_by_pathfinding
+  - tests/test_dynamic_connections_runtime.py::test_open_connection_is_used_immediately
+  status: full
+  notes: Täcks av runtime- och pathfindingtester.
+- id: hidden_road_resolution
+  section: Vägar
+  rule: En dold D-väg avslöjas före rörelsen och kan bli Öppen, Hinder eller Händelse.
+  yaml:
+  - data/rules.yaml#actions.move
+  - data/road-markers.yaml
+  engine:
+  - GameEngine.move_action
+  - GameEngine.draw_travel
+  simulator: full
+  tests: []
+  status: partial
+  notes: Implementerat men saknar direkt test för alla tre utfall.
+- id: obstacle_removal
+  section: Handlingar
+  rule: Ett Hinder tas bort med 1 handling och 1 verktyg.
+  yaml:
+  - data/rules.yaml#actions.unlock_road
+  - data/road-markers.yaml
+  engine:
+  - GameEngine.strategic_action
+  simulator: partial
+  tests: []
+  status: partial
+  notes: Agentheuristik hanterar hinder, men regelns exakta kostnadsflöde saknar direkt
+    test.
+- id: v_route_closed_default
+  section: Vägar
+  rule: V1–V4 är stängda från start och kan inte användas.
+  yaml:
+  - data/board.yaml
+  engine:
+  - GameEngine.__init__
+  - GameEngine.is_connection_traversable
+  simulator: full
+  tests:
+  - tests/test_dynamic_connections_runtime.py::test_scenario_connections_start_closed
+  - tests/test_dynamic_connections_runtime.py::test_closed_connection_is_not_used_by_pathfinding
+  status: full
+  notes: Fullt testat.
+- id: open_connection_progression
+  section: Vägar
+  rule: Scenarioeffekt kan öppna en V-väg omedelbart och göra den dubbelriktat traverserbar.
+  yaml:
+  - data/scenarios/*/scenario.yaml
+  - data/board.yaml
+  engine:
+  - GameEngine.open_connection
+  - GameEngine._apply_progression_effect
+  simulator: full
+  tests:
+  - tests/test_dynamic_connections_runtime.py::test_open_connection_is_used_immediately
+  - tests/test_progression_events.py::test_first_completed_objective_opens_connection
+  status: full
+  notes: Fysisk Öppen-markör är presentationslager.
+- id: close_connection_event
+  section: Scenariohändelse
+  rule: Ett scenariohändelse kan stänga en namngiven väg omedelbart.
+  yaml:
+  - data/scenario-events/*.yaml
+  engine:
+  - GameEngine.close_connection
+  - GameEngine.process_scenario_event_milestones
+  simulator: full
+  tests:
+  - tests/test_simulator_alignment.py::test_event_log_contains_balance_fields
+  status: partial
+  notes: Effekten och loggningen testas; exakt pathfinding efter eventstängning saknar
+    direkt test.
+- id: explore_action
+  section: Handlingar
+  rule: Utforska kostar 1 handling, avslöjar platskortet och löser dess effekt.
+  yaml:
+  - data/rules.yaml#actions.explore
+  - data/scenarios/*/locations.yaml
+  engine:
+  - GameEngine.explore
+  simulator: full
+  tests: []
+  status: partial
+  notes: Implementerat, men saknar direkt test för handlingskostnad och effektordning.
+- id: location_tile_presentation
+  section: Platsbrickor
+  rule: Efter utforskning placeras platsbrickan med samma id som platskortet.
+  yaml:
+  - data/rules.yaml#actions.explore
+  engine: []
+  simulator: presentation_only
+  tests: []
+  status: presentation_only
+  notes: Avsiktligt presentationslager; påverkar inte spelstatus eller simulator.
+- id: gather_tool
+  section: Handlingar
+  rule: Hämta verktyg kostar 1 handling i Förrådet och kräver ledigt utrymme.
+  yaml:
+  - data/rules.yaml#actions.gather
+  engine:
+  - GameEngine.take_tool
+  simulator: full
+  tests: []
+  status: partial
+  notes: Implementerat utan direkt test.
+- id: rest_heal
+  section: Handlingar
+  rule: Återhämta kostar 1 handling i Baslägret och läker 1 hälsa.
+  yaml:
+  - data/rules.yaml#actions.rest
+  engine:
+  - GameEngine.strategic_action
+  simulator: partial
+  tests: []
+  status: partial
+  notes: Agenten kan använda återhämtning; separat regeltest saknas.
+- id: inventory_capacity
+  section: Ryggsäck
+  rule: Buret innehåll får inte överskrida karaktärens ryggsäckskapacitet.
+  yaml:
+  - data/rules.yaml#character_state.inventory
+  - data/inventory.yaml
+  - data/characters.yaml
+  engine:
+  - GameEngine.capacity
+  - GameEngine.occupied
+  - GameEngine.can_fit
+  - GameEngine.drop_for_space
+  simulator: full
+  tests: []
+  status: partial
+  notes: Implementerat men saknar gränsvärdestester.
+- id: transfer_inventory
+  section: Handlingar
+  rule: Överföra kostar 1 handling mellan karaktärer på samma plats och respekterar
+    kapacitet.
+  yaml:
+  - data/rules.yaml#actions.assist
+  engine:
+  - GameEngine.transfer_if_useful
+  simulator: partial
+  tests: []
+  status: partial
+  notes: Simulatorn använder en strategisk heuristik, inte hela det mänskliga valrummet.
+- id: equipment_use
+  section: Handlingar
+  rule: Utrustningskortet anger om användningen kräver 1 handling eller ingen handling; engångsutrustning kasseras först när effekten används.
+  yaml:
+  - data/rules.yaml#actions.use_item
+  - data/base/equipment.yaml
+  - data/scenarios/*/equipment.yaml
+  engine:
+  - GameEngine.use_equipment
+  - GameEngine.equipment_action_cost
+  - GameEngine.consume_equipment
+  simulator: partial
+  tests: []
+  status: partial
+  notes: Stödet är kortspecifikt och inte komplett verifierat för varje utrustning.
+- id: objective_pickup
+  section: Målobjekt
+  rule: Plocka upp kostar 1 handling och kräver tillräckligt ryggsäcksutrymme.
+  yaml:
+  - data/rules.yaml#actions.pick_up_item
+  - data/scenarios/*/objectives.yaml
+  engine:
+  - GameEngine.pickup_ground
+  - GameEngine.can_fit
+  simulator: full
+  tests: []
+  status: partial
+  notes: Implementerat utan direkt test.
+- id: objective_drop
+  section: Målobjekt
+  rule: Att lämna buret innehåll kostar 0 handlingar; scenariot avgör om målet slutförs.
+  yaml:
+  - data/rules.yaml#actions.drop_item
+  - data/scenarios/*/scenario.yaml
+  engine:
+  - GameEngine.deposit_objectives
+  simulator: full
+  tests:
+  - tests/test_progression_events.py::test_first_completed_objective_opens_connection
+  status: partial
+  notes: Leveransflödet testas indirekt via progression.
+- id: objective_install
+  section: Målobjekt
+  rule: Att aktivera ett målobjekt kostar 1 handling på giltig destination.
+  yaml:
+  - data/scenarios/*/scenario.yaml
+  - data/scenarios/*/objectives.yaml
+  engine:
+  - GameEngine.install_module
+  simulator: full
+  tests:
+  - tests/test_scenario_event_milestones.py::test_objective_activated_is_generic_trigger
+  status: full
+  notes: Generisk objective_activated-trigger används.
+- id: objective_completion
+  section: Målobjekt
+  rule: Scenario-YAML avgör destination, slutförandetyp och antal mål som krävs.
+  yaml:
+  - data/scenarios/*/scenario.yaml
+  engine:
+  - GameEngine.mission_progress
+  - GameEngine.victory
+  simulator: full
+  tests: []
+  status: partial
+  notes: Tvärfilsvalidatorn kontrollerar målreferenser och antal; direkt vinsttest
+    saknas.
+- id: progression_events
+  section: Scenariohändelseens ordning
+  rule: Progression löses efter uppdaterad spelstatus och före scenariohändelse.
+  yaml:
+  - data/rules.yaml#scenario_event_architecture.resolution_order
+  - data/scenarios/*/scenario.yaml
+  engine:
+  - GameEngine.deposit_objectives
+  - GameEngine.install_module
+  - GameEngine.process_progression_event
+  simulator: full
+  tests:
+  - tests/test_progression_events.py
+  status: full
+  notes: Flera progressionstyper och engångsutlösning testas.
+- id: scenario_milestones
+  section: Scenariohändelse
+  rule: Låsta milstolpetriggers utlöser fasta engångsevent.
+  yaml:
+  - data/rules.yaml#scenario_event_architecture
+  - data/scenarios/*/scenario.yaml
+  - data/scenario-events/*.yaml
+  engine:
+  - GameEngine._trigger_matches
+  - GameEngine.process_scenario_event_milestones
+  simulator: full
+  tests:
+  - tests/test_scenario_event_milestones.py
+  status: full
+  notes: objective_found och objective_activated testas; location_explored och all_objectives_completed
+    saknar direkta tester.
+- id: scenario_event_immediate
+  section: Scenariohändelse
+  rule: Scenariohändelse löses omedelbart och får endast använda låsta effekter.
+  yaml:
+  - data/rules.yaml#scenario_event_architecture
+  - data/scenario-events/*.yaml
+  engine:
+  - GameEngine.process_scenario_event_milestones
+  - GameEngine._apply_progression_effect
+  simulator: full
+  tests:
+  - tests/test_scenario_event_milestones.py
+  - tests/test_simulator_alignment.py
+  status: full
+  notes: Effekterna loggas och kan slås av/på i experiment.
+- id: scenario_event_toggle
+  section: Simulator
+  rule: Scenariohändelse kan slås av i seed-matchade experiment utan att övriga regler
+    ändras.
+  yaml:
+  - data/simulation.yaml
+  engine:
+  - GameEngine.__init__
+  simulator: full
+  tests:
+  - tests/test_simulator_alignment.py::test_scenario_events_can_be_disabled
+  status: full
+  notes: Analysfunktion, inte en fysisk spelregel.
+- id: victory_condition
+  section: Vinst och förlust
+  rule: Gruppen vinner när scenariots vinstvillkor är uppfyllt och minst en karaktär
+    är aktiv.
+  yaml:
+  - data/rules.yaml#victory
+  - data/scenarios/*/scenario.yaml
+  engine:
+  - GameEngine.victory
+  simulator: full
+  tests: []
+  status: partial
+  notes: Implementerat utan direkt test för båda scenarierna.
+- id: travel_events
+  section: Vägar
+  rule: En vägmarkör med Händelse drar och löser en färdhändelse omedelbart.
+  yaml:
+  - data/road-markers.yaml
+  - data/base/travel-events.yaml
+  - data/scenarios/*/travel-events.yaml
+  engine:
+  - GameEngine.draw_travel
+  - GameEngine.resolve_travel_event
+  simulator: partial
+  tests: []
+  status: partial
+  notes: Effekter stöds, men alla kortkombinationer är inte testade.
+- id: physical_setup
+  section: Förberedelser
+  rule: Fysiska kort, brickor, markörer och lekar placeras enligt regelbok och scenarioark.
+  yaml:
+  - data/project.yaml
+  - data/scenarios/*/scenario.yaml
+  - data/print-layouts/*.yaml
+  engine: []
+  simulator: not_simulated
+  tests: []
+  status: not_automated
+  notes: Avsiktligt utanför simulatorn; kräver fysisk setupkontroll och blindtest.
+- id: component_readability
+  section: Komponenter
+  rule: Id:n, namn och statusmarkörer ska vara läsbara och matcha källorna.
+  yaml:
+  - data/board.yaml
+  - data/location-tiles.yaml
+  - data/road-markers.yaml
+  engine: []
+  simulator: not_simulated
+  tests: []
+  status: not_automated
+  notes: Kräver visuell preflight och fysisk testutskrift.

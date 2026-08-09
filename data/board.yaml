@@ -1,0 +1,471 @@
+version: 7
+board:
+  id: expedition_board_02
+  name: Expeditionsområdet
+  type: node_map
+  width_mm: 210
+  height_mm: 297
+  orientation: portrait
+  start_location: base_camp
+location_types:
+- id: base
+  name: Basläger
+  fill: '#d9e5d7'
+  stroke: '#49634c'
+  icon: B
+- id: supply
+  name: Förråd
+  fill: '#e5dfca'
+  stroke: '#786b46'
+  icon: F
+- id: unknown
+  name: Okänd plats
+  fill: '#ece9df'
+  stroke: '#66635b'
+  icon: '?'
+- id: transit
+  name: Transitnod
+  fill: '#e3e0d6'
+  stroke: '#5f625d'
+  icon: T
+locations:
+- id: base_camp
+  name: Basläger
+  type: base
+  x: 157.5
+  y: 271.375
+  radius_mm: 14
+  revealed: true
+  objective_slot: false
+  resource: null
+  shape: circle
+  size_mm: 28
+- id: supply_depot
+  name: Förråd
+  type: supply
+  x: 105
+  y: 245.955
+  radius_mm: 14
+  revealed: true
+  objective_slot: false
+  resource: tools
+  shape: circle
+  size_mm: 28
+- id: slot_1
+  name: Plats 1
+  type: unknown
+  x: 53
+  y: 214.99
+  radius_mm: 13
+  revealed: false
+  objective_slot: false
+  resource: null
+  shape: square
+  size_mm: 30
+- id: slot_2
+  name: Plats 2
+  type: unknown
+  x: 157
+  y: 214.99
+  radius_mm: 13
+  revealed: false
+  objective_slot: false
+  resource: null
+  shape: square
+  size_mm: 30
+- id: slot_3
+  name: Plats 3
+  type: unknown
+  x: 37
+  y: 129.357
+  radius_mm: 13
+  revealed: false
+  objective_slot: false
+  resource: null
+  shape: square
+  size_mm: 30
+- id: slot_4
+  name: Plats 4
+  type: unknown
+  x: 105
+  y: 129.357
+  radius_mm: 13
+  revealed: false
+  objective_slot: false
+  resource: null
+  shape: square
+  size_mm: 30
+- id: slot_5
+  name: Plats 5
+  type: unknown
+  x: 173
+  y: 129.357
+  radius_mm: 13
+  revealed: false
+  objective_slot: false
+  resource: null
+  shape: square
+  size_mm: 30
+- id: slot_6
+  name: Plats 6
+  type: unknown
+  x: 105
+  y: 60.5
+  radius_mm: 13
+  revealed: false
+  objective_slot: false
+  resource: null
+  shape: square
+  size_mm: 30
+- id: transit_t1
+  name: Transit T1
+  label: T1
+  type: transit
+  x: 45.0
+  y: 172.173
+  radius_mm: 8
+  revealed: true
+  objective_slot: false
+  resource: null
+  shape: square
+  size_mm: 16
+  node_role: transit
+  explorable: false
+  occupiable: true
+  stoppable: true
+  default_state: open
+  tile_slot_family: transit
+- id: transit_t2
+  name: Transit T2
+  label: T2
+  type: transit
+  x: 165.0
+  y: 172.173
+  radius_mm: 8
+  revealed: true
+  objective_slot: false
+  resource: null
+  shape: square
+  size_mm: 16
+  node_role: transit
+  explorable: false
+  occupiable: true
+  stoppable: true
+  default_state: open
+  tile_slot_family: transit
+- id: transit_t3
+  name: Transit T3
+  label: T3
+  type: transit
+  x: 71
+  y: 88.943
+  radius_mm: 8
+  revealed: true
+  objective_slot: false
+  resource: null
+  shape: square
+  size_mm: 16
+  node_role: transit
+  explorable: false
+  occupiable: true
+  stoppable: true
+  default_state: open
+  tile_slot_family: transit
+- id: transit_t4
+  name: Transit T4
+  label: T4
+  type: transit
+  x: 139
+  y: 88.943
+  radius_mm: 8
+  revealed: true
+  objective_slot: false
+  resource: null
+  shape: square
+  size_mm: 16
+  node_role: transit
+  explorable: false
+  occupiable: true
+  stoppable: true
+  default_state: open
+  tile_slot_family: transit
+connections:
+- id: road_open_01
+  from: base_camp
+  to: supply_depot
+  blocked: false
+  discovery: open
+  category: fixed
+  default_state: open
+  printed_style: standard
+- id: road_open_02
+  from: supply_depot
+  to: slot_1
+  blocked: false
+  discovery: open
+  category: fixed
+  default_state: open
+  printed_style: standard
+- id: road_open_03
+  from: supply_depot
+  to: slot_2
+  blocked: false
+  discovery: open
+  category: fixed
+  default_state: open
+  printed_style: standard
+- id: road_open_04a
+  from: slot_1
+  to: transit_t1
+  blocked: false
+  discovery: open
+  category: fixed
+  default_state: open
+  printed_style: standard
+  route_id: route_1_3
+  segment_index: 1
+- id: road_open_04b
+  from: transit_t1
+  to: slot_3
+  blocked: false
+  discovery: open
+  category: fixed
+  default_state: open
+  printed_style: standard
+  route_id: route_1_3
+  segment_index: 2
+- id: road_hidden_05
+  from: slot_1
+  to: slot_4
+  blocked: false
+  discovery: hidden_marker
+  category: hidden
+  default_state: open
+  printed_style: hidden
+  label: D5
+  label_x: 79.0
+  label_y: 172.173
+- id: road_hidden_06
+  from: slot_2
+  to: slot_4
+  blocked: false
+  discovery: hidden_marker
+  category: hidden
+  default_state: open
+  printed_style: hidden
+  label: D6
+  label_x: 131.0
+  label_y: 172.173
+- id: road_open_07a
+  from: slot_2
+  to: transit_t2
+  blocked: false
+  discovery: open
+  category: fixed
+  default_state: open
+  printed_style: standard
+  route_id: route_2_5
+  segment_index: 1
+- id: road_open_07b
+  from: transit_t2
+  to: slot_5
+  blocked: false
+  discovery: open
+  category: fixed
+  default_state: open
+  printed_style: standard
+  route_id: route_2_5
+  segment_index: 2
+- id: road_open_08a
+  from: slot_3
+  to: transit_t3
+  blocked: false
+  discovery: open
+  category: fixed
+  default_state: open
+  printed_style: standard
+  route_id: route_3_6
+  segment_index: 1
+- id: road_open_08b
+  from: transit_t3
+  to: slot_6
+  blocked: false
+  discovery: open
+  category: fixed
+  default_state: open
+  printed_style: standard
+  route_id: route_3_6
+  segment_index: 2
+- id: road_open_09a
+  from: slot_5
+  to: transit_t4
+  blocked: false
+  discovery: open
+  category: fixed
+  default_state: open
+  printed_style: standard
+  route_id: route_5_6
+  segment_index: 1
+- id: road_open_09b
+  from: transit_t4
+  to: slot_6
+  blocked: false
+  discovery: open
+  category: fixed
+  default_state: open
+  printed_style: standard
+  route_id: route_5_6
+  segment_index: 2
+- id: road_hidden_01
+  from: slot_3
+  to: slot_4
+  blocked: false
+  discovery: hidden_marker
+  category: hidden
+  default_state: open
+  printed_style: hidden
+  label: D1
+- id: road_hidden_02
+  from: slot_4
+  to: slot_5
+  blocked: false
+  discovery: hidden_marker
+  category: hidden
+  default_state: open
+  printed_style: hidden
+  label: D2
+- id: road_hidden_03
+  from: slot_1
+  to: slot_2
+  blocked: false
+  discovery: hidden_marker
+  category: hidden
+  default_state: open
+  printed_style: hidden
+  label: D3
+- id: road_hidden_04
+  from: slot_4
+  to: slot_6
+  blocked: false
+  discovery: hidden_marker
+  category: hidden
+  default_state: open
+  printed_style: hidden
+  label: D4
+- id: route_v1
+  label: V1
+  from: slot_3
+  to: supply_depot
+  blocked: true
+  discovery: open
+  category: scenario
+  default_state: closed
+  printed_style: potential
+  tags:
+  - dynamic_connection
+  - station_infrastructure
+  label_x: 18
+  label_y: 191.306
+  path_points:
+  - - 37.0
+    - 129.357
+  - - 18
+    - 129.357
+  - - 18
+    - 245.955
+  - - 105.0
+    - 245.955
+- id: route_v2
+  label: V2
+  from: slot_5
+  to: supply_depot
+  blocked: true
+  discovery: open
+  category: scenario
+  default_state: closed
+  printed_style: potential
+  tags:
+  - dynamic_connection
+  - station_infrastructure
+  label_x: 192
+  label_y: 191.306
+  path_points:
+  - - 173.0
+    - 129.357
+  - - 192
+    - 129.357
+  - - 192
+    - 245.955
+  - - 105.0
+    - 245.955
+- id: route_v3
+  label: V3
+  from: slot_6
+  to: supply_depot
+  blocked: true
+  discovery: open
+  category: scenario
+  default_state: closed
+  printed_style: potential
+  tags:
+  - dynamic_connection
+  - station_infrastructure
+  label_x: 58
+  label_y: 24
+  path_points:
+  - - 105.0
+    - 60.5
+  - - 105.0
+    - 24.0
+  - - 8.0
+    - 24.0
+  - - 8.0
+    - 259.95500000000004
+  - - 105.0
+    - 259.95500000000004
+  - - 105.0
+    - 245.955
+- id: route_v4
+  label: V4
+  from: slot_3
+  to: slot_5
+  blocked: true
+  discovery: open
+  category: scenario
+  default_state: closed
+  printed_style: potential
+  tags:
+  - dynamic_connection
+  - cross_map
+  label_x: 152
+  label_y: 38.0
+  path_points:
+  - - 37.0
+    - 129.357
+  - - 37.0
+    - 38.0
+  - - 152.0
+    - 38.0
+  - - 173.0
+    - 38.0
+  - - 173.0
+    - 129.357
+tracks: []
+legend:
+  x: 154
+  y: 244
+  show_location_types: true
+  show_connection_types: true
+hidden_road_marker_slot:
+  width_mm: 16
+  height_mm: 16
+  placement: connection_midpoint
+crossings:
+- id: crossing_v4_over_v3
+  x: 105
+  y: 38.0
+  over: route_v4
+  under: route_v3
+  style: bridge
+  span_mm: 12
+  rise_mm: 5

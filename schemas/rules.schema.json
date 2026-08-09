@@ -1,0 +1,403 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rules.schema.json",
+  "title": "Expedition structured rules",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "ruleset",
+    "setup",
+    "round",
+    "actions",
+    "victory",
+    "defeat",
+    "character_state",
+    "solo",
+    "effect_vocabulary_draft",
+    "unresolved_rules"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "ruleset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "mode"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mode": {
+          "const": "cooperative"
+        }
+      }
+    },
+    "setup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "steps"
+      ],
+      "properties": {
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/effect"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "$ref": "#/$defs/id"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "round": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "phases"
+      ],
+      "properties": {
+        "phases": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": [
+              "id",
+              "name",
+              "order",
+              "steps"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/id"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "order": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "actor_order": {
+                "type": "string"
+              },
+              "steps": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/$defs/effect"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "actions": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "cost_actions",
+          "requirements",
+          "effects"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "cost_actions": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "requirements": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/condition"
+            }
+          },
+          "effects": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/effect"
+            }
+          }
+        }
+      }
+    },
+    "victory": {
+      "$ref": "#/$defs/ruleGroupAll"
+    },
+    "defeat": {
+      "$ref": "#/$defs/ruleGroupAny"
+    },
+    "character_state": {
+      "type": "object"
+    },
+    "solo": {
+      "type": "object"
+    },
+    "effect_vocabulary_draft": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/id"
+      }
+    },
+    "unresolved_rules": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "terminology": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "scenario_event_architecture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "trigger_types",
+        "immediate_effect_actions",
+        "resolution_order",
+        "default_once",
+        "memory_rule"
+      ],
+      "properties": {
+        "version": {
+          "type": "integer",
+          "const": 1
+        },
+        "trigger_types": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "objective_found",
+              "objective_completed",
+              "objective_activated",
+              "location_explored",
+              "all_objectives_completed"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "immediate_effect_actions": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "modify_endurance",
+              "open_connection",
+              "close_connection"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "resolution_order": {
+          "type": "array",
+          "minItems": 5,
+          "items": {
+            "type": "string"
+          }
+        },
+        "default_once": {
+          "type": "boolean",
+          "const": true
+        },
+        "memory_rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "physical_state": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "effect": {
+      "type": "object",
+      "required": [
+        "action"
+      ],
+      "properties": {
+        "action": {
+          "enum": [
+            "gain_resource",
+            "lose_resource",
+            "move",
+            "draw_card",
+            "discard_card",
+            "increase_track",
+            "decrease_track",
+            "reveal_location",
+            "resolve_location",
+            "place_token",
+            "remove_token",
+            "damage",
+            "heal",
+            "set_flag",
+            "complete_objective",
+            "assist_target",
+            "resolve_item",
+            "resolve_drawn_card",
+            "resolve_scenario_effects",
+            "resolve_statuses",
+            "check_victory",
+            "check_defeat",
+            "activate_each_active_character",
+            "place_component",
+            "set_track",
+            "place_all_characters",
+            "prepare_decks",
+            "prepare_token_supply",
+            "inspect_road_if_hidden",
+            "resolve_road_marker",
+            "move_if_open",
+            "reveal_location_card",
+            "resolve_location_card",
+            "open_road_permanently",
+            "gain_objective",
+            "draw_travel_event",
+            "no_effect",
+            "transfer_inventory_items",
+            "resolve_equipment_use",
+            "leave_item_at_location",
+            "add_item_to_inventory",
+            "draw_objective_card",
+            "draw_equipment_card",
+            "increase_backpack_capacity",
+            "peek_hidden_roads",
+            "cancel_next_travel_event",
+            "ignore_current_travel_event",
+            "reset_character_activation_markers",
+            "lose_carried_content",
+            "lose_endurance",
+            "gain_endurance",
+            "prepare_endurance_pool",
+            "place_matching_location_tile",
+            "prepare_components_listed_on_scenario_sheet",
+            "place_fixed_location_cards",
+            "shuffle_and_place_scenario_location_tiles",
+            "choose_adjacent_destination_and_road",
+            "reveal_hidden_road_as_part_of_move",
+            "resolve_road_state",
+            "flip_location_tile_to_explored_side",
+            "reveal_matching_location_card",
+            "place_location_card_beside_board",
+            "move_objective_card_from_character_to_location_card",
+            "mark_objective_activated",
+            "resolve_progression_then_scenario_event_then_end_check",
+            "rotate_objective_to_active_state",
+            "check_scenario_milestones",
+            "resolve_triggered_scenario_events",
+            "check_other_scenario_conditions",
+            "replace_road_marker"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "condition": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "ruleCondition": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "ruleGroupAll": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "all"
+      ],
+      "properties": {
+        "all": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ruleCondition"
+          }
+        }
+      }
+    },
+    "ruleGroupAny": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "any"
+      ],
+      "properties": {
+        "any": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ruleCondition"
+          }
+        }
+      }
+    }
+  }
+}

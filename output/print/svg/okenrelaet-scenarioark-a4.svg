@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
+<rect width="210" height="297" fill="#fff"/>
+<g transform="translate(31,20)">
+ <rect x=".3" y=".3" width="147.4" height="209.4" rx="3" fill="#f6f2e8" stroke="#202020" stroke-width=".6"/>
+ <rect x=".3" y=".3" width="147.4" height="23" rx="3" fill="#456b73"/>
+ <rect x=".3" y="19" width="147.4" height="4" fill="#456b73"/>
+ <text x="74" y="8.5" text-anchor="middle" font-family="DejaVu Sans" font-size="3.0" font-weight="700" fill="#fff">EXPEDITION 2</text>
+ <text x="74" y="16.8" text-anchor="middle" font-family="DejaVu Sans" font-size="7.2" font-weight="700" fill="#fff">Ökenreläet</text>
+
+
+  <rect x="6" y="28" width="136" height="48" rx="2" fill="#fffdf8" stroke="#9a9a90" stroke-width=".35"/>
+ <rect x="6" y="28" width="136" height="7" rx="2" fill="#456b73"/>
+ <rect x="6" y="33" width="136" height="2" fill="#456b73"/>
+ <text x="9" y="32.8" font-family="DejaVu Sans" font-size="3.2" font-weight="700" fill="#fff">UPPDRAGSBRIEFING</text>
+
+ <text x="10" y="38.0" font-family="DejaVu Sans" font-size="2.65" fill="#202020">En serie sandstormar har slagit ut ökenregionens kommunikationsnät. Tre</text>
+ <text x="10" y="42.1" font-family="DejaVu Sans" font-size="2.65" fill="#202020">reläplatser står tysta och nästa stormfront närmar sig snabbt.</text>
+ <text x="10" y="49.400000000000006" font-family="DejaVu Sans" font-size="2.65" font-weight="700" fill="#202020">Sök igenom serviceplatserna, hitta tre reservmoduler och aktivera ett</text>
+ <text x="10" y="53.50000000000001" font-family="DejaVu Sans" font-size="2.65" font-weight="700" fill="#202020">målobjekt vid varje reläplats innan expeditionens uthållighet tar slut.</text>
+
+  <rect x="6" y="80" width="61" height="58" rx="2" fill="#fffdf8" stroke="#9a9a90" stroke-width=".35"/>
+ <rect x="6" y="80" width="61" height="7" rx="2" fill="#456b73"/>
+ <rect x="6" y="85" width="61" height="2" fill="#456b73"/>
+ <text x="9" y="84.8" font-family="DejaVu Sans" font-size="3.2" font-weight="700" fill="#fff">FÖRBEREDELSER</text>
+
+ <text x="10" y="90.0" font-family="DejaVu Sans" font-size="2.45" fill="#202020">• 2 karaktärer: 12 uthållighet · 1 verktyg</text>
+ <text x="10" y="94.2" font-family="DejaVu Sans" font-size="2.45" fill="#202020">• 3 karaktärer: 10 uthållighet · 0 verktyg</text>
+ <text x="10" y="98.4" font-family="DejaVu Sans" font-size="2.45" fill="#202020">• 4 karaktärer: 9 uthållighet · 0 verktyg</text>
+ <text x="10" y="102.6" font-family="DejaVu Sans" font-size="2.45" fill="#202020">• 6 platskort + matchande platsbrickor</text>
+ <text x="10" y="106.8" font-family="DejaVu Sans" font-size="2.45" fill="#202020">• Dolda vägbrickor: 2 öppna, 1 hinder, 1</text>
+ <text x="10" y="111.0" font-family="DejaVu Sans" font-size="2.45" fill="#202020">  händelse</text>
+ <text x="10" y="115.2" font-family="DejaVu Sans" font-size="2.45" fill="#202020">• Dolda vägar: D1, D2, D3, D4</text>
+ <text x="10" y="119.4" font-family="DejaVu Sans" font-size="2.45" fill="#202020">• 4 verktyg vid Förrådet</text>
+
+  <rect x="71" y="80" width="71" height="58" rx="2" fill="#fffdf8" stroke="#9a9a90" stroke-width=".35"/>
+ <rect x="71" y="80" width="71" height="7" rx="2" fill="#456b73"/>
+ <rect x="71" y="85" width="71" height="2" fill="#456b73"/>
+ <text x="74" y="84.8" font-family="DejaVu Sans" font-size="3.2" font-weight="700" fill="#fff">LÄGG TILL FÖR DETTA SCENARIO</text>
+
+ <text x="75" y="90.0" font-family="DejaVu Sans"
+       font-size="2.2"
+       font-weight="700"
+       fill="#202020">PLATSKORT · DOLD RAD</text>
+ <text x="75" y="93.55" font-family="DejaVu Sans"
+       font-size="2.2"
+       font-weight="400"
+       fill="#202020">Norra relästationen · Klippfyrens kontrollhus ·</text>
+ <text x="75" y="97.1" font-family="DejaVu Sans"
+       font-size="2.2"
+       font-weight="400"
+       fill="#202020">Södra sändarmasten · Övergiven verkstad · Uttorkat</text>
+ <text x="75" y="100.65" font-family="DejaVu Sans"
+       font-size="2.2"
+       font-weight="400"
+       fill="#202020">pumphus · Sandbegravet förråd</text>
+ <text x="75" y="104.2" font-family="DejaVu Sans"
+       font-size="2.2"
+       font-weight="700"
+       fill="#202020">MÅLOBJEKT · EGEN HÖG</text>
+ <text x="75" y="107.75" font-family="DejaVu Sans"
+       font-size="2.2"
+       font-weight="400"
+       fill="#202020">Strömomvandlare · Signalförstärkare · Styrmodul</text>
+ <text x="75" y="111.3" font-family="DejaVu Sans"
+       font-size="2.2"
+       font-weight="700"
+       fill="#202020">FÄRDHÄNDELSER · BLANDA MED ÖVRIGA</text>
+ <text x="75" y="114.85" font-family="DejaVu Sans"
+       font-size="2.2"
+       font-weight="400"
+       fill="#202020">Sandstorm · Extrem hetta · Navigationsfel</text>
+ <text x="75" y="118.4" font-family="DejaVu Sans"
+       font-size="2.2"
+       font-weight="700"
+       fill="#202020">SCENARIOHÄNDELSER · EGEN HÖG</text>
+ <text x="75" y="121.95" font-family="DejaVu Sans"
+       font-size="2.2"
+       font-weight="400"
+       fill="#202020">Sandstormsvåg · Navigationsfyrarna · Rasad led ·</text>
+ <text x="75" y="125.5" font-family="DejaVu Sans"
+       font-size="2.2"
+       font-weight="400"
+       fill="#202020">Transportleden</text>
+ <text x="75" y="129.05" font-family="DejaVu Sans"
+       font-size="2.2"
+       font-weight="700"
+       fill="#202020">UTRUSTNING · BLANDA MED ÖVRIGA</text>
+ <text x="75" y="132.6" font-family="DejaVu Sans"
+       font-size="2.2"
+       font-weight="400"
+       fill="#202020">Vattenreserv · Diagnosverktyg</text>
+
+  <rect x="6" y="142" width="136" height="40" rx="2" fill="#fffdf8" stroke="#9a9a90" stroke-width=".35"/>
+ <rect x="6" y="142" width="136" height="7" rx="2" fill="#456b73"/>
+ <rect x="6" y="147" width="136" height="2" fill="#456b73"/>
+ <text x="9" y="146.8" font-family="DejaVu Sans" font-size="3.2" font-weight="700" fill="#fff">MÅL OCH PROGRESSION</text>
+
+ <text x="10" y="152.0" font-family="DejaVu Sans" font-size="2.65" fill="#202020">• Transportera reservmoduler till inaktiva reläplatser.</text>
+ <text x="10" y="155.9" font-family="DejaVu Sans" font-size="2.65" fill="#202020">• Vid en reläplats: använd Aktivera målobjekt (1 handling). Målobjektet räknas då som</text>
+ <text x="10" y="159.8" font-family="DejaVu Sans" font-size="2.65" fill="#202020">  slutfört.</text>
+ <text x="10" y="163.7" font-family="DejaVu Sans" font-size="2.65" fill="#202020">• Målobjekt 1 hittat: scenariohändelsen Sandstormsvåg inträffar.</text>
+ <text x="10" y="167.6" font-family="DejaVu Sans" font-size="2.65" fill="#202020">• Målobjekt 1 aktiverat: scenariohändelsen Navigationsfyrarna inträffar.</text>
+ <text x="10" y="171.5" font-family="DejaVu Sans" font-size="2.65" fill="#202020">• Målobjekt 1 aktiverat: scenariohändelsen Rasad led inträffar.</text>
+ <text x="10" y="175.4" font-family="DejaVu Sans" font-size="2.65" fill="#202020">• Målobjekt 2 aktiverat: scenariohändelsen Transportleden inträffar.</text>
+
+  <rect x="6" y="184" width="136" height="15" rx="2" fill="#fffdf8" stroke="#9a9a90" stroke-width=".35"/>
+ <rect x="6" y="184" width="136" height="7" rx="2" fill="#56785b"/>
+ <rect x="6" y="189" width="136" height="2" fill="#56785b"/>
+ <text x="9" y="188.8" font-family="DejaVu Sans" font-size="3.2" font-weight="700" fill="#fff">VINST</text>
+
+   <text x="10.0" y="194.5" font-family="DejaVu Sans" font-size="2.2" fill="#202020">Alla tre reläplatser är aktiverade.</text>
+   <line x1="70.0" y1="192" x2="70.0" y2="198" stroke="#9a9a90" stroke-width=".25"/>
+   <text x="73.0" y="194.5" font-family="DejaVu Sans" font-size="2.2" fill="#202020">Minst en karaktär är fortfarande aktiv.</text>
+
+ <text x="74" y="204.5" text-anchor="middle" font-family="DejaVu Sans" font-size="2.2" fill="#626262">Scenarioarket kompletterar grundreglerna.</text>
+</g>
+<path d="M28,20H31 M31,17V20" stroke="#333" stroke-width="0.2"/>
+<path d="M179,20H182 M179,17V20" stroke="#333" stroke-width="0.2"/>
+<path d="M28,230H31 M31,230V233" stroke="#333" stroke-width="0.2"/>
+<path d="M179,230H182 M179,230V233" stroke="#333" stroke-width="0.2"/>
+</svg>

@@ -1,0 +1,62 @@
+version: 1
+scenario_event_deck:
+  id: polar_station_events
+  name: Polarstationens scenariohändelser
+  environment: polar_station
+  cards:
+  - id: polar_stormfront
+    name: Stormfront
+    symbol: ☁
+    severity: medium
+    effect_type: resource_change
+    text: Gruppen förlorar 1 uthållighet.
+    effects:
+    - action: modify_endurance
+      amount: -1
+    tags:
+    - endurance
+    - immediate
+  - id: polar_ice_collapse
+    name: Isras
+    symbol: ▲
+    severity: medium
+    effect_type: map_change
+    text: Ta bort eventuell markör på D2 och lägg en Stängd väg-markör där.
+    effects:
+    - action: close_connection
+      connection_id: road_hidden_02
+    tags:
+    - route
+    - immediate
+  - id: polar_west_service_tunnel
+    name: Västra servicegången
+    symbol: ↔
+    severity: mild
+    effect_type: map_change
+    text: Ta bort eventuell markör på V1 och lägg en Öppen väg-markör där. Servicegången
+      mellan Plats 3 och Förrådet är nu öppen.
+    effects:
+    - action: open_connection
+      connection_id: route_v1
+    tags:
+    - route
+    - immediate
+    - positive
+  - id: polar_east_cargo_tunnel
+    name: Östra lasttunneln
+    symbol: ↔
+    severity: mild
+    effect_type: map_change
+    text: Ta bort eventuell markör på V2 och lägg en Öppen väg-markör där. Lasttunneln
+      mellan Plats 5 och Förrådet är nu öppen.
+    effects:
+    - action: open_connection
+      connection_id: route_v2
+    tags:
+    - route
+    - immediate
+    - positive
+  format_version: 1
+  scope:
+    level: scenario
+    id: station-nordanvind

@@ -1,0 +1,230 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="{{ board.board.width_mm }}mm"
+     height="{{ board.board.height_mm }}mm"
+     viewBox="0 0 {{ board.board.width_mm }} {{ board.board.height_mm }}">
+  {% if render.show_background | default(true) %}
+  <rect x="0" y="0" width="{{ board.board.width_mm }}" height="{{ board.board.height_mm }}" fill="{{ palette.paper }}"/>
+  {% endif %}
+
+
+  <g id="connections">
+    {% for connection in connection_views %}
+    {% set potential = connection.printed_style == "potential" %}
+    {% if connection.polyline_points %}
+    <polyline points="{{ connection.polyline_points }}"
+          fill="none"
+          stroke="{{ '#a7a7a7' if potential else (palette.blocked if connection.blocked else palette.connection) }}"
+          stroke-width="{{ '0.8' if potential else style.connection_width_mm }}"
+          {% if potential %}stroke-dasharray="3,2"{% elif connection.blocked %}stroke-dasharray="{{ style.blocked_dash }}"{% endif %}
+          stroke-linecap="round" stroke-linejoin="round"/>
+    {% elif connection.control_x is defined %}
+    <path d="M {{ connection.x1 }} {{ connection.y1 }} Q {{ connection.control_x }} {{ connection.control_y }} {{ connection.x2 }} {{ connection.y2 }}"
+          fill="none"
+          stroke="{{ '#a7a7a7' if potential else (palette.blocked if connection.blocked else palette.connection) }}"
+          stroke-width="{{ '0.8' if potential else style.connection_width_mm }}"
+          {% if potential %}stroke-dasharray="3,2"{% elif connection.blocked %}stroke-dasharray="{{ style.blocked_dash }}"{% endif %}
+          stroke-linecap="round"/>
+    {% else %}
+    <line x1="{{ connection.x1 }}" y1="{{ connection.y1 }}"
+          x2="{{ connection.x2 }}" y2="{{ connection.y2 }}"
+          stroke="{{ '#a7a7a7' if potential else (palette.blocked if connection.blocked else palette.connection) }}"
+          stroke-width="{{ '0.8' if potential else style.connection_width_mm }}"
+          {% if potential %}stroke-dasharray="3,2"{% elif connection.blocked %}stroke-dasharray="{{ style.blocked_dash }}"{% endif %}
+          stroke-linecap="round"/>
+    {% endif %}
+    {% if potential %}
+    <g class="board-road-marker board-road-marker-closed">
+      <rect x="{{ connection.mx - 8 }}" y="{{ connection.my - 8 }}"
+            width="16" height="16" rx="2"
+            fill="#ffffff" stroke="#202020" stroke-width="0.5"/>
+      <circle cx="{{ connection.mx }}" cy="{{ connection.my - 1.9 }}"
+              r="4.4" fill="#7a4a45" opacity="0.16"/>
+      <text x="{{ connection.mx }}" y="{{ connection.my + 0.3 }}"
+            text-anchor="middle" font-family="{{ style.font_family }}"
+            font-size="7" font-weight="700" fill="#7a4a45">S</text>
+      <text x="{{ connection.mx }}" y="{{ connection.my + 5.6 }}"
+            text-anchor="middle" font-family="{{ style.font_family }}"
+            font-size="2.0" font-weight="700" fill="#202020">Stängd väg</text>
+      <text x="{{ connection.mx + 6.8 }}" y="{{ connection.my - 5.5 }}"
+            text-anchor="end" font-family="{{ style.font_family }}"
+            font-size="1.8" font-weight="700" fill="#555555">{{ connection.label }}</text>
+    </g>
+    {% elif connection.blocked %}
+    <text x="{{ connection.mx }}" y="{{ connection.my - 2 }}"
+          text-anchor="middle"
+          font-family="{{ style.font_family }}"
+          font-size="2.4" fill="{{ palette.blocked }}">BLOCKERAD</text>
+    {% endif %}
+    {% if connection.discovery == "hidden_marker" %}
+    <g class="board-road-marker board-road-marker-open">
+      <rect x="{{ connection.mx - 8 }}" y="{{ connection.my - 8 }}"
+            width="16" height="16" rx="2"
+            fill="#ffffff" stroke="#202020" stroke-width="0.5"/>
+      <circle cx="{{ connection.mx }}" cy="{{ connection.my - 1.9 }}"
+              r="4.4" fill="#3f7f5f" opacity="0.16"/>
+      <text x="{{ connection.mx }}" y="{{ connection.my + 0.3 }}"
+            text-anchor="middle" font-family="{{ style.font_family }}"
+            font-size="7" font-weight="700" fill="#3f7f5f">Ö</text>
+      <text x="{{ connection.mx }}" y="{{ connection.my + 5.6 }}"
+            text-anchor="middle" font-family="{{ style.font_family }}"
+            font-size="2.0" font-weight="700" fill="#202020">Öppen väg</text>
+      <text x="{{ connection.mx + 6.8 }}" y="{{ connection.my - 5.5 }}"
+            text-anchor="end" font-family="{{ style.font_family }}"
+            font-size="1.8" font-weight="700" fill="#555555">{{ connection.label }}</text>
+    </g>
+    {% endif %}
+    {% endfor %}
+  </g>
+
+  {% if board.crossings is defined %}
+  <g id="connection-crossings">
+    {% for crossing in board.crossings %}
+    {% if crossing.style == "bridge" %}
+    {% set span = crossing.span_mm | default(12) %}
+    {% set rise = crossing.rise_mm | default(5) %}
+    <!-- Rensa korsningsytan, återrita underpassagen och lägg V4-bron ovanpå. -->
+    <rect x="{{ crossing.x - span / 2 - 1.5 }}" y="{{ crossing.y - rise - 1.5 }}"
+          width="{{ span + 3 }}" height="{{ rise + 5 }}"
+          fill="{{ palette.paper }}"/>
+    <line x1="{{ crossing.x }}" y1="{{ crossing.y - rise - 1.5 }}"
+          x2="{{ crossing.x }}" y2="{{ crossing.y + 3.5 }}"
+          stroke="#a7a7a7" stroke-width="0.8"
+          stroke-dasharray="3,2" stroke-linecap="round"/>
+    <path d="M {{ crossing.x - span / 2 }} {{ crossing.y }}
+             C {{ crossing.x - span / 3 }} {{ crossing.y }},
+               {{ crossing.x - span / 3 }} {{ crossing.y - rise }},
+               {{ crossing.x }} {{ crossing.y - rise }}
+             C {{ crossing.x + span / 3 }} {{ crossing.y - rise }},
+               {{ crossing.x + span / 3 }} {{ crossing.y }},
+               {{ crossing.x + span / 2 }} {{ crossing.y }}"
+          fill="none" stroke="{{ palette.paper }}" stroke-width="3.2"
+          stroke-linecap="round"/>
+    <path d="M {{ crossing.x - span / 2 }} {{ crossing.y }}
+             C {{ crossing.x - span / 3 }} {{ crossing.y }},
+               {{ crossing.x - span / 3 }} {{ crossing.y - rise }},
+               {{ crossing.x }} {{ crossing.y - rise }}
+             C {{ crossing.x + span / 3 }} {{ crossing.y - rise }},
+               {{ crossing.x + span / 3 }} {{ crossing.y }},
+               {{ crossing.x + span / 2 }} {{ crossing.y }}"
+          fill="none" stroke="#a7a7a7" stroke-width="0.8"
+          stroke-dasharray="3,2" stroke-linecap="round"/>
+    {% endif %}
+    {% endfor %}
+  </g>
+  {% endif %}
+
+  <g id="locations">
+    {% for location in location_views %}
+    <g id="location-{{ location.id }}">
+      {% if location.shape == "square" %}
+      <rect x="{{ location.x - location.size_mm / 2 }}" y="{{ location.y - location.size_mm / 2 }}"
+            width="{{ location.size_mm }}" height="{{ location.size_mm }}" rx="1.5"
+            fill="{{ location.type_style.fill }}"
+            stroke="{{ location.type_style.stroke }}"
+            stroke-width="1.2"/>
+      {% if not location.revealed %}
+      <rect x="{{ location.x - location.size_mm / 2 + 2 }}" y="{{ location.y - location.size_mm / 2 + 2 }}"
+            width="{{ location.size_mm - 4 }}" height="{{ location.size_mm - 4 }}" rx="1"
+            fill="none" stroke="{{ location.type_style.stroke }}"
+            stroke-width="0.5" stroke-dasharray="2,1"/>
+      {% endif %}
+      {% else %}
+      <circle cx="{{ location.x }}" cy="{{ location.y }}"
+              r="{{ location.radius_mm }}"
+              fill="{{ location.type_style.fill }}"
+              stroke="{{ location.type_style.stroke }}"
+              stroke-width="1.2"/>
+      {% if not location.revealed %}
+      <circle cx="{{ location.x }}" cy="{{ location.y }}"
+              r="{{ location.radius_mm - 2 }}"
+              fill="none" stroke="{{ location.type_style.stroke }}"
+              stroke-width="0.5" stroke-dasharray="2,1"/>
+      {% endif %}
+      {% endif %}
+      {% if location.node_role | default("location") == "transit" %}
+      <text x="{{ location.x }}" y="{{ location.y + 1.7 }}"
+            text-anchor="middle"
+            font-family="{{ style.font_family }}"
+            font-size="5.2"
+            font-weight="700"
+            fill="{{ location.type_style.stroke }}">{{ location.label }}</text>
+      {% else %}
+      <text x="{{ location.x }}" y="{{ location.y - 2 }}"
+            text-anchor="middle"
+            font-family="{{ style.font_family }}"
+            font-size="{{ style.location_icon_font_size }}"
+            font-weight="700"
+            fill="{{ location.type_style.stroke }}">{{ location.type_style.icon }}</text>
+      <text x="{{ location.x }}" y="{{ location.y + 5 }}"
+            text-anchor="middle"
+            font-family="{{ style.font_family }}"
+            font-size="{{ style.location_label_font_size }}"
+            font-weight="700"
+            fill="{{ palette.ink }}">{{ location.name }}</text>
+      {% endif %}
+      {% if location.resource %}
+      <text x="{{ location.x }}" y="{{ location.y + 9 }}"
+            text-anchor="middle"
+            font-family="{{ style.font_family }}"
+            font-size="{{ style.resource_font_size }}"
+            fill="{{ palette.muted }}">{{ location.resource_label }}</text>
+      {% endif %}
+      {% if location.objective_slot %}
+      <circle cx="{{ location.x + location.radius_mm - 3 }}"
+              cy="{{ location.y - location.radius_mm + 3 }}"
+              r="3.2" fill="#ffffff"
+              stroke="{{ location.type_style.stroke }}" stroke-width="0.7"/>
+      <text x="{{ location.x + location.radius_mm - 3 }}"
+            y="{{ location.y - location.radius_mm + 4.1 }}"
+            text-anchor="middle"
+            font-family="{{ style.font_family }}"
+            font-size="3.4" font-weight="700"
+            fill="{{ location.type_style.stroke }}">*</text>
+      {% endif %}
+      {% if render.show_location_ids %}
+      <text x="{{ location.x }}" y="{{ location.y + location.radius_mm + 4 }}"
+            text-anchor="middle" font-family="{{ style.font_family }}"
+            font-size="1.8" fill="{{ palette.muted }}">{{ location.id }}</text>
+      {% endif %}
+    </g>
+    {% endfor %}
+  </g>
+
+  {% if render.show_legend | default(true) %}
+  <g id="legend">
+    <rect x="{{ board.legend.x - 3 }}" y="{{ board.legend.y - 8 }}"
+          width="48" height="28" rx="2"
+          fill="#ffffff" opacity="0.75"
+          stroke="{{ palette.muted }}" stroke-width="0.3"/>
+    <text x="{{ board.legend.x }}" y="{{ board.legend.y - 3 }}"
+          font-family="{{ style.font_family }}" font-size="3"
+          font-weight="700" fill="{{ palette.ink }}">LEGEND</text>
+    {% for location_type in board.location_types %}
+    {% if location_type.id in ["unknown", "transit"] %}
+    <rect x="{{ board.legend.x }}" y="{{ board.legend.y + 1 + loop.index0 * 5.2 }}"
+          width="4" height="4" rx="0.4" fill="{{ location_type.fill }}"
+          stroke="{{ location_type.stroke }}" stroke-width="0.5"/>
+    {% else %}
+    <circle cx="{{ board.legend.x + 2 }}"
+            cy="{{ board.legend.y + 3 + loop.index0 * 5.2 }}"
+            r="2" fill="{{ location_type.fill }}"
+            stroke="{{ location_type.stroke }}" stroke-width="0.5"/>
+    {% endif %}
+    <text x="{{ board.legend.x + 6 }}"
+          y="{{ board.legend.y + 4 + loop.index0 * 5.2 }}"
+          font-family="{{ style.font_family }}"
+          font-size="{{ style.legend_font_size }}"
+          fill="{{ palette.ink }}">{{ location_type.name }}</text>
+    {% endfor %}
+  </g>
+  {% endif %}
+
+  {% if render.show_safe_margin %}
+  <rect x="{{ layout.safe_margin_mm }}" y="{{ layout.safe_margin_mm }}"
+        width="{{ layout.width_mm - 2 * layout.safe_margin_mm }}"
+        height="{{ layout.height_mm - 2 * layout.safe_margin_mm }}"
+        fill="none" stroke="#cc0000" stroke-width="0.2"
+        stroke-dasharray="2,2"/>
+  {% endif %}
+
+</svg>

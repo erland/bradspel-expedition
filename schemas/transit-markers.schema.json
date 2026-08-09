@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "transit-markers.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "marker_set",
+    "markers"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "marker_set": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "count",
+        "shuffle",
+        "presentation",
+        "width_mm",
+        "height_mm",
+        "scope"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "shuffle": {
+          "type": "boolean"
+        },
+        "presentation": {
+          "type": "string"
+        },
+        "width_mm": {
+          "type": "number",
+          "minimum": 1
+        },
+        "height_mm": {
+          "type": "number",
+          "minimum": 1
+        },
+        "scope": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "markers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "family",
+          "state",
+          "count",
+          "symbol",
+          "name",
+          "purpose",
+          "target_type",
+          "allowed_node_type",
+          "effect"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "family": {
+            "const": "transit"
+          },
+          "state": {
+            "enum": [
+              "open",
+              "blocked"
+            ]
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "target_type": {
+            "const": "node"
+          },
+          "allowed_node_type": {
+            "const": "transit"
+          },
+          "effect": {
+            "type": "array"
+          }
+        }
+      }
+    }
+  }
+}

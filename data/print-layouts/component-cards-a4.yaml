@@ -1,0 +1,12 @@
+version: 1
+print_layout:
+  paper: A4
+  width_mm: 210
+  height_mm: 297
+  margin_left_mm: 15
+  margin_top_mm: 18
+  columns: 3
+  rows: 3
+  gap_x_mm: 4
+  gap_y_mm: 5
+  crop_marks: true

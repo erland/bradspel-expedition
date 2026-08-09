@@ -1,0 +1,59 @@
+version: 1
+decks:
+- id: prototype
+  name: Äldre pipelineprov
+  purpose: Tekniska referenskort; används inte i v1.0-printpaketet.
+cards:
+- id: explore_abandoned_station
+  name: Övergiven station
+  type: exploration
+  deck: prototype
+  count: 1
+  icon: search
+  rules:
+    timing: on_reveal
+    effects:
+    - action: gain_resource
+      resource: tools
+      amount: 1
+    - action: lose_endurance
+      amount: 1
+  display:
+    category: UTFORSKNING
+    title: Övergiven station
+    body: Få 1 verktyg. Förlora sedan 1 uthållighet.
+    flavor: Någon lämnade platsen i stor hast.
+- id: event_sudden_storm
+  name: Plötslig storm
+  type: event
+  deck: prototype
+  count: 1
+  icon: storm
+  rules:
+    timing: on_draw
+    effects:
+    - action: lose_endurance
+      amount: 2
+  display:
+    category: HANDELSE
+    title: Plötslig storm
+    body: Förlora 2 uthållighet.
+    flavor: Himlen mörknar innan någon hinner reagera.
+- id: item_field_medkit
+  name: Äldre medicinväska
+  type: item
+  deck: prototype
+  count: 1
+  icon: medicine
+  rules:
+    timing: player_action
+    effects:
+    - action: heal
+      amount: 2
+    - action: discard_card
+      target: self
+  display:
+    category: FOREMAL
+    title: Äldre medicinväska
+    body: 'Som en handling: läk 2 hälsa. Kasta sedan detta kort.'
+    flavor: En liten väska kan vara skillnaden mellan hemfärd och katastrof.

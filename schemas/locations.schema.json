@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "locations.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "location_deck",
+    "locations"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "location_deck": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "draw_count",
+        "objective_count",
+        "shuffle"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "name": {
+          "type": "string"
+        },
+        "draw_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "objective_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "shuffle": {
+          "type": "boolean"
+        },
+        "scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "level"
+          ],
+          "properties": {
+            "level": {
+              "enum": [
+                "core",
+                "environment",
+                "scenario"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_-]*$"
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "level": {
+                    "const": "core"
+                  }
+                }
+              },
+              "then": {
+                "not": {
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "level": {
+                    "enum": [
+                      "environment",
+                      "scenario"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "id"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "locations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "count",
+          "symbol",
+          "on_reveal",
+          "display",
+          "display_id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "objective",
+              "resource",
+              "hazard"
+            ]
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "on_reveal": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "display": {
+            "type": "object",
+            "required": [
+              "title",
+              "body",
+              "footer"
+            ],
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "body": {
+                "type": "string"
+              },
+              "footer": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "display_id": {
+            "type": "string",
+            "pattern": "^[A-Z]{2}-[1-9][0-9]*$"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tokens.schema.json",
+  "title": "Expedition tokens",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "token_sets",
+    "tokens"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "token_sets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "purpose"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "tokens": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "type",
+          "set",
+          "count",
+          "symbol",
+          "color",
+          "text_color",
+          "size_mm",
+          "source_ref"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "enum": [
+              "resource",
+              "objective",
+              "track",
+              "status",
+              "pool",
+              "turn_tracking"
+            ]
+          },
+          "set": {
+            "$ref": "#/$defs/id"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 99
+          },
+          "symbol": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 3
+          },
+          "color": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          },
+          "text_color": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          },
+          "size_mm": {
+            "type": "number",
+            "minimum": 15,
+            "maximum": 40
+          },
+          "source_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    }
+  }
+}

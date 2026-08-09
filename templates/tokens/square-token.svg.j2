@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="{{ token.size_mm }}mm"
+     height="{{ token.size_mm }}mm"
+     viewBox="0 0 {{ token.size_mm }} {{ token.size_mm }}">
+  <rect x="0.25" y="0.25"
+        width="{{ token.size_mm - 0.5 }}"
+        height="{{ token.size_mm - 0.5 }}"
+        rx="{{ layout.corner_radius_mm }}"
+        fill="{{ token.color if not style.ink_friendly else palette.paper }}"
+        stroke="{{ palette.ink }}"
+        stroke-width="{{ layout.border_width_mm }}"/>
+
+  {% if style.ink_friendly %}
+  <rect x="1.4" y="1.4"
+        width="{{ token.size_mm - 2.8 }}"
+        height="{{ token.size_mm - 2.8 }}"
+        rx="{{ layout.corner_radius_mm - 0.7 }}"
+        fill="{{ token.color }}" opacity="0.28"/>
+  {% endif %}
+
+  <text x="{{ token.size_mm / 2 }}"
+        y="{{ token.size_mm * 0.46 }}"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="{{ style.font_family }}"
+        font-size="{{ token.size_mm * style.symbol_font_size_factor }}"
+        font-weight="700"
+        fill="{{ palette.ink if style.ink_friendly else token.text_color }}">{{ token.symbol }}</text>
+
+  <text x="{{ token.size_mm / 2 }}"
+        y="{{ token.size_mm * 0.77 }}"
+        text-anchor="middle"
+        font-family="{{ style.font_family }}"
+        font-size="{{ token.size_mm * style.label_font_size_factor }}"
+        font-weight="700"
+        fill="{{ palette.ink }}">{{ token.name }}</text>
+
+  {% if style.show_token_id %}
+  <text x="{{ token.size_mm / 2 }}"
+        y="{{ token.size_mm * 0.92 }}"
+        text-anchor="middle"
+        font-family="{{ style.font_family }}"
+        font-size="{{ token.size_mm * style.id_font_size_factor }}"
+        fill="{{ palette.muted }}">{{ token.id }}</text>
+  {% endif %}
+</svg>

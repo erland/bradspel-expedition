@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+ width="57mm" height="80mm" viewBox="0 0 57 80">
+ <rect x="0.25" y="0.25" width="56.5" height="79.5"
+       rx="3" fill="#f6f2e8" stroke="#202020" stroke-width="0.5"/>
+ <rect x="0.25" y="0.25" width="56.5" height="10"
+       rx="3" fill="#56785b"/>
+ <rect x="0.25" y="7" width="56.5" height="3" fill="#56785b"/>
+ <text x="28.5" y="6.5" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3" font-weight="700"
+       fill="#ffffff">PLATS</text>
+ <text x="54" y="6.5" text-anchor="end"
+       font-family="DejaVu Sans" font-size="2.2" font-weight="700"
+       fill="#ffffff">SN-5</text>
+ <text x="28.5" y="15.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="4.4" font-weight="700"
+       fill="#202020">Dolt förråd</text>
+ <circle cx="28.5" cy="32.0" r="9"
+         fill="#56785b" opacity="0.18"/>
+ <text x="28.5" y="34.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="10" font-weight="700"
+       fill="#56785b">R</text>
+ <text x="28.5" y="48.0" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="3.3" fill="#202020">Dra 1 utrustning.</text>
+ <text x="28.5" y="76" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.3" fill="#666666">Resursplats</text>
+</svg>

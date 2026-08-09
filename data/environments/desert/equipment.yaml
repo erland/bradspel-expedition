@@ -1,0 +1,46 @@
+version: 1
+deck:
+  id: okenrelaet_equipment
+  name: Ökenmiljö - utrustning
+  shuffle: true
+  draw_on_find: 1
+  scope:
+    level: environment
+    id: desert
+equipment:
+- id: water_reserve
+  name: Vattenreserv
+  count: 1
+  slots: 1
+  kind: consumable
+  tags:
+  - survival
+  symbol: V
+  use:
+    cost_actions: 0
+    effect:
+    - action: cancel_next_endurance_loss
+      source: travel_event
+    discard_after_use: true
+    timing: when_travel_event_loses_endurance
+    optional: true
+  text: När en färdhändelse skulle få dig att förlora uthållighet får du minska förlusten
+    med 1. Kassera Vattenreserv efter användning.
+- id: diagnostic_tool
+  name: Diagnosverktyg
+  count: 1
+  slots: 1
+  kind: consumable
+  tags:
+  - technical
+  symbol: D
+  use:
+    cost_actions: 0
+    effect:
+    - action: reduce_install_cost
+      amount: 1
+    discard_after_use: true
+    timing: when_activating_objective
+    optional: true
+  text: När du aktiverar ett målobjekt får du kassera Diagnosverktyg. Aktiveringen
+    kostar då ingen handling.

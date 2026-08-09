@@ -1,0 +1,449 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "board.schema.json",
+  "title": "Expedition board",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "board",
+    "location_types",
+    "locations",
+    "connections",
+    "tracks",
+    "legend",
+    "hidden_road_marker_slot"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "board": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "type",
+        "width_mm",
+        "height_mm",
+        "orientation",
+        "start_location"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "const": "node_map"
+        },
+        "width_mm": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "height_mm": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "orientation": {
+          "enum": [
+            "portrait",
+            "landscape"
+          ]
+        },
+        "start_location": {
+          "$ref": "#/$defs/id"
+        }
+      }
+    },
+    "location_types": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "fill",
+          "stroke",
+          "icon"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "name": {
+            "type": "string"
+          },
+          "fill": {
+            "type": "string"
+          },
+          "stroke": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "locations": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "type",
+          "x",
+          "y",
+          "radius_mm",
+          "revealed",
+          "objective_slot",
+          "resource",
+          "shape",
+          "size_mm"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "$ref": "#/$defs/id"
+          },
+          "x": {
+            "type": "number",
+            "minimum": 0
+          },
+          "y": {
+            "type": "number",
+            "minimum": 0
+          },
+          "radius_mm": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "revealed": {
+            "type": "boolean"
+          },
+          "objective_slot": {
+            "type": "boolean"
+          },
+          "resource": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/$defs/id"
+              }
+            ]
+          },
+          "shape": {
+            "enum": [
+              "circle",
+              "square"
+            ]
+          },
+          "size_mm": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "label": {
+            "type": "string",
+            "pattern": "^T[1-9][0-9]*$"
+          },
+          "node_role": {
+            "enum": [
+              "location",
+              "transit"
+            ]
+          },
+          "explorable": {
+            "type": "boolean"
+          },
+          "occupiable": {
+            "type": "boolean"
+          },
+          "stoppable": {
+            "type": "boolean"
+          },
+          "default_state": {
+            "enum": [
+              "open",
+              "blocked"
+            ]
+          },
+          "tile_slot_family": {
+            "$ref": "#/$defs/id"
+          }
+        }
+      }
+    },
+    "connections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "from",
+          "to",
+          "blocked",
+          "discovery",
+          "category",
+          "default_state",
+          "printed_style"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "from": {
+            "$ref": "#/$defs/id"
+          },
+          "to": {
+            "$ref": "#/$defs/id"
+          },
+          "blocked": {
+            "type": "boolean"
+          },
+          "discovery": {
+            "enum": [
+              "open",
+              "hidden_marker"
+            ]
+          },
+          "label": {
+            "type": "string",
+            "pattern": "^[DV][1-9][0-9]*$"
+          },
+          "category": {
+            "enum": [
+              "fixed",
+              "hidden",
+              "scenario"
+            ]
+          },
+          "default_state": {
+            "enum": [
+              "open",
+              "hidden",
+              "closed",
+              "sealed"
+            ]
+          },
+          "printed_style": {
+            "enum": [
+              "standard",
+              "hidden",
+              "potential",
+              "none"
+            ]
+          },
+          "marker_pool": {
+            "$ref": "#/$defs/id"
+          },
+          "tags": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/$defs/id"
+            }
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "control_x": {
+            "type": "number"
+          },
+          "control_y": {
+            "type": "number"
+          },
+          "label_x": {
+            "type": "number"
+          },
+          "label_y": {
+            "type": "number"
+          },
+          "path_points": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "items": false
+            }
+          },
+          "route_id": {
+            "$ref": "#/$defs/id"
+          },
+          "segment_index": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    },
+    "tracks": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "minimum",
+          "maximum",
+          "start",
+          "x",
+          "y",
+          "cell_width_mm",
+          "cell_height_mm",
+          "columns"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "name": {
+            "type": "string"
+          },
+          "minimum": {
+            "type": "integer"
+          },
+          "maximum": {
+            "type": "integer"
+          },
+          "start": {
+            "type": "integer"
+          },
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "cell_width_mm": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "cell_height_mm": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "columns": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    },
+    "legend": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "x",
+        "y",
+        "show_location_types",
+        "show_connection_types"
+      ],
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "show_location_types": {
+          "type": "boolean"
+        },
+        "show_connection_types": {
+          "type": "boolean"
+        }
+      }
+    },
+    "hidden_road_marker_slot": {
+      "type": "object"
+    },
+    "crossings": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "x",
+          "y",
+          "over",
+          "under",
+          "style"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "over": {
+            "$ref": "#/$defs/id"
+          },
+          "under": {
+            "$ref": "#/$defs/id"
+          },
+          "style": {
+            "enum": [
+              "bridge"
+            ]
+          },
+          "span_mm": {
+            "type": "number",
+            "minimum": 4,
+            "maximum": 30
+          },
+          "rise_mm": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 12
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    }
+  }
+}

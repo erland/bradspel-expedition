@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="105mm" height="148mm" viewBox="0 0 105 148">
+ <rect x=".3" y=".3" width="104.4" height="147.4" rx="3" fill="{{ palette.paper }}" stroke="{{ palette.ink }}" stroke-width=".6"/>
+ <rect x=".3" y=".3" width="104.4" height="14" rx="3" fill="{{ palette.accent }}"/>
+ <rect x=".3" y="10" width="104.4" height="4" fill="{{ palette.accent }}"/>
+ <text x="52.5" y="7.2" text-anchor="middle" font-family="{{ style.font_family }}" font-size="5.5" font-weight="700" fill="#fff">TURÖVERSIKT</text>
+ <text x="52.5" y="11.5" text-anchor="middle" font-family="{{ style.font_family }}" font-size="2.2" fill="#fff">Fast aktiveringsordning · uthållighet i slutet av rundan</text>
+
+ {% macro box(x,y,w,h,title,danger=False) %}
+ <rect x="{{ x }}" y="{{ y }}" width="{{ w }}" height="{{ h }}" rx="1.8"
+       fill="{{ '#eedbd7' if danger else palette.accent_light }}" stroke="{{ palette.line }}" stroke-width=".3"/>
+ <text x="{{ x+2.5 }}" y="{{ y+4.5 }}" font-family="{{ style.font_family }}" font-size="2.8" font-weight="700"
+       fill="{{ palette.danger if danger else palette.accent }}">{{ title }}</text>
+ {% endmacro %}
+
+ {{ box(4,17,97,29,"RUNDAN") }}
+ {% for title,text in rounds %}
+ <text x="7" y="{{ 24 + loop.index0*7 }}" font-family="{{ style.font_family }}" font-size="2.55" font-weight="700" fill="{{ palette.ink }}">{{ title }}</text>
+ <text x="7" y="{{ 27 + loop.index0*7 }}" font-family="{{ style.font_family }}" font-size="2.25" fill="{{ palette.ink }}">{{ text }}</text>
+ {% endfor %}
+
+ {{ box(4,49,97,47,"HANDLINGAR") }}
+ {% for title,text in actions %}
+ {% set col = 0 if loop.index0 < 5 else 1 %}
+ {% set row = loop.index0 if loop.index0 < 5 else loop.index0-5 %}
+ <text x="{{ 7 + col*48 }}" y="{{ 56 + row*8 }}" font-family="{{ style.font_family }}" font-size="2.45" font-weight="700" fill="{{ palette.ink }}">{{ title }}</text>
+ <text x="{{ 7 + col*48 }}" y="{{ 59 + row*8 }}" font-family="{{ style.font_family }}" font-size="2.1" fill="{{ palette.muted }}">{{ text }}</text>
+ {% endfor %}
+
+ {{ box(4,99,47,34,"VÄGAR") }}
+ {% for title,text in symbols %}
+ <text x="7" y="{{ 106 + loop.index0*5 }}" font-family="{{ style.font_family }}" font-size="2.25" font-weight="700" fill="{{ palette.ink }}">{{ title }}</text>
+ <text x="22" y="{{ 106 + loop.index0*5 }}" font-family="{{ style.font_family }}" font-size="1.9" fill="{{ palette.ink }}">{{ text }}</text>
+ {% endfor %}
+
+ {{ box(54,99,47,22,"RYGGSÄCK") }}
+ {% for title,text in inventory %}
+ <text x="57" y="{{ 106 + loop.index0*5 }}" font-family="{{ style.font_family }}" font-size="2.15" font-weight="700" fill="{{ palette.ink }}">{{ title }}</text>
+ <text x="72" y="{{ 106 + loop.index0*5 }}" font-family="{{ style.font_family }}" font-size="2.05" fill="{{ palette.ink }}">{{ text }}</text>
+ {% endfor %}
+
+ {{ box(54,123,47,13,"SLUT",True) }}
+ <text x="57" y="129.2" font-family="{{ style.font_family }}" font-size="1.9" fill="{{ palette.ink }}">Vinn: uppfyll scenariots mål.</text>
+ <text x="57" y="133.1" font-family="{{ style.font_family }}" font-size="1.75" fill="{{ palette.ink }}">Förlust: slut på uthållighet / alla utslagna.</text>
+
+ <text x="52.5" y="140" text-anchor="middle" font-family="{{ style.font_family }}" font-size="2.0" fill="{{ palette.muted }}">Vrid karaktärskortet efter aktivering.</text>
+ <text x="52.5" y="145" text-anchor="middle" font-family="{{ style.font_family }}" font-size="1.8" fill="{{ palette.muted }}">{{ card.footer }}</text>
+</svg>

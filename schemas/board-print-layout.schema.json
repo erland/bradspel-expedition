@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "board-print-layout.schema.json",
+  "title": "Board print layout",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "print_layout"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "print_layout": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "paper",
+        "orientation",
+        "width_mm",
+        "height_mm",
+        "source_svg",
+        "output_pdf"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "paper": {
+          "const": "A4"
+        },
+        "orientation": {
+          "enum": [
+            "portrait",
+            "landscape"
+          ]
+        },
+        "width_mm": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "height_mm": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "source_svg": {
+          "type": "string",
+          "pattern": "^.+\\.svg$"
+        },
+        "output_pdf": {
+          "type": "string",
+          "pattern": "^.+\\.pdf$"
+        }
+      }
+    }
+  }
+}

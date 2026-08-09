@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "base-profiles.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "base_profiles"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "base_profiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "description",
+          "includes",
+          "sources"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "includes": {
+            "type": "object",
+            "required": [
+              "board",
+              "ruleset",
+              "characters",
+              "equipment_deck",
+              "travel_event_deck",
+              "road_marker_set",
+              "tokens",
+              "fixed_locations"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "board": {
+                "type": "string"
+              },
+              "ruleset": {
+                "type": "string"
+              },
+              "characters": {
+                "type": "string"
+              },
+              "equipment_deck": {
+                "type": "string"
+              },
+              "travel_event_deck": {
+                "type": "string"
+              },
+              "road_marker_set": {
+                "type": "string"
+              },
+              "tokens": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "fixed_locations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "sources": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "equipment",
+              "travel_events",
+              "characters",
+              "road_markers",
+              "tokens"
+            ],
+            "properties": {
+              "equipment": {
+                "type": "string",
+                "pattern": "^data/.+\\.yaml$"
+              },
+              "travel_events": {
+                "type": "string",
+                "pattern": "^data/.+\\.yaml$"
+              },
+              "characters": {
+                "type": "string",
+                "pattern": "^data/.+\\.yaml$"
+              },
+              "road_markers": {
+                "type": "string",
+                "pattern": "^data/.+\\.yaml$"
+              },
+              "tokens": {
+                "type": "string",
+                "pattern": "^data/.+\\.yaml$"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

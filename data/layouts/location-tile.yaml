@@ -1,0 +1,27 @@
+version: 1
+layout:
+  id: location_tile_v1
+  template: templates/tiles/location-tile.svg.j2
+  width_mm: 30
+  height_mm: 30
+  corner_radius_mm: 1.5
+  sheet_columns: 6
+  sheet_rows: 2
+  gap_mm: 2
+  margin_x_mm: 9
+  row_y_mm:
+  - 32
+  - 82
+style:
+  font_family: DejaVu Sans
+  id_font_size: 2.4
+  name_font_size: 2.7
+  scenario_font_size: 2.0
+palette:
+  paper: '#ffffff'
+  ink: '#202020'
+  muted: '#666666'
+  station: '#dfe8ef'
+  station_stroke: '#526a7b'
+  desert: '#f1dfb8'
+  desert_stroke: '#8a6a2f'

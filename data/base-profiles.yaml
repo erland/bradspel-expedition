@@ -1,0 +1,27 @@
+version: 1
+base_profiles:
+- id: core_v1
+  name: Expedition basuppsättning v1
+  description: Gemensamma komponenter och regler som används om scenariot inte anger
+    annat.
+  includes:
+    board: board_main
+    ruleset: expedition_core_v1_7_1
+    characters: all_core_characters
+    equipment_deck: core_equipment
+    travel_event_deck: travel_events
+    road_marker_set: normal_roads
+    tokens:
+    - resource_tools
+    - status_damage
+    - status_unexplored
+    - pool_endurance
+    fixed_locations:
+    - base_camp
+    - supply_depot
+  sources:
+    equipment: data/base/equipment.yaml
+    travel_events: data/base/travel-events.yaml
+    characters: data/characters.yaml
+    road_markers: data/road-markers.yaml
+    tokens: data/tokens.yaml

@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Expedition rule coverage matrix",
+  "type": "object",
+  "required": [
+    "version",
+    "project_version",
+    "status_definitions",
+    "summary",
+    "rules"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 1
+    },
+    "project_version": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "status_definitions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "section",
+          "rule",
+          "yaml",
+          "engine",
+          "simulator",
+          "tests",
+          "status",
+          "notes"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "section": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rule": {
+            "type": "string",
+            "minLength": 1
+          },
+          "yaml": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "engine": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "simulator": {
+            "enum": [
+              "full",
+              "partial",
+              "presentation_only",
+              "not_simulated"
+            ]
+          },
+          "tests": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "enum": [
+              "full",
+              "partial",
+              "presentation_only",
+              "not_automated"
+            ]
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

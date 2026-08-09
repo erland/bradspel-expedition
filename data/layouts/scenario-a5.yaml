@@ -1,0 +1,23 @@
+version: 1
+layout:
+  id: scenario_a5_v1
+  width_mm: 148
+  height_mm: 210
+  safe_margin_mm: 7
+  corner_radius_mm: 3
+palette:
+  paper: '#f6f2e8'
+  ink: '#202020'
+  muted: '#626262'
+  accent: '#456b73'
+  accent_light: '#d9e6e8'
+  danger: '#934f49'
+  success: '#56785b'
+  line: '#9a9a90'
+style:
+  font_family: DejaVu Sans
+  title_size: 7.2
+  subtitle_size: 3.0
+  section_size: 3.2
+  body_size: 2.65
+  small_size: 2.2

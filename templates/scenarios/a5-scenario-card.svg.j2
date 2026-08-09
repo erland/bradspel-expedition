@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="148mm" height="210mm" viewBox="0 0 148 210">
+ <rect x=".3" y=".3" width="147.4" height="209.4" rx="3" fill="{{ palette.paper }}" stroke="{{ palette.ink }}" stroke-width=".6"/>
+ <rect x=".3" y=".3" width="147.4" height="23" rx="3" fill="{{ palette.accent }}"/>
+ <rect x=".3" y="19" width="147.4" height="4" fill="{{ palette.accent }}"/>
+ <text x="74" y="8.5" text-anchor="middle" font-family="{{ style.font_family }}" font-size="{{ style.subtitle_size }}" font-weight="700" fill="#fff">EXPEDITION {{ scenario.scenario_number }}</text>
+ <text x="74" y="16.8" text-anchor="middle" font-family="{{ style.font_family }}" font-size="{{ style.title_size }}" font-weight="700" fill="#fff">{{ scenario.name }}</text>
+
+ {% macro section_box(x,y,w,h,title,accent) %}
+ <rect x="{{ x }}" y="{{ y }}" width="{{ w }}" height="{{ h }}" rx="2" fill="#fffdf8" stroke="{{ palette.line }}" stroke-width=".35"/>
+ <rect x="{{ x }}" y="{{ y }}" width="{{ w }}" height="7" rx="2" fill="{{ accent }}"/>
+ <rect x="{{ x }}" y="{{ y+5 }}" width="{{ w }}" height="2" fill="{{ accent }}"/>
+ <text x="{{ x+3 }}" y="{{ y+4.8 }}" font-family="{{ style.font_family }}" font-size="{{ style.section_size }}" font-weight="700" fill="#fff">{{ title }}</text>
+ {% endmacro %}
+
+ {{ section_box(6,28,136,48,"UPPDRAGSBRIEFING",palette.accent) }}
+ {% for line in intro_lines %}
+ <text x="10" y="{{ 38 + loop.index0*4.1 }}" font-family="{{ style.font_family }}" font-size="{{ style.body_size }}" fill="{{ palette.ink }}">{{ line }}</text>
+ {% endfor %}
+ {% for line in briefing_lines %}
+ <text x="10" y="{{ briefing_y + loop.index0*4.1 }}" font-family="{{ style.font_family }}" font-size="{{ style.body_size }}" font-weight="700" fill="{{ palette.ink }}">{{ line }}</text>
+ {% endfor %}
+
+ {{ section_box(6,80,61,58,"FÖRBEREDELSER",palette.accent) }}
+ {% for line in setup_lines %}
+ <text x="10" y="{{ 90 + loop.index0*4.2 }}" font-family="{{ style.font_family }}" font-size="2.45" fill="{{ palette.ink }}">{{ line }}</text>
+ {% endfor %}
+
+ {{ section_box(71,80,71,58,"LÄGG TILL FÖR DETTA SCENARIO",palette.accent) }}
+ {% for line in content_lines %}
+ <text x="75" y="{{ 90 + loop.index0*3.55 }}" font-family="{{ style.font_family }}"
+       font-size="{{ style.small_size }}"
+       font-weight="{{ '700' if line == line|upper else '400' }}"
+       fill="{{ palette.ink }}">{{ line }}</text>
+ {% endfor %}
+
+ {{ section_box(6,142,136,40,"MÅL OCH PROGRESSION",palette.accent) }}
+ {% for line in special_lines %}
+ <text x="10" y="{{ 152 + loop.index0*3.9 }}" font-family="{{ style.font_family }}" font-size="{{ style.body_size }}" fill="{{ palette.ink }}">{{ line }}</text>
+ {% endfor %}
+
+ {{ section_box(6,184,136,15,"VINST",palette.success) }}
+ {% set col_width = 126 / (victory_items|length) %}
+ {% for item in victory_items %}
+   {% set col_x = 10 + loop.index0 * col_width %}
+   {% if not loop.first %}
+   <line x1="{{ col_x-3 }}" y1="192" x2="{{ col_x-3 }}" y2="198" stroke="{{ palette.line }}" stroke-width=".25"/>
+   {% endif %}
+   {% for line in item %}
+   <text x="{{ col_x }}" y="{{ 194.5 + loop.index0*3.1 }}" font-family="{{ style.font_family }}" font-size="{{ style.small_size }}" fill="{{ palette.ink }}">{{ line }}</text>
+   {% endfor %}
+ {% endfor %}
+
+ <text x="74" y="204.5" text-anchor="middle" font-family="{{ style.font_family }}" font-size="{{ style.small_size }}" fill="{{ palette.muted }}">Scenarioarket kompletterar grundreglerna.</text>
+</svg>

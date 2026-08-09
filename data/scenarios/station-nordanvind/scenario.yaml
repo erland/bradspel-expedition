@@ -1,0 +1,135 @@
+version: 1
+scenario_pack:
+  id: station_nordanvind
+  name: Station Nordanvind
+  scenario_number: 1
+  status: playtest_prototype
+  base_profile: core_v1
+  presentation:
+    format: A5
+    orientation: portrait
+    pages: 1
+    template: templates/scenarios/a5-scenario-card.svg.j2
+  story:
+    introduction: Forskningsstationen Nordanvind har slagits ut av en extrem storm. Kommunikationen är bruten, servicegångarna har rasat och personalen har evakuerats till Baslägret. Under evakueringen flyttades tre oersättliga objekt till olika säkra sektorer.
+    briefing: Väderfönstret stängs snabbt. Sök igenom stationens sex sektorer, återfinn forskningsservern, satellitkärnan och det medicinska provet och transportera dem till Baslägret innan uthålligheten tar slut.
+    victory_text: De tre objekten förs över tröskeln till Baslägret. Nordanvinds data, kommunikation och forskning är säkrade innan stormen stänger området.
+    defeat_text: Väderfönstret stängs. Expeditionen tvingas avbryta och lämna de återstående sektorerna åt stormen.
+  mission:
+    summary: Hitta och återför tre målobjekt till Baslägret.
+    required_objectives: 3
+    objective_ids:
+    - research_server
+    - satellite_core
+    - medical_sample
+    completion:
+      type: deliver_items
+      required: 3
+      item_source: objectives
+      destination_location: base_camp
+      progress_label: målobjekt återförda
+      action_id: deliver_objective
+      completion_event: objective_completed
+      destination_label: Baslägret
+    player_instructions:
+    - Transportera målobjekten till Baslägret.
+    - 'I Baslägret: använd Lämna föremål (0 handlingar). Målobjektet räknas då som slutfört.'
+  content:
+    scenario_sets:
+      locations: station_nordanvind_locations
+      objectives: station_nordanvind_objectives
+    uses_from_base:
+    - alla karaktärer
+    - grundutrustning
+    - grundläggande färdhändelser
+    - vägmarkörer och övriga markörer
+    scenario_cards:
+      locations: 6
+      objectives: 3
+      equipment: 0
+      travel_events: 0
+    sources:
+      locations: data/scenarios/station-nordanvind/locations.yaml
+      objectives: data/scenarios/station-nordanvind/objectives.yaml
+    base_sources:
+      equipment: data/base/equipment.yaml
+      travel_events: data/base/travel-events.yaml
+    deck_composition:
+      equipment: base_only
+      travel_events: base_only
+      locations: scenario_only
+      objectives: scenario_only
+      tokens: base_only
+  setup:
+    endurance_by_character_count:
+      '2': 11
+      '3': 9
+      '4': 8
+    starting_tools_by_character_count:
+      '2': 0
+      '3': 0
+      '4': 0
+    location_slots: 6
+    road_marker_profile: normal_roads
+    supply_depot_tools: 4
+    hidden_roads:
+    - road_hidden_01
+    - road_hidden_02
+    - road_hidden_03
+    - road_hidden_05
+    - road_hidden_06
+    hidden_road_marker_pool:
+      open: 3
+      blocked: 2
+      travel_event: 1
+  special_rules: []
+  victory:
+  - Alla tre målobjekt finns i Baslägret.
+  - Minst en karaktär är fortfarande aktiv.
+  defeat:
+  - Den sista uthållighetsmarkören tas bort.
+  - Alla karaktärer blir utslagna.
+  scenario_events:
+    deck_id: polar_station_events
+    source: data/scenario-events/polar-station.yaml
+    milestones:
+    - id: first_objective_found_event
+      trigger:
+        event: objective_found
+        count: 1
+        once: true
+      resolve:
+        mode: fixed
+        card_id: polar_stormfront
+      public: true
+      label: 'Målobjekt 1 hittat: scenariohändelsen Stormfront inträffar.'
+    - id: first_objective_completed_route_event
+      trigger:
+        event: objective_completed
+        count: 1
+        once: true
+      resolve:
+        mode: fixed
+        card_id: polar_west_service_tunnel
+      public: true
+      label: 'Målobjekt 1 slutfört: scenariohändelsen Västra servicegången inträffar.'
+    - id: second_objective_completed_route_event
+      trigger:
+        event: objective_completed
+        count: 2
+        once: true
+      resolve:
+        mode: fixed
+        card_id: polar_east_cargo_tunnel
+      public: true
+      label: 'Målobjekt 2 slutfört: scenariohändelsen Östra lasttunneln inträffar.'
+    - id: second_objective_completed_event
+      trigger:
+        event: objective_completed
+        count: 2
+        once: true
+      resolve:
+        mode: fixed
+        card_id: polar_ice_collapse
+      public: true
+      label: 'Målobjekt 2 slutfört: scenariohändelsen Isras inträffar.'

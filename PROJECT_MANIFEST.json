@@ -1,0 +1,18 @@
+{
+  "project": "Expedition",
+  "version": "1.9.60",
+  "status": "adaptive_hidden_shortcut_agent",
+  "standard_profile": {
+    "endurance_by_character_count": {
+      "2": 13,
+      "3": 11,
+      "4": 10
+    },
+    "starting_tools_by_character_count": {
+      "2": 0,
+      "3": 0,
+      "4": 0
+    }
+  },
+  "audit": "output/v1.9.6-standard-profile-audit.json"
+}

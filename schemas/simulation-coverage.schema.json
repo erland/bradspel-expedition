@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "version",
+    "coverage"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "coverage": {
+      "type": "object",
+      "required": [
+        "effect_handlers",
+        "character_abilities",
+        "mission_completion",
+        "documented_approximations"
+      ]
+    }
+  }
+}

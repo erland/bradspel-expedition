@@ -1,0 +1,102 @@
+version: 2
+location_deck:
+  id: station_nordanvind_locations
+  name: Station Nordanvind - platser
+  draw_count: 6
+  objective_count: 3
+  shuffle: true
+  scope:
+    level: scenario
+    id: station-nordanvind
+locations:
+- id: abandoned_lab
+  name: Övergivet laboratorium
+  kind: objective
+  count: 1
+  symbol: '*'
+  on_reveal:
+  - action: lose_endurance
+    amount: 1
+  - action: draw_objective_card
+    deck: core_objectives
+    amount: 1
+  display:
+    title: Övergivet laboratorium
+    body: Dra 1 målobjekt. Förlora 1 uthållighet.
+    footer: Målobjektsplats
+  display_id: SN-1
+- id: collapsed_mine
+  name: Rasade servicegångar
+  kind: objective
+  count: 1
+  symbol: '*'
+  on_reveal:
+  - action: choice_pay_or_damage
+    resource: tools
+    amount: 1
+    damage: 1
+  - action: draw_objective_card
+    deck: core_objectives
+    amount: 1
+  display:
+    title: Rasade servicegångar
+    body: Betala 1 verktyg eller ta 1 skada. Dra sedan 1 målobjekt.
+    footer: Målobjektsplats
+  display_id: SN-2
+- id: signal_tower
+  name: Signaltornet
+  kind: objective
+  count: 1
+  symbol: '*'
+  on_reveal:
+  - action: draw_objective_card
+    deck: core_objectives
+    amount: 1
+  display:
+    title: Signaltornet
+    body: Dra 1 målobjekt.
+    footer: Målobjektsplats
+  display_id: SN-3
+- id: field_hospital
+  name: Fältsjukhuset
+  kind: resource
+  count: 1
+  symbol: +
+  on_reveal:
+  - action: heal
+    amount: 1
+  - action: draw_equipment_card
+    deck: core_equipment
+    amount: 1
+  display:
+    title: Fältsjukhuset
+    body: Läk 1 hälsa och dra 1 utrustning.
+    footer: Resursplats
+  display_id: SN-4
+- id: supply_cache
+  name: Dolt förråd
+  kind: resource
+  count: 1
+  symbol: R
+  on_reveal:
+  - action: draw_equipment_card
+    deck: core_equipment
+    amount: 1
+  display:
+    title: Dolt förråd
+    body: Dra 1 utrustning.
+    footer: Resursplats
+  display_id: SN-5
+- id: storm_zone
+  name: Stormzonen
+  kind: hazard
+  count: 1
+  symbol: '!'
+  on_reveal:
+  - action: lose_endurance
+    amount: 2
+  display:
+    title: Stormzonen
+    body: Förlora 2 uthållighet.
+    footer: Riskplats
+  display_id: SN-6

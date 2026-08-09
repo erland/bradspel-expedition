@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "project.schema.json",
+  "title": "Expedition project manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "project",
+    "sources",
+    "schemas",
+    "components",
+    "build"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "project_version",
+        "language",
+        "status",
+        "source_root"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+        },
+        "language": {
+          "type": "string",
+          "pattern": "^[a-z]{2}(?:-[A-Z]{2})?$"
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_root": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "sources": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/yamlPath"
+      },
+      "required": [
+        "game",
+        "rules"
+      ]
+    },
+    "schemas": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/jsonPath"
+      },
+      "required": [
+        "project",
+        "game",
+        "rules"
+      ]
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "enabled",
+          "source"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "source": {
+            "$ref": "#/$defs/yamlPath"
+          }
+        }
+      }
+    },
+    "build": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "output_root",
+        "fail_on_warning",
+        "clean_generated_before_build",
+        "targets",
+        "manifest_path",
+        "report_path",
+        "log_path",
+        "clean_paths",
+        "steps"
+      ],
+      "properties": {
+        "output_root": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fail_on_warning": {
+          "type": "boolean"
+        },
+        "clean_generated_before_build": {
+          "type": "boolean"
+        },
+        "targets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "enabled"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/id"
+              },
+              "enabled": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "manifest_path": {
+          "type": "string",
+          "pattern": "^.+\\.json$"
+        },
+        "report_path": {
+          "type": "string",
+          "pattern": "^.+\\.md$"
+        },
+        "log_path": {
+          "type": "string",
+          "pattern": "^.+\\.txt$"
+        },
+        "clean_paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "target",
+              "script",
+              "enabled",
+              "outputs"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/id"
+              },
+              "target": {
+                "$ref": "#/$defs/id"
+              },
+              "script": {
+                "type": "string",
+                "pattern": "^scripts/.+\\.py$"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "outputs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "output_globs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "expected_glob_count": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "minLength": 2
+    },
+    "yamlPath": {
+      "type": "string",
+      "pattern": "^.+\\.ya?ml$"
+    },
+    "jsonPath": {
+      "type": "string",
+      "pattern": "^.+\\.json$"
+    }
+  }
+}

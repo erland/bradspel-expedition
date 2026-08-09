@@ -1,0 +1,62 @@
+version: 1
+scenario_event_deck:
+  id: desert_relay_events
+  name: Ökenreläets scenariohändelser
+  environment: desert
+  cards:
+  - id: desert_sandstorm
+    name: Sandstormsvåg
+    symbol: ≈
+    severity: medium
+    effect_type: resource_change
+    text: Gruppen förlorar 1 uthållighet.
+    effects:
+    - action: modify_endurance
+      amount: -1
+    tags:
+    - endurance
+    - immediate
+  - id: desert_route_collapse
+    name: Rasad led
+    symbol: ▲
+    severity: medium
+    effect_type: map_change
+    text: Ta bort eventuell markör på D3 och lägg en Stängd väg-markör där.
+    effects:
+    - action: close_connection
+      connection_id: road_hidden_03
+    tags:
+    - route
+    - immediate
+  - id: desert_navigation_beacons
+    name: Navigationsfyrarna
+    symbol: ↔
+    severity: mild
+    effect_type: map_change
+    text: Ta bort eventuell markör på V4 och lägg en Öppen väg-markör där. Den säkra
+      leden mellan Plats 3 och Plats 5 är nu öppen.
+    effects:
+    - action: open_connection
+      connection_id: route_v4
+    tags:
+    - route
+    - immediate
+    - positive
+  - id: desert_transport_link
+    name: Transportleden
+    symbol: ↔
+    severity: mild
+    effect_type: map_change
+    text: Ta bort eventuell markör på V2 och lägg en Öppen väg-markör där. Leden mellan
+      Plats 5 och Förrådet är nu öppen.
+    effects:
+    - action: open_connection
+      connection_id: route_v2
+    tags:
+    - route
+    - immediate
+    - positive
+  format_version: 1
+  scope:
+    level: scenario
+    id: okenrelaet

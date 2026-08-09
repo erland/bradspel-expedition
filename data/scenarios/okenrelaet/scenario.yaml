@@ -1,0 +1,148 @@
+version: 1
+scenario_pack:
+  id: okenrelaet
+  name: Ökenreläet
+  scenario_number: 2
+  status: playtest_prototype
+  base_profile: core_v1
+  presentation:
+    format: A5
+    orientation: portrait
+    pages: 1
+    template: templates/scenarios/a5-scenario-card.svg.j2
+  story:
+    introduction: En serie sandstormar har slagit ut ökenregionens kommunikationsnät.
+      Tre reläplatser står tysta och nästa stormfront närmar sig snabbt.
+    briefing: Sök igenom serviceplatserna, hitta tre reservmoduler och aktivera ett
+      målobjekt vid varje reläplats innan expeditionens uthållighet tar slut.
+    victory_text: Den sista modulen låses på plats. Reläkedjan vaknar till liv och
+      kommunikationen genom ökenregionen återställs.
+    defeat_text: Stormfronten slukar de återstående lederna. Reläkedjan förblir tyst
+      och expeditionen tvingas söka skydd.
+  mission:
+    summary: Hitta tre reservmoduler och aktivera tre reläplatser.
+    required_objectives: 3
+    objective_ids:
+    - power_converter
+    - signal_amplifier
+    - control_module
+    target_location_tag: relay
+    completion:
+      type: place_items_at_tagged_locations
+      required: 3
+      item_source: objectives
+      target_location_tag: relay
+      action_id: install_module
+      consume_item: true
+      progress_label: reläplatser aktiverade
+      completion_event: objective_activated
+      destination_label: en inaktiv reläplats
+    player_instructions:
+    - Transportera reservmoduler till inaktiva reläplatser.
+    - 'Vid en reläplats: använd Aktivera målobjekt (1 handling). Målobjektet räknas
+      då som slutfört.'
+  content:
+    scenario_sets:
+      locations: okenrelaet_locations
+      objectives: okenrelaet_modules
+      equipment: okenrelaet_equipment
+      travel_events: okenrelaet_events
+    uses_from_base:
+    - alla karaktärer
+    - grundutrustning
+    - grundläggande färdhändelser
+    - vägmarkörer och grundmarkörer
+    scenario_cards:
+      locations: 6
+      objectives: 3
+      equipment: 2
+      travel_events: 3
+    sources:
+      locations: data/scenarios/okenrelaet/locations.yaml
+      objectives: data/scenarios/okenrelaet/objectives.yaml
+      equipment: data/environments/desert/equipment.yaml
+      travel_events: data/environments/desert/travel-events.yaml
+    base_sources:
+      equipment: data/base/equipment.yaml
+      travel_events: data/base/travel-events.yaml
+    deck_composition:
+      equipment: base_plus_scenario
+      travel_events: base_plus_scenario
+      locations: scenario_only
+      objectives: scenario_only
+      tokens: base_only
+    environment_sources:
+      equipment: data/environments/desert/equipment.yaml
+      travel_events: data/environments/desert/travel-events.yaml
+  setup:
+    endurance_by_character_count:
+      '2': 12
+      '3': 10
+      '4': 9
+    starting_tools_by_character_count:
+      '2': 1
+      '3': 0
+      '4': 0
+    location_slots: 6
+    road_marker_profile: normal_roads
+    supply_depot_tools: 4
+    hidden_roads:
+    - road_hidden_01
+    - road_hidden_02
+    - road_hidden_03
+    - road_hidden_04
+    hidden_road_marker_pool:
+      open: 2
+      blocked: 1
+      travel_event: 1
+  special_rules: []
+  victory:
+  - Alla tre reläplatser är aktiverade.
+  - Minst en karaktär är fortfarande aktiv.
+  defeat:
+  - Den sista uthållighetsmarkören tas bort.
+  - Alla karaktärer blir utslagna.
+  scenario_events:
+    deck_id: desert_relay_events
+    source: data/scenario-events/desert.yaml
+    milestones:
+    - id: first_objective_found_event
+      trigger:
+        event: objective_found
+        count: 1
+        once: true
+      resolve:
+        mode: fixed
+        card_id: desert_sandstorm
+      public: true
+      label: 'Målobjekt 1 hittat: scenariohändelsen Sandstormsvåg inträffar.'
+    - id: first_objective_activated_route_event
+      trigger:
+        event: objective_activated
+        count: 1
+        once: true
+      resolve:
+        mode: fixed
+        card_id: desert_navigation_beacons
+      public: true
+      label: 'Målobjekt 1 aktiverat: scenariohändelsen Navigationsfyrarna inträffar.'
+    - id: first_objective_activated_event
+      trigger:
+        event: objective_activated
+        count: 1
+        once: true
+      resolve:
+        mode: fixed
+        card_id: desert_route_collapse
+      public: true
+      label: 'Målobjekt 1 aktiverat: scenariohändelsen Rasad led inträffar.'
+    - id: second_objective_activated_route_event
+      trigger:
+        event: objective_activated
+        count: 2
+        once: true
+      resolve:
+        mode: fixed
+        card_id: desert_transport_link
+      public: true
+      label: 'Målobjekt 2 aktiverat: scenariohändelsen Transportleden inträffar.'

@@ -1,0 +1,55 @@
+version: 1
+study:
+  id: cooperation_ablation_v1
+  name: Samarbets-ablationsstudie
+  scenario_id: first_expedition
+  base_seed: 23000
+  runs_per_cell: 10
+  character_counts:
+  - 2
+  - 3
+  - 4
+  strategies:
+  - nearest_unknown
+  - cautious
+  - aggressive
+  - logistic
+  output_directory: output/simulation/cooperation-ablation
+  same_seed_per_mode: true
+  notes:
+  - Samma grundseed används för varje samarbetsläge inom en strategi och ett spelarantal.
+  - Karaktärsurval och initial setup blir därmed jämförbara.
+  - Resultaten är designhypoteser, inte fysiska speltest.
+modes:
+- id: individual
+  name: Individuellt agerande
+  coordinate_destinations: false
+  allow_transfers: false
+  transfer_action_cost: 1
+- id: route_coordination
+  name: Samordnade destinationer
+  coordinate_destinations: true
+  allow_transfers: false
+  transfer_action_cost: 1
+- id: full_cooperation
+  name: Fullt samarbete
+  coordinate_destinations: true
+  allow_transfers: true
+  transfer_action_cost: 1
+- id: free_transfer
+  name: Fullt samarbete, gratis överföring
+  coordinate_destinations: true
+  allow_transfers: true
+  transfer_action_cost: 0
+metrics:
+- win_rate
+- rounds
+- final_threat
+- objectives_returned
+- duplicate_destinations
+- coordinated_assignments
+- transfers
+- transfer_actions
+- free_transfers
+- capacity_failures
+- items_dropped

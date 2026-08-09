@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "inventory.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "inventory"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "inventory": {
+      "type": "object",
+      "required": [
+        "name",
+        "default_capacity",
+        "capacity_unit",
+        "open_information",
+        "items",
+        "rules"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "default_capacity": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "capacity_unit": {
+          "const": "slots"
+        },
+        "open_information": {
+          "type": "boolean"
+        },
+        "items": {
+          "type": "object"
+        },
+        "rules": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

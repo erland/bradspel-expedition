@@ -1,0 +1,23 @@
+version: 1
+marker_set:
+  id: transit_nodes
+  name: Transitbrickor
+  count: 4
+  shuffle: false
+  presentation: single_sided_visible
+  width_mm: 16
+  height_mm: 16
+  scope:
+    level: core
+markers:
+- id: transit_open_01
+  family: transit
+  state: open
+  count: 4
+  symbol: T
+  name: Transit
+  purpose: identify_transit_node
+  target_type: node
+  allowed_node_type: transit
+  effect:
+  - action: none

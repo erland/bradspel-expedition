@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="{{ w }}mm" height="{{ h }}mm" viewBox="0 0 {{ w }} {{ h }}">
+ <rect x="0.25" y="0.25" width="{{ w-0.5 }}" height="{{ h-0.5 }}" rx="{{ radius }}"
+       fill="#ffffff" stroke="#202020" stroke-width="0.5"/>
+ <circle cx="{{ w/2 }}" cy="6.1" r="4.4" fill="{{ color }}" opacity="0.16"/>
+ <text x="{{ w/2 }}" y="8.3" text-anchor="middle" font-family="{{ font }}"
+       font-size="{{ symbol_size }}" font-weight="700" fill="{{ color }}">{{ symbol }}</text>
+ <text x="{{ w/2 }}" y="13.6" text-anchor="middle" font-family="{{ font }}"
+       font-size="{{ label_size }}" font-weight="700" fill="#202020">{{ name }}</text>
+</svg>

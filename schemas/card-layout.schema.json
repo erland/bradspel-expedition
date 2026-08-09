@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "card-layout.schema.json",
+  "title": "Card layout",
+  "type": "object",
+  "required": [
+    "version",
+    "layout",
+    "palette",
+    "fields",
+    "render"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "layout": {
+      "type": "object",
+      "required": [
+        "id",
+        "template",
+        "width_mm",
+        "height_mm"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "template": {
+          "type": "string"
+        },
+        "width_mm": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "height_mm": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "palette": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "fields": {
+      "type": "object"
+    },
+    "render": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

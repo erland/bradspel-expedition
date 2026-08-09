@@ -1,0 +1,271 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
+<rect width="210" height="297" fill="#fff"/>
+<text x="105" y="13" text-anchor="middle" font-family="DejaVu Sans" font-size="5" font-weight="700">PLATSBRICKOR – FRAMSIDA</text>
+<text x="105" y="19" text-anchor="middle" font-family="DejaVu Sans" font-size="2.6">Utforskad sida: namn och id uppåt</text>
+<text x="9" y="27" font-family="DejaVu Sans" font-size="3.1" font-weight="700">Station Nordanvind</text>
+<g transform="translate(9,32)">
+ <rect x="0.25" y="0.25" width="29.5" height="29.5"
+       rx="1.5" fill="#dfe8ef" stroke="#526a7b" stroke-width="0.5"/>
+ <rect x="1.4" y="1.4" width="27.2" height="27.2"
+       rx="1.2" fill="none" stroke="#526a7b" stroke-width="0.25"
+       stroke-dasharray="1.5,1"/>
+ <text x="28" y="4.1" text-anchor="end"
+       font-family="DejaVu Sans" font-size="2.4" font-weight="700"
+       fill="#526a7b">SN-1</text>
+ <text x="15.0" y="12.2" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">Övergivet</text>
+ <text x="15.0" y="16.4" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">laboratorium</text>
+ <text x="15.0" y="27.8" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.0"
+       fill="#666666">Station Nordanvind</text>
+</g>
+<path d="M6.5,32H9 M9,29.5V32" stroke="#333" stroke-width="0.2"/>
+<path d="M39,32H41.5 M39,29.5V32" stroke="#333" stroke-width="0.2"/>
+<path d="M6.5,62H9 M9,62V64.5" stroke="#333" stroke-width="0.2"/>
+<path d="M39,62H41.5 M39,62V64.5" stroke="#333" stroke-width="0.2"/>
+<g transform="translate(41,32)">
+ <rect x="0.25" y="0.25" width="29.5" height="29.5"
+       rx="1.5" fill="#dfe8ef" stroke="#526a7b" stroke-width="0.5"/>
+ <rect x="1.4" y="1.4" width="27.2" height="27.2"
+       rx="1.2" fill="none" stroke="#526a7b" stroke-width="0.25"
+       stroke-dasharray="1.5,1"/>
+ <text x="28" y="4.1" text-anchor="end"
+       font-family="DejaVu Sans" font-size="2.4" font-weight="700"
+       fill="#526a7b">SN-2</text>
+ <text x="15.0" y="12.2" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">Rasade</text>
+ <text x="15.0" y="16.4" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">servicegångar</text>
+ <text x="15.0" y="27.8" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.0"
+       fill="#666666">Station Nordanvind</text>
+</g>
+<path d="M38.5,32H41 M41,29.5V32" stroke="#333" stroke-width="0.2"/>
+<path d="M71,32H73.5 M71,29.5V32" stroke="#333" stroke-width="0.2"/>
+<path d="M38.5,62H41 M41,62V64.5" stroke="#333" stroke-width="0.2"/>
+<path d="M71,62H73.5 M71,62V64.5" stroke="#333" stroke-width="0.2"/>
+<g transform="translate(73,32)">
+ <rect x="0.25" y="0.25" width="29.5" height="29.5"
+       rx="1.5" fill="#dfe8ef" stroke="#526a7b" stroke-width="0.5"/>
+ <rect x="1.4" y="1.4" width="27.2" height="27.2"
+       rx="1.2" fill="none" stroke="#526a7b" stroke-width="0.25"
+       stroke-dasharray="1.5,1"/>
+ <text x="28" y="4.1" text-anchor="end"
+       font-family="DejaVu Sans" font-size="2.4" font-weight="700"
+       fill="#526a7b">SN-3</text>
+ <text x="15.0" y="14.3" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">Signaltornet</text>
+ <text x="15.0" y="27.8" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.0"
+       fill="#666666">Station Nordanvind</text>
+</g>
+<path d="M70.5,32H73 M73,29.5V32" stroke="#333" stroke-width="0.2"/>
+<path d="M103,32H105.5 M103,29.5V32" stroke="#333" stroke-width="0.2"/>
+<path d="M70.5,62H73 M73,62V64.5" stroke="#333" stroke-width="0.2"/>
+<path d="M103,62H105.5 M103,62V64.5" stroke="#333" stroke-width="0.2"/>
+<g transform="translate(105,32)">
+ <rect x="0.25" y="0.25" width="29.5" height="29.5"
+       rx="1.5" fill="#dfe8ef" stroke="#526a7b" stroke-width="0.5"/>
+ <rect x="1.4" y="1.4" width="27.2" height="27.2"
+       rx="1.2" fill="none" stroke="#526a7b" stroke-width="0.25"
+       stroke-dasharray="1.5,1"/>
+ <text x="28" y="4.1" text-anchor="end"
+       font-family="DejaVu Sans" font-size="2.4" font-weight="700"
+       fill="#526a7b">SN-4</text>
+ <text x="15.0" y="14.3" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">Fältsjukhuset</text>
+ <text x="15.0" y="27.8" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.0"
+       fill="#666666">Station Nordanvind</text>
+</g>
+<path d="M102.5,32H105 M105,29.5V32" stroke="#333" stroke-width="0.2"/>
+<path d="M135,32H137.5 M135,29.5V32" stroke="#333" stroke-width="0.2"/>
+<path d="M102.5,62H105 M105,62V64.5" stroke="#333" stroke-width="0.2"/>
+<path d="M135,62H137.5 M135,62V64.5" stroke="#333" stroke-width="0.2"/>
+<g transform="translate(137,32)">
+ <rect x="0.25" y="0.25" width="29.5" height="29.5"
+       rx="1.5" fill="#dfe8ef" stroke="#526a7b" stroke-width="0.5"/>
+ <rect x="1.4" y="1.4" width="27.2" height="27.2"
+       rx="1.2" fill="none" stroke="#526a7b" stroke-width="0.25"
+       stroke-dasharray="1.5,1"/>
+ <text x="28" y="4.1" text-anchor="end"
+       font-family="DejaVu Sans" font-size="2.4" font-weight="700"
+       fill="#526a7b">SN-5</text>
+ <text x="15.0" y="14.3" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">Dolt förråd</text>
+ <text x="15.0" y="27.8" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.0"
+       fill="#666666">Station Nordanvind</text>
+</g>
+<path d="M134.5,32H137 M137,29.5V32" stroke="#333" stroke-width="0.2"/>
+<path d="M167,32H169.5 M167,29.5V32" stroke="#333" stroke-width="0.2"/>
+<path d="M134.5,62H137 M137,62V64.5" stroke="#333" stroke-width="0.2"/>
+<path d="M167,62H169.5 M167,62V64.5" stroke="#333" stroke-width="0.2"/>
+<g transform="translate(169,32)">
+ <rect x="0.25" y="0.25" width="29.5" height="29.5"
+       rx="1.5" fill="#dfe8ef" stroke="#526a7b" stroke-width="0.5"/>
+ <rect x="1.4" y="1.4" width="27.2" height="27.2"
+       rx="1.2" fill="none" stroke="#526a7b" stroke-width="0.25"
+       stroke-dasharray="1.5,1"/>
+ <text x="28" y="4.1" text-anchor="end"
+       font-family="DejaVu Sans" font-size="2.4" font-weight="700"
+       fill="#526a7b">SN-6</text>
+ <text x="15.0" y="14.3" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">Stormzonen</text>
+ <text x="15.0" y="27.8" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.0"
+       fill="#666666">Station Nordanvind</text>
+</g>
+<path d="M166.5,32H169 M169,29.5V32" stroke="#333" stroke-width="0.2"/>
+<path d="M199,32H201.5 M199,29.5V32" stroke="#333" stroke-width="0.2"/>
+<path d="M166.5,62H169 M169,62V64.5" stroke="#333" stroke-width="0.2"/>
+<path d="M199,62H201.5 M199,62V64.5" stroke="#333" stroke-width="0.2"/>
+<text x="9" y="77" font-family="DejaVu Sans" font-size="3.1" font-weight="700">Ökenreläet</text>
+<g transform="translate(9,82)">
+ <rect x="0.25" y="0.25" width="29.5" height="29.5"
+       rx="1.5" fill="#f1dfb8" stroke="#8a6a2f" stroke-width="0.5"/>
+ <rect x="1.4" y="1.4" width="27.2" height="27.2"
+       rx="1.2" fill="none" stroke="#8a6a2f" stroke-width="0.25"
+       stroke-dasharray="1.5,1"/>
+ <text x="28" y="4.1" text-anchor="end"
+       font-family="DejaVu Sans" font-size="2.4" font-weight="700"
+       fill="#8a6a2f">OR-1</text>
+ <text x="15.0" y="12.2" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">Norra</text>
+ <text x="15.0" y="16.4" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">relästationen</text>
+ <text x="15.0" y="27.8" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.0"
+       fill="#666666">Ökenreläet</text>
+</g>
+<path d="M6.5,82H9 M9,79.5V82" stroke="#333" stroke-width="0.2"/>
+<path d="M39,82H41.5 M39,79.5V82" stroke="#333" stroke-width="0.2"/>
+<path d="M6.5,112H9 M9,112V114.5" stroke="#333" stroke-width="0.2"/>
+<path d="M39,112H41.5 M39,112V114.5" stroke="#333" stroke-width="0.2"/>
+<g transform="translate(41,82)">
+ <rect x="0.25" y="0.25" width="29.5" height="29.5"
+       rx="1.5" fill="#f1dfb8" stroke="#8a6a2f" stroke-width="0.5"/>
+ <rect x="1.4" y="1.4" width="27.2" height="27.2"
+       rx="1.2" fill="none" stroke="#8a6a2f" stroke-width="0.25"
+       stroke-dasharray="1.5,1"/>
+ <text x="28" y="4.1" text-anchor="end"
+       font-family="DejaVu Sans" font-size="2.4" font-weight="700"
+       fill="#8a6a2f">OR-2</text>
+ <text x="15.0" y="12.2" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">Klippfyrens</text>
+ <text x="15.0" y="16.4" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">kontrollhus</text>
+ <text x="15.0" y="27.8" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.0"
+       fill="#666666">Ökenreläet</text>
+</g>
+<path d="M38.5,82H41 M41,79.5V82" stroke="#333" stroke-width="0.2"/>
+<path d="M71,82H73.5 M71,79.5V82" stroke="#333" stroke-width="0.2"/>
+<path d="M38.5,112H41 M41,112V114.5" stroke="#333" stroke-width="0.2"/>
+<path d="M71,112H73.5 M71,112V114.5" stroke="#333" stroke-width="0.2"/>
+<g transform="translate(73,82)">
+ <rect x="0.25" y="0.25" width="29.5" height="29.5"
+       rx="1.5" fill="#f1dfb8" stroke="#8a6a2f" stroke-width="0.5"/>
+ <rect x="1.4" y="1.4" width="27.2" height="27.2"
+       rx="1.2" fill="none" stroke="#8a6a2f" stroke-width="0.25"
+       stroke-dasharray="1.5,1"/>
+ <text x="28" y="4.1" text-anchor="end"
+       font-family="DejaVu Sans" font-size="2.4" font-weight="700"
+       fill="#8a6a2f">OR-3</text>
+ <text x="15.0" y="12.2" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">Södra</text>
+ <text x="15.0" y="16.4" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">sändarmasten</text>
+ <text x="15.0" y="27.8" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.0"
+       fill="#666666">Ökenreläet</text>
+</g>
+<path d="M70.5,82H73 M73,79.5V82" stroke="#333" stroke-width="0.2"/>
+<path d="M103,82H105.5 M103,79.5V82" stroke="#333" stroke-width="0.2"/>
+<path d="M70.5,112H73 M73,112V114.5" stroke="#333" stroke-width="0.2"/>
+<path d="M103,112H105.5 M103,112V114.5" stroke="#333" stroke-width="0.2"/>
+<g transform="translate(105,82)">
+ <rect x="0.25" y="0.25" width="29.5" height="29.5"
+       rx="1.5" fill="#f1dfb8" stroke="#8a6a2f" stroke-width="0.5"/>
+ <rect x="1.4" y="1.4" width="27.2" height="27.2"
+       rx="1.2" fill="none" stroke="#8a6a2f" stroke-width="0.25"
+       stroke-dasharray="1.5,1"/>
+ <text x="28" y="4.1" text-anchor="end"
+       font-family="DejaVu Sans" font-size="2.4" font-weight="700"
+       fill="#8a6a2f">OR-4</text>
+ <text x="15.0" y="12.2" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">Övergiven</text>
+ <text x="15.0" y="16.4" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">verkstad</text>
+ <text x="15.0" y="27.8" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.0"
+       fill="#666666">Ökenreläet</text>
+</g>
+<path d="M102.5,82H105 M105,79.5V82" stroke="#333" stroke-width="0.2"/>
+<path d="M135,82H137.5 M135,79.5V82" stroke="#333" stroke-width="0.2"/>
+<path d="M102.5,112H105 M105,112V114.5" stroke="#333" stroke-width="0.2"/>
+<path d="M135,112H137.5 M135,112V114.5" stroke="#333" stroke-width="0.2"/>
+<g transform="translate(137,82)">
+ <rect x="0.25" y="0.25" width="29.5" height="29.5"
+       rx="1.5" fill="#f1dfb8" stroke="#8a6a2f" stroke-width="0.5"/>
+ <rect x="1.4" y="1.4" width="27.2" height="27.2"
+       rx="1.2" fill="none" stroke="#8a6a2f" stroke-width="0.25"
+       stroke-dasharray="1.5,1"/>
+ <text x="28" y="4.1" text-anchor="end"
+       font-family="DejaVu Sans" font-size="2.4" font-weight="700"
+       fill="#8a6a2f">OR-5</text>
+ <text x="15.0" y="12.2" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">Uttorkat</text>
+ <text x="15.0" y="16.4" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">pumphus</text>
+ <text x="15.0" y="27.8" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.0"
+       fill="#666666">Ökenreläet</text>
+</g>
+<path d="M134.5,82H137 M137,79.5V82" stroke="#333" stroke-width="0.2"/>
+<path d="M167,82H169.5 M167,79.5V82" stroke="#333" stroke-width="0.2"/>
+<path d="M134.5,112H137 M137,112V114.5" stroke="#333" stroke-width="0.2"/>
+<path d="M167,112H169.5 M167,112V114.5" stroke="#333" stroke-width="0.2"/>
+<g transform="translate(169,82)">
+ <rect x="0.25" y="0.25" width="29.5" height="29.5"
+       rx="1.5" fill="#f1dfb8" stroke="#8a6a2f" stroke-width="0.5"/>
+ <rect x="1.4" y="1.4" width="27.2" height="27.2"
+       rx="1.2" fill="none" stroke="#8a6a2f" stroke-width="0.25"
+       stroke-dasharray="1.5,1"/>
+ <text x="28" y="4.1" text-anchor="end"
+       font-family="DejaVu Sans" font-size="2.4" font-weight="700"
+       fill="#8a6a2f">OR-6</text>
+ <text x="15.0" y="12.2" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">Sandbegravet</text>
+ <text x="15.0" y="16.4" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.7" font-weight="700"
+       fill="#202020">förråd</text>
+ <text x="15.0" y="27.8" text-anchor="middle"
+       font-family="DejaVu Sans" font-size="2.0"
+       fill="#666666">Ökenreläet</text>
+</g>
+<path d="M166.5,82H169 M169,79.5V82" stroke="#333" stroke-width="0.2"/>
+<path d="M199,82H201.5 M199,79.5V82" stroke="#333" stroke-width="0.2"/>
+<path d="M166.5,112H169 M169,112V114.5" stroke="#333" stroke-width="0.2"/>
+<path d="M199,112H201.5 M199,112V114.5" stroke="#333" stroke-width="0.2"/>
+</svg>

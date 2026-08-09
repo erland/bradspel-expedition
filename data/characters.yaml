@@ -1,0 +1,92 @@
+version: 1
+selection:
+  pool_size: 8
+  solo:
+    draw: 4
+    choose: 2
+  two_players:
+    draw: 4
+    choose: 2
+  three_players:
+    draw: 5
+    choose: 3
+  four_players:
+    draw: 6
+    choose: 4
+defaults:
+  health: 3
+  backpack_capacity: 4
+  actions_per_round: 2
+characters:
+- id: scout
+  name: Spejaren
+  health: 3
+  backpack_capacity: 4
+  symbol: S
+  ability:
+    timing: once_per_round
+    effect: peek_adjacent_hidden_road
+    text: En gång per runda får du titta på en dold vägmarkör vid din plats och lägga tillbaka den dold.
+- id: engineer
+  name: Ingenjören
+  health: 3
+  backpack_capacity: 4
+  symbol: I
+  ability:
+    timing: passive
+    effect: unlock_road_no_action
+    text: Du får ta bort ett Hinder utan att använda en handling. Du måste fortfarande kassera 1 verktyg.
+- id: carrier
+  name: Bäraren
+  health: 3
+  backpack_capacity: 6
+  symbol: B
+  ability:
+    timing: passive
+    effect: larger_backpack
+    text: Du har ryggsäckskapacitet 6 i stället för 4.
+- id: medic
+  name: Läkaren
+  health: 3
+  backpack_capacity: 4
+  symbol: L
+  ability:
+    timing: passive
+    effect: medical_equipment_plus_one
+    text: När du använder medicinsk utrustning läker den 1 extra hälsa.
+- id: courier
+  name: Kuriren
+  health: 3
+  backpack_capacity: 5
+  symbol: K
+  ability:
+    timing: once_per_activation
+    effect: free_transfer_same_location
+    text: En gång under din aktivering får du överföra valfritt antal föremål till en karaktär på samma plats utan att använda en handling.
+- id: veteran
+  name: Veteranen
+  health: 4
+  backpack_capacity: 3
+  symbol: V
+  ability:
+    timing: passive
+    effect: extra_health
+    text: Du har 4 hälsa men endast 3 ryggsäcksplatser.
+- id: climber
+  name: Klättraren
+  health: 3
+  backpack_capacity: 4
+  symbol: C
+  ability:
+    timing: once_per_game
+    effect: ignore_travel_event_damage
+    text: En gång per spel får du ignorera all skada från en färdhändelse.
+- id: technician
+  name: Teknikern
+  health: 3
+  backpack_capacity: 4
+  symbol: T
+  ability:
+    timing: once_per_round
+    effect: use_consumable_no_action
+    text: En gång per runda får du använda en engångsutrustning som normalt kräver 1 handling utan att använda en handling.

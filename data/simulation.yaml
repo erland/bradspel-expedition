@@ -1,0 +1,104 @@
+version: 1
+simulation:
+  scenario_id: station_nordanvind
+  default_runs_per_strategy: 50
+  base_seed: 12000
+  maximum_rounds: 20
+  characters_per_game: 2
+  output_directory: output/simulation
+  assumptions:
+    perfect_rules: true
+    open_information: true
+    fixed_activation_order: true
+    physical_downtime_ignored: true
+    human_communication_ignored: true
+    equipment_use_is_rational: true
+    unimplemented_abilities_use_conservative_approximation: true
+  metrics:
+  - win_rate
+  - rounds
+  - final_endurance
+  - objectives_found
+  - objectives_returned
+  - damage
+  - incapacitations
+  - hidden_roads_tested
+  - blocked_roads_found
+  - travel_events
+  - tools_taken
+  - tools_spent
+  - capacity_failures
+  - items_dropped
+  - transfers
+  - equipment_drawn
+  - equipment_used
+  - action_counts
+strategies:
+- id: random
+  name: Slumpmässig baslinje
+  character_priority: []
+  parameters:
+    random_action_probability: 1.0
+    use_hidden_shortcuts: true
+    collect_tools_target: 1
+    heal_at_health: 1
+    prioritize_objectives: false
+    return_when_all_objectives_found: true
+- id: nearest_unknown
+  name: Närmaste okända plats
+  character_priority:
+  - scout
+  - carrier
+  - engineer
+  - medic
+  parameters:
+    random_action_probability: 0.05
+    use_hidden_shortcuts: false
+    collect_tools_target: 1
+    heal_at_health: 1
+    prioritize_objectives: true
+    return_when_all_objectives_found: true
+- id: cautious
+  name: Försiktig expedition
+  character_priority:
+  - medic
+  - veteran
+  - carrier
+  - engineer
+  parameters:
+    random_action_probability: 0.02
+    use_hidden_shortcuts: false
+    collect_tools_target: 1
+    heal_at_health: 2
+    prioritize_objectives: true
+    return_when_all_objectives_found: true
+- id: aggressive
+  name: Aggressiv måljakt
+  character_priority:
+  - scout
+  - engineer
+  - carrier
+  - climber
+  parameters:
+    random_action_probability: 0.02
+    use_hidden_shortcuts: true
+    collect_tools_target: 1
+    heal_at_health: 1
+    prioritize_objectives: true
+    return_when_all_objectives_found: true
+- id: logistic
+  name: Logistisk expedition
+  character_priority:
+  - carrier
+  - engineer
+  - courier
+  - medic
+  parameters:
+    random_action_probability: 0.01
+    use_hidden_shortcuts: true
+    collect_tools_target: 1
+    heal_at_health: 1
+    prioritize_objectives: true
+    return_when_all_objectives_found: true
+    prefer_capacity_equipment: true
+    transfer_objectives_to_capacity: true

@@ -1,0 +1,114 @@
+version: 2
+location_deck:
+  id: okenrelaet_locations
+  name: Ökenreläet - platser
+  draw_count: 6
+  objective_count: 3
+  shuffle: true
+  scope:
+    level: scenario
+    id: okenrelaet
+locations:
+- id: north_relay
+  name: Norra relästationen
+  kind: objective
+  tags:
+  - relay
+  count: 1
+  symbol: N
+  on_reveal:
+  - action: mark_repair_site
+  display:
+    title: Norra relästationen
+    body: Aktivera 1 målobjekt här.
+    footer: Reläplats
+  display_id: OR-1
+- id: cliff_relay
+  name: Klippfyrens kontrollhus
+  kind: objective
+  tags:
+  - relay
+  count: 1
+  symbol: K
+  on_reveal:
+  - action: damage
+    amount: 1
+  - action: mark_repair_site
+  display:
+    title: Klippfyrens kontrollhus
+    body: Ta 1 skada. Aktivera 1 målobjekt här.
+    footer: Reläplats
+  display_id: OR-2
+- id: south_relay
+  name: Södra sändarmasten
+  kind: objective
+  tags:
+  - relay
+  count: 1
+  symbol: S
+  on_reveal:
+  - action: lose_endurance
+    amount: 1
+  - action: mark_repair_site
+  display:
+    title: Södra sändarmasten
+    body: Förlora 1 uthållighet. Aktivera 1 målobjekt här.
+    footer: Reläplats
+  display_id: OR-3
+- id: abandoned_workshop
+  name: Övergiven verkstad
+  kind: resource
+  tags:
+  - module_cache
+  count: 1
+  symbol: V
+  on_reveal:
+  - action: draw_objective_card
+    deck: okenrelaet_modules
+    amount: 1
+  - action: draw_equipment_card
+    deck: okenrelaet_equipment
+    amount: 1
+  display:
+    title: Övergiven verkstad
+    body: Dra 1 målobjekt och 1 extra utrustning.
+    footer: Serviceplats
+  display_id: OR-4
+- id: dry_pump_house
+  name: Uttorkat pumphus
+  kind: resource
+  tags:
+  - module_cache
+  count: 1
+  symbol: P
+  on_reveal:
+  - action: draw_objective_card
+    deck: okenrelaet_modules
+    amount: 1
+  - action: lose_endurance
+    amount: 1
+  display:
+    title: Uttorkat pumphus
+    body: Dra 1 målobjekt. Förlora 1 uthållighet.
+    footer: Serviceplats
+  display_id: OR-5
+- id: buried_cache
+  name: Sandbegravet förråd
+  kind: resource
+  tags:
+  - module_cache
+  count: 1
+  symbol: F
+  on_reveal:
+  - action: choice_pay_or_damage
+    resource: tools
+    amount: 1
+    damage: 1
+  - action: draw_objective_card
+    deck: okenrelaet_modules
+    amount: 1
+  display:
+    title: Sandbegravet förråd
+    body: Betala 1 verktyg eller ta 1 skada. Dra 1 målobjekt.
+    footer: Serviceplats
+  display_id: OR-6
