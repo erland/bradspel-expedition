@@ -1,0 +1,59 @@
+name: Validate
+
+on:
+  pull_request:
+    paths:
+      - "data/**"
+      - "schemas/**"
+      - "templates/**"
+      - "assets/**"
+      - "docs/**"
+      - "scripts/**"
+      - "tests/**"
+      - "requirements.txt"
+      - "PROJECT_MANIFEST.json"
+      - "README.md"
+      - "PROJECT_STATUS.md"
+      - "CHANGELOG.md"
+      - ".github/workflows/**"
+  push:
+    branches:
+      - main
+    paths:
+      - "data/**"
+      - "schemas/**"
+      - "templates/**"
+      - "assets/**"
+      - "docs/**"
+      - "scripts/**"
+      - "tests/**"
+      - "requirements.txt"
+      - "PROJECT_MANIFEST.json"
+      - "README.md"
+      - "PROJECT_STATUS.md"
+      - "CHANGELOG.md"
+      - ".github/workflows/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install project dependencies
+        run: python -m pip install -r requirements.txt pytest
+
+      - name: Validate project integrity and tests
+        run: python scripts/ci_validate.py --root .

@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "project": "Expedition",
+  "version": "1.9.61",
+  "purpose": "print-and-play release",
+  "recommended_print_format": "PDF",
+  "files": [
+    {
+      "path": "print/PRINT_PACKAGE_MANIFEST.json",
+      "bytes": 4297,
+      "sha256": "c1e6b23dfab0cff065ee6f45ef3855b43ddfe684dbaa1da35f7dd24a6ab58026"
+    },
+    {
+      "path": "print/assembly-guide-v1.9.pdf",
+      "bytes": 4087,
+      "sha256": "e28b84e2255a4a751afee9339350c27e4f07e23ef530db1d0a3d640f4021c798"
+    },
+    {
+      "path": "print/expedition-v1.9.61-komplett-printpaket.pdf",
+      "bytes": 451703,
+      "sha256": "6cb013f38386297586a2ef33e1a3d48e487b2c025f754d644fc970611c127eb0"
+    },
+    {
+      "path": "print/gemensam-utrustning-a4-01.pdf",
+      "bytes": 22651,
+      "sha256": "70cdf7c2b109f41f44634c715a8904bb7b78a4c2e91ebcf79bf3b7bdfd21e004"
+    },
+    {
+      "path": "print/gemensamma-fardhandelser-a4-01.pdf",
+      "bytes": 23944,
+      "sha256": "c0342b19f5ee6457428e83be314748afcd0c00d5897150105305946fcf87c3b2"
+    },
+    {
+      "path": "print/gemensamma-karaktarskort-a4-01.pdf",
+      "bytes": 22403,
+      "sha256": "3fffdf715d63cc4db993f2d7d48abab30c0359d1b62c3a1851e5088cb02f287a"
+    },
+    {
+      "path": "print/gemensamma-transitbrickor-a4-01.pdf",
+      "bytes": 14000,
+      "sha256": "65d9c38021879ecd206d5d390ec2d473b2ade2d779a0c95a7fb5a5252da332cc"
+    },
+    {
+      "path": "print/gemensamma-vagbrickor-a4-01.pdf",
+      "bytes": 20150,
+      "sha256": "c1382334a198bed299784f91646f0d49b1c0bfd8a1827e3d58c687cc5fdbc69a"
+    },
+    {
+      "path": "print/location-tiles-a4-01.pdf",
+      "bytes": 40977,
+      "sha256": "d7cb69bd40536033d46884e8db8a78c817d1d096c8dbb39da689ca7476c56280"
+    },
+    {
+      "path": "print/okenrelaet-malobjekt-och-okenmiljo-utrustning-a4-01.pdf",
+      "bytes": 22133,
+      "sha256": "89d8e65a1dbe72112c7fe392cb58865d9b7f059575def8cff040db6382fd5462"
+    },
+    {
+      "path": "print/okenrelaet-platskort-och-okenmiljo-fardhandelser-a4-01.pdf",
+      "bytes": 24700,
+      "sha256": "439ccb23e57a6b78d86c90b0bfeb088ef8705d9f48bbf917675975cb53da699f"
+    },
+    {
+      "path": "print/okenrelaet-scenarioark-a4.pdf",
+      "bytes": 26373,
+      "sha256": "b057af7677b309913a7a20f84623c53bb9a694fb4cd6c71a6030fe77b11c2172"
+    },
+    {
+      "path": "print/okenrelaet-scenariohandelser-a4-01.pdf",
+      "bytes": 30147,
+      "sha256": "56208ddcf82926c43dd79a62eef36959a5e3536d30e1d961f19468cb8add9007"
+    },
+    {
+      "path": "print/playtest-forms-v1.9.pdf",
+      "bytes": 3605,
+      "sha256": "223620a1478d83c92c55a6c8aa2690f9b26c48bccba4dd425b027ad27b08c21b"
+    },
+    {
+      "path": "print/playtest-guide-v1.9.pdf",
+      "bytes": 3592,
+      "sha256": "83cdd2a3af85ccefcaaef7e0233f8df34d58815ec0fdda4ee2de456d3a7ca874"
+    },
+    {
+      "path": "print/reference-a4-4up.pdf",
+      "bytes": 31699,
+      "sha256": "be4b12aeb0f7515303903df944d22a16af781c46daa3f0e7c5a99933501e23a0"
+    },
+    {
+      "path": "print/rulebook-playtest-v1.9.pdf",
+      "bytes": 15285,
+      "sha256": "a71f08afefa7d43639ac566eabe217d153217d1164bc6a6e0896a3520ee45497"
+    },
+    {
+      "path": "print/spelplan-2xa4.pdf",
+      "bytes": 27644,
+      "sha256": "407777f775467f02f1287e32f4e86b0b92e1468fdadbd38e68c76d22538ed339"
+    },
+    {
+      "path": "print/spelplan-a4-kompakt.pdf",
+      "bytes": 18787,
+      "sha256": "71f1b09e7076675cbe853685bcc153ee3338e219feee80c6564b516e8f51fbb2"
+    },
+    {
+      "path": "print/station-nordanvind-malobjekt-a4-01.pdf",
+      "bytes": 18842,
+      "sha256": "c5deb23194870df49826b49a9d6a5c31e00ee467e8816d02aa3237d94fc67a64"
+    },
+    {
+      "path": "print/station-nordanvind-platskort-a4-01.pdf",
+      "bytes": 23929,
+      "sha256": "8fd06c21894f4eb7cfb7541f93f015d62f70973668c16fa9927cf4eb4f8c02e8"
+    },
+    {
+      "path": "print/station-nordanvind-scenarioark-a4.pdf",
+      "bytes": 27014,
+      "sha256": "761c49f7882bb61d9b007c30701b2d4f3635723c3fa284684602f7f75e59a1ed"
+    },
+    {
+      "path": "print/station-nordanvind-scenariohandelser-a4-01.pdf",
+      "bytes": 29661,
+      "sha256": "33b8fec663b1d99b56043bc6e3ba36253131b4eca356b9318c14ccdd124e25dd"
+    },
+    {
+      "path": "print/tokens-a4-01.pdf",
+      "bytes": 15286,
+      "sha256": "487f5aefd8faf04e2961d508b71224057a90100f774867a1c2f129bd2465adcf"
+    }
+  ]
+}

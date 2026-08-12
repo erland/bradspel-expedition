@@ -41,6 +41,7 @@ def source_files(root: Path) -> list[Path]:
         root / "assets",
         root / "scripts",
         root / "docs",
+        root / ".github",
     ]
     top_level = [
         root / "README.md",
@@ -48,6 +49,7 @@ def source_files(root: Path) -> list[Path]:
         root / "CHANGELOG.md",
         root / "PLAN.md",
         root / "requirements.txt",
+        root / "PROJECT_MANIFEST.json",
     ]
     files: list[Path] = []
     for folder in roots:

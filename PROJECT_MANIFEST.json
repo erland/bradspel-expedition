@@ -1,7 +1,7 @@
 {
   "project": "Expedition",
-  "version": "1.9.60",
-  "status": "adaptive_hidden_shortcut_agent",
+  "version": "1.9.61",
+  "status": "github_actions_ci_preview_release",
   "standard_profile": {
     "endurance_by_character_count": {
       "2": 13,
