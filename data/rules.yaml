@@ -1,7 +1,7 @@
 version: 1
 ruleset:
   id: expedition_core_v1_7_1
-  name: Expedition grundregler v1.9.51
+  name: Expedition grundregler
   mode: cooperative
 setup:
   steps:
@@ -266,18 +266,24 @@ effect_vocabulary_draft:
 unresolved_rules:
 - Fyra normala ryggsäcksplatser och målobjekt på två platser behöver testas.
 - Antalet utrustningsfynd behöver testas.
-- Karaktärsförmågor och utrustningsheuristiker behöver fortfarande verifieras i fysiskt speltest.
+- Karaktärsförmågor och utrustningsheuristiker behöver fortfarande verifieras i fysiskt
+  speltest.
 terminology:
   tool: Verktyg är den enda generella markör som bärs i ryggsäcken.
   equipment: Utrustning är kort som kan användas eller ge passiva effekter.
-  equipment_activation: Utrustningskortet anger om användningen kräver 1 handling eller ingen handling. Engångsutrustning kasseras först när effekten faktiskt används.
-  objective: Målobjekt och uppdragsföremål definieras av scenariot. De kan levereras till en plats eller användas för att slutföra en scenariouppgift.
+  equipment_activation: Utrustningskortet anger om användningen kräver 1 handling
+    eller ingen handling. Engångsutrustning kasseras först när effekten faktiskt används.
+  objective: Målobjekt och uppdragsföremål definieras av scenariot. De kan levereras
+    till en plats eller användas för att slutföra en scenariouppgift.
   carried_content: Buret innehåll är samlingsnamn för verktyg, utrustning och målobjekt.
-  endurance: Uthållighet är expeditionens gemensamma återstående reserv. När sista markören förloras tar spelet slut.
+  endurance: Uthållighet är expeditionens gemensamma återstående reserv. När sista
+    markören förloras tar spelet slut.
   milestone: 'Milstolpe: ett villkor på scenarioarket.'
   scenario_event: 'Scenariohändelse: en omedelbar effekt som utlöses av en milstolpe.'
-  activate_objective: 'Aktivera målobjekt: generell handling för att slutföra ett målobjekt på rätt destination.'
-  location_card_timing: Ett platskorts omedelbara effekt löses endast när platsen utforskas, om kortet inte uttryckligen anger en annan tidpunkt.
+  activate_objective: 'Aktivera målobjekt: generell handling för att slutföra ett
+    målobjekt på rätt destination.'
+  location_card_timing: Ett platskorts omedelbara effekt löses endast när platsen
+    utforskas, om kortet inte uttryckligen anger en annan tidpunkt.
 scenario_event_architecture:
   version: 1
   trigger_types:
@@ -297,14 +303,17 @@ scenario_event_architecture:
   - resolve_scenario_event_milestones
   - check_victory_and_defeat
   default_once: true
-  memory_rule: Scenariohändelser ska lösas omedelbart och får inte kräva kvarvarande minne utan fysisk markör.
+  memory_rule: Scenariohändelser ska lösas omedelbart och får inte kräva kvarvarande
+    minne utan fysisk markör.
 physical_state:
   item_at_location: Place the item beside the matching location card.
   item_in_inventory: Place the item beside the carrying character card.
   location_hidden: Location tile hidden side up.
-  location_explored: Location tile named side up; matching location card face up beside board.
+  location_explored: Location tile named side up; matching location card face up beside
+    board.
   objective_inactive: Objective card inactive side up.
-  objective_active: Objective card rotated 90 degrees beside destination location card.
+  objective_active: Objective card rotated 90 degrees beside destination location
+    card.
   road_hidden: Hidden road marker unrevealed.
   road_open: No blocking marker or Open marker.
   road_hindered: Hinder marker remains on road.

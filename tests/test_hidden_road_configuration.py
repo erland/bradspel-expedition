@@ -86,7 +86,7 @@ def test_scenario_marker_pools_are_explicit():
 
 
 def test_rulebook_explains_hidden_road_setup_procedure():
-    rulebook = (ROOT / "docs/rulebook-playtest-v1.9.md").read_text(encoding="utf-8")
+    rulebook = (ROOT / "docs/rulebook-playtest.md").read_text(encoding="utf-8")
     assert "Ta fram de dolda vägbrickor som scenarioarket anger" in rulebook
     assert "baksidan upp på varje D-väg" in rulebook
     assert "läggs de åt sidan med baksidan upp utan att avslöjas" in rulebook

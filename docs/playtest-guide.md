@@ -1,40 +1,49 @@
-# Playtestguide - första fysiska prototypen
+# Playtestguide – Expedition
+## Solo
 
-## Test A: solo
-
-- En spelare styr två karaktärer.
-- Spela scenariot Första expeditionen.
-- Hjälp inte spelet med husregler utan notera regelhålet.
-- Avbryt bara om spelet låser sig eller reglerna inte går att tillämpa.
+Styr två valda karaktärer.
 
 Mät:
 
-- total speltid
-- antal rundor
-- uthållighet vid slutet
-- antal skador
-- antal regeluppslag
-- antal gånger samma handling upprepas i följd
-- om två karaktärer känns administrativt tungt
+- speltid och rundor
+- utnyttjad ryggsäckskapacitet efter varje runda
+- antal gånger ett fynd måste lämnas
+- antal överföringar mellan karaktärer
+- vem som transporterar målobjekten
+- hur ofta utrustning används
+- om någon karaktär känns självklar eller värdelös
 
-## Test B: samarbete
+## Samarbete
 
-- 2-4 spelare.
-- Varje spelare styr en karaktär.
-- En spelare läser endast setup; därefter används regelbok och referenskort.
-- Observera om någon spelare fattar alla beslut åt gruppen.
+Observera:
 
-Mät:
+- om spelarna förhandlar om vem som ska bära vad
+- om möten för överföring känns intressanta eller omständliga
+- om någon spelare får för lite att göra
+- om Bäraren samlar alla mål och gör logistiken trivial
+- om karaktärsförmågorna är lätta att komma ihåg
 
-- total speltid
-- väntetid mellan turer
-- antal gånger spelare frågar vad de kan göra
-- om resurser faktiskt byts genom Hjälpa
-- om alla spelare deltar i vägvalen
-- om uthålligheten upplevs som begripligt
+## Ändringsdisciplin
 
-## Efter varje test
+Efter testet: välj högst tre ändringar. Prioritera kärnloop, ryggsäck och karaktärsbalans före grafik.
 
-Välj högst tre ändringar.
+## Konsistenskontroll
 
-Dokumentera också vad som inte ska ändras ännu.
+Notera särskilt:
+
+- om fast medsols ordning är lätt att följa
+- om vridna karaktärskort tydligt visar vem som agerat
+- om uthållighet i rundslutet känns mer naturligt
+- om spelarna skiljer på verktyg, utrustning och målobjekt
+
+## Testa särskilt
+
+- om 10/8/7 uthållighet ger jämn svårighet
+- om ett startverktyg räcker för två karaktärer
+- om poolen är tydligare än det gamla spåret
+
+## Scenario och berättelse
+
+- Förstod spelarna uppdraget efter att ha läst A5-kortet?
+- Var det tydligt vilka kort som hör till basuppsättningen respektive scenariot?
+- Kändes platser och målobjekt som delar av Station Nordanvind?

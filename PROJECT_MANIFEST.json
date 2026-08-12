@@ -1,7 +1,6 @@
 {
   "project": "Expedition",
-  "version": "1.9.62",
-  "status": "source_only_repo_with_generated_artifacts",
+  "status": "centralized_version_source",
   "standard_profile": {
     "endurance_by_character_count": {
       "2": 13,
@@ -13,6 +12,5 @@
       "3": 0,
       "4": 0
     }
-  },
-  "audit": "output/v1.9.6-standard-profile-audit.json"
+  }
 }

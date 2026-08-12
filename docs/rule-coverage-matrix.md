@@ -1,4 +1,4 @@
-# Regel-täckningsmatris – Expedition v1.9.26
+# Regel-täckningsmatris – Expedition
 
 ## Syfte
 

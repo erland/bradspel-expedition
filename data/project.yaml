@@ -2,9 +2,9 @@ version: 1
 project:
   id: expedition
   name: Expedition
-  project_version: 1.9.62
+  project_version: 1.9.63
   language: sv
-  status: source_only_repo_with_generated_artifacts
+  status: centralized_version_source
   source_root: .
 sources:
   game: data/game.yaml
@@ -477,10 +477,10 @@ build:
     script: scripts/generate_playtest_docs.py
     enabled: true
     outputs:
-    - output/print/pdf/rulebook-playtest-v1.9.pdf
-    - output/print/pdf/assembly-guide-v1.9.pdf
-    - output/print/pdf/playtest-guide-v1.9.pdf
-    - output/print/pdf/playtest-forms-v1.9.pdf
+    - output/print/pdf/rulebook-playtest.pdf
+    - output/print/pdf/assembly-guide.pdf
+    - output/print/pdf/playtest-guide.pdf
+    - output/print/pdf/playtest-forms.pdf
   - id: assemble_print_package
     target: prototype
     script: scripts/assemble_print_package.py

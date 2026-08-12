@@ -1,4 +1,4 @@
-# Expedition – grundregler v1.9.45
+# Expedition – grundregler
 
 Expedition är ett kooperativt äventyrsspel. Ni utforskar okända platser, hittar målobjekt och försöker slutföra scenariots uppdrag innan expeditionen får slut på uthållighet.
 

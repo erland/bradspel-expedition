@@ -1,4 +1,4 @@
-# Expedition – snabbstart v1.9.38
+# Expedition – snabbstart
 
 ## Förbered korten
 

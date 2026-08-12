@@ -98,10 +98,10 @@ def main() -> int:
     styles = build_styles()
 
     jobs = [
-        ("docs/rulebook-playtest-v1.9.md", "output/print/pdf/rulebook-playtest-v1.9.pdf"),
-        ("docs/assembly-guide-v1.9.md", "output/print/pdf/assembly-guide-v1.9.pdf"),
-        ("docs/playtest-guide-v1.9.md", "output/print/pdf/playtest-guide-v1.9.pdf"),
-        ("docs/playtest-form-v1.9.md", "output/print/pdf/playtest-forms-v1.9.pdf"),
+        ("docs/rulebook-playtest.md", "output/print/pdf/rulebook-playtest.pdf"),
+        ("docs/assembly-guide.md", "output/print/pdf/assembly-guide.pdf"),
+        ("docs/playtest-guide.md", "output/print/pdf/playtest-guide.pdf"),
+        ("docs/playtest-form.md", "output/print/pdf/playtest-forms.pdf"),
     ]
     for source_rel, output_rel in jobs:
         source = root / source_rel

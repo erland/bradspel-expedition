@@ -11,9 +11,9 @@
 - `equipment-objectives-a4-01.pdf`
 - `tokens-a4-01.pdf`
 - `reference-a4-4up.pdf`
-- `rulebook-playtest-v1.9.pdf`
-- `playtest-guide-v1.9.pdf`
-- `playtest-forms-v1.9.pdf`
+- `rulebook-playtest.pdf`
+- `playtest-guide.pdf`
+- `playtest-forms.pdf`
 
 ## Kort
 
