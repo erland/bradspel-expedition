@@ -1,3 +1,10 @@
+## v1.9.62 – Källrent repo och genererad distribution
+
+- `output/` och `release/` betraktas inte längre som källmaterial.
+- Preview-PDF:er produceras av GitHub Actions och sparas som artifacts.
+- Versionerade printfiler produceras av release-workflow och publiceras via GitHub Releases.
+- Lokala build- och releasekataloger är ignorerade i Git.
+
 ## v1.9.61 – CI/CD för validering, preview och release
 
 - GitHub Actions är infört med tre separata workflows.

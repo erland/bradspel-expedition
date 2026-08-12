@@ -2,9 +2,9 @@ version: 1
 project:
   id: expedition
   name: Expedition
-  project_version: 1.9.61
+  project_version: 1.9.62
   language: sv
-  status: github_actions_ci_preview_release
+  status: source_only_repo_with_generated_artifacts
   source_root: .
 sources:
   game: data/game.yaml
