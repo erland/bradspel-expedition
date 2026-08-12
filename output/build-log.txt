@@ -11,7 +11,7 @@ Skapade bräd-PDF: output/print/pdf/spelplan-a4-kompakt.pdf
 Skapade A3-bräd-SVG för 2xA4: output/components/boards/expedition-board-2xa4.svg
 
 ## export_board_2xa4 stdout
-Skapade 2xA4-spelplan i liggande format: output/print/pdf/spelplan-2xa4.pdf
+Skapade skrivarsäker 2xA4-spelplan med 14 mm överlapp: output/print/pdf/spelplan-2xa4.pdf
 
 ## generate_reference stdout
 Skapade A6-referenskort: output/components/reference/core-turn-reference-a6.svg
@@ -97,4 +97,4 @@ Skapade dokument-PDF: output/print/pdf/playtest-guide-v1.9.pdf
 Skapade dokument-PDF: output/print/pdf/playtest-forms-v1.9.pdf
 
 ## assemble_print_package stdout
-Skapade komplett printpaket: output/print-package/expedition-v1.9.51-komplett-printpaket.pdf
+Skapade komplett printpaket: output/print-package/expedition-v1.9.61-komplett-printpaket.pdf

@@ -2,9 +2,9 @@ version: 1
 project:
   id: expedition
   name: Expedition
-  project_version: 1.9.51
+  project_version: 1.9.61
   language: sv
-  status: a3_board_split_to_two_landscape_a4
+  status: github_actions_ci_preview_release
   source_root: .
 sources:
   game: data/game.yaml
@@ -486,5 +486,7 @@ build:
     script: scripts/assemble_print_package.py
     enabled: true
     outputs:
-    - output/print-package/expedition-v1.9.51-komplett-printpaket.pdf
     - output/print-package/PRINT_PACKAGE_MANIFEST.json
+    output_globs:
+    - output/print-package/expedition-v*-komplett-printpaket.pdf
+    expected_glob_count: 1
