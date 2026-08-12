@@ -4,7 +4,6 @@
   "type": "object",
   "required": [
     "version",
-    "project_version",
     "status_definitions",
     "summary",
     "rules"
@@ -13,9 +12,6 @@
     "version": {
       "type": "integer",
       "const": 1
-    },
-    "project_version": {
-      "type": "string"
     },
     "scope": {
       "type": "string"

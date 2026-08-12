@@ -53,16 +53,9 @@ def run(command: list[str], root: Path, label: str, errors: list[str]) -> None:
 
 def validate_versions(root: Path, errors: list[str]) -> str:
     project = yaml.safe_load((root / "data/project.yaml").read_text(encoding="utf-8"))
-    project_version = str(project["project"]["project_version"])
-
-    manifest = json.loads((root / "PROJECT_MANIFEST.json").read_text(encoding="utf-8"))
-    manifest_version = str(manifest.get("version", ""))
-    if project_version != manifest_version:
-        fail(
-            errors,
-            f"Versionsdrift: data/project.yaml={project_version}, "
-            f"PROJECT_MANIFEST.json={manifest_version}.",
-        )
+    project_version = str(project["project"]["project_version"]).strip()
+    if not project_version:
+        fail(errors, "data/project.yaml saknar project.project_version.")
     return project_version
 
 

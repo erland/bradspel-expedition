@@ -1,5 +1,4 @@
 version: 1
-project_version: 1.9.26
 scope: Grundregelbok, scenario-YAML, spelmotor, simulator och automatiska tester.
 status_definitions:
   full: Regeln finns i strukturerad källa, följs av motor/simulator och har relevant
@@ -259,7 +258,8 @@ rules:
   notes: Simulatorn använder en strategisk heuristik, inte hela det mänskliga valrummet.
 - id: equipment_use
   section: Handlingar
-  rule: Utrustningskortet anger om användningen kräver 1 handling eller ingen handling; engångsutrustning kasseras först när effekten används.
+  rule: Utrustningskortet anger om användningen kräver 1 handling eller ingen handling;
+    engångsutrustning kasseras först när effekten används.
   yaml:
   - data/rules.yaml#actions.use_item
   - data/base/equipment.yaml

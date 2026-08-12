@@ -15,8 +15,8 @@ def main() -> int:
     package_dir.mkdir(parents=True)
 
     files=[
-      "output/print/pdf/rulebook-playtest-v1.9.pdf",
-      "output/print/pdf/assembly-guide-v1.9.pdf",
+      "output/print/pdf/rulebook-playtest.pdf",
+      "output/print/pdf/assembly-guide.pdf",
       "output/print/pdf/station-nordanvind-scenarioark-a4.pdf",
       "output/print/pdf/station-nordanvind-platskort-a4-01.pdf",
       "output/print/pdf/station-nordanvind-malobjekt-a4-01.pdf",
@@ -35,8 +35,8 @@ def main() -> int:
       "output/print/pdf/gemensam-utrustning-a4-01.pdf",
       "output/print/pdf/tokens-a4-01.pdf",
       "output/print/pdf/reference-a4-4up.pdf",
-      "output/print/pdf/playtest-guide-v1.9.pdf",
-      "output/print/pdf/playtest-forms-v1.9.pdf",
+      "output/print/pdf/playtest-guide.pdf",
+      "output/print/pdf/playtest-forms.pdf",
     ]
     writer=PdfWriter(); manifest_files=[]
     for relative in files:

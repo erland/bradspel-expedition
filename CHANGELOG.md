@@ -1,3 +1,12 @@
+## v1.9.63 – Centraliserad versionshantering
+
+- `data/project.yaml` är nu enda källan för aktuell projektversion.
+- `PROJECT_MANIFEST.json` och `data/rule-coverage.yaml` duplicerar inte längre projektversionen.
+- Aktiva regel-, referens- och playtestkällor använder versionsneutrala rubriker och filnamn.
+- Genererade playtest-PDF:er har versionsneutrala filnamn; releaseversionen läggs i stället på releasepaketet.
+- Historiska changelog-, playtest- och analysreferenser behåller sina versionsnummer för provenance.
+- `README.md` och `PROJECT_STATUS.md` är städade från inbyggd versionshistorik; historiken ligger i Git och `CHANGELOG.md`.
+
 ## v1.9.62 – Källrent repository
 
 - `output/` och `release/` är nu uttryckligen genererade artefaktkataloger och ska inte versionshanteras.
