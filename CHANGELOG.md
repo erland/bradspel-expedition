@@ -1,3 +1,10 @@
+## v1.9.62 – Källrent repository
+
+- `output/` och `release/` är nu uttryckligen genererade artefaktkataloger och ska inte versionshanteras.
+- Ny `.gitignore` ignorerar buildoutput, lokala releaser, cachefiler och tillfälliga distributionskataloger.
+- README skiljer tydligt mellan kanoniska källor, preview-artifakter och GitHub Releases.
+- Ett rent checkout utan `output/` och `release/` ska kunna valideras och byggas fullt via befintliga script och GitHub Actions.
+
 ## v1.9.61 – GitHub Actions och reproducerbar publicering
 
 - `.github/workflows/` ligger i projektroten bredvid `README.md`.

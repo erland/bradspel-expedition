@@ -31,7 +31,7 @@ Simulatorn exporterar nu scenariohändelse per spel och kan köra seed-matchade 
 
 ## Status
 
-Version 1.9.61 – tydligare scenarioark och enhetliga milstolpar.
+Version 1.9.62 – tydligare scenarioark och enhetliga milstolpar.
 
 Projektet innehåller nu:
 
@@ -398,6 +398,30 @@ Spelmotorn stödjer nu datadrivna `progression_events` för att öppna eller fö
 - Varje scenario har sex enkelsidiga platsbrickor med namn och synligt kort-id.
 - Samma id visas på platskortets framsida för enkel matchning.
 - Platskortens regler och effekter ligger fortsatt bredvid spelbrädet.
+
+## Källor, output och releases
+
+Repositoryt ska vara **källdrivet**. Följande kataloger är kanoniska och ska versionshanteras:
+
+- `data/` – speldata och konfiguration
+- `schemas/` – valideringsscheman
+- `templates/` – layoutmallar
+- `scripts/` – generatorer, validering och paketering
+- `assets/` – källgrafik
+- `docs/` – regel- och projektdokumentation
+- `agents/`, `engine/`, `simulation/`, `tests/` – simulator- och testkällor
+- `.github/` – CI/CD-workflows
+
+Följande är **genererade artefakter** och ska inte checkas in:
+
+- `output/` – lokal buildoutput, preview-PDF:er, buildmanifest och simulatorresultat
+- `release/` – lokalt skapade releasepaket
+- `release-dist/`, `dist/`, `build/` – tillfälliga distributionskataloger
+
+`output/` och `release/` kan därför saknas helt i ett rent checkout. Skripten skapar katalogerna när de behövs.
+
+Preview-filer hämtas från GitHub Actions-artifakter. Riktiga versionerade printfiler hämtas från GitHub Releases. PDF, SVG och andra genererade filer ska alltid kunna återskapas från källorna.
+
 
 ## GitHub Actions
 

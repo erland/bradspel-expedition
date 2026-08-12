@@ -1,7 +1,7 @@
 {
   "project": "Expedition",
-  "version": "1.9.61",
-  "status": "github_actions_ci_preview_release",
+  "version": "1.9.62",
+  "status": "source_only_repo_with_generated_artifacts",
   "standard_profile": {
     "endurance_by_character_count": {
       "2": 13,

@@ -1,0 +1,25 @@
+# Generated build output
+/output/
+/release/
+/release-dist/
+/dist/
+/build/
+
+# Python caches / virtual environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Local logs and temporary files
+*.tmp
+*.bak
